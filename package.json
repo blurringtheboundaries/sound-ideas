@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node compile.js && webpack ./src/index.js -o ./docs --mode development"
+    "build": "node compile.js && webpack ./src/index.js -o ./docs --mode development",
+    "sass": "sass ./scss/main.scss ./docs/css/main.css"
   },
   "repository": {
     "type": "git",
