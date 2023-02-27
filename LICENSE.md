@@ -1,4 +1,4 @@
-Copyright 2023 Blurring the Boundaries Arts (unless otherwise stated). All rights reserved.
+Copyright 2023 Blurring the Boundaries Arts (expect where otherwise stated). All rights reserved.
 
 This repository contains artistic works with software components.  Please do not distribute or modify the contents withour prior permission.
 
