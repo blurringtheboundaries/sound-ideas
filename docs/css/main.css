@@ -249,11 +249,10 @@ p {
 }
 
 a {
-  color: gray;
-  text-decoration: none;
+  color: black;
 }
 a:visited {
-  color: lightgray;
+  color: black;
 }
 
 /*# sourceMappingURL=main.css.map */
