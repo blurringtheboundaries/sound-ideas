@@ -255,4 +255,10 @@ a:visited {
   color: black;
 }
 
+main {
+  padding: 1em;
+  max-width: 800px;
+  border-radius: 0 1em 1em 0;
+}
+
 /*# sourceMappingURL=main.css.map */
