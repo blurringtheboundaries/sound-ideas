@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/blurringtheboundaries/sound-ideas/issues"
   },
-  "homepage": "https://github.com/blurringtheboundaries/sound-ideas#readme"
+  "homepage": "https://github.com/blurringtheboundaries/sound-ideas#readme",
+  "devDependencies": {
+    "jsdoc": "^4.0.2",
+    "pug": "^3.0.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }
