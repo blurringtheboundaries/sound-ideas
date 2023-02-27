@@ -9,6 +9,7 @@ body {
   font-family: "Barlow", sans-serif;
   margin: 0;
   overflow-x: hidden;
+  color: white;
 }
 
 h1 {
@@ -233,6 +234,10 @@ main {
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
+}
+
+p {
+  margin: 1em;
 }
 
 /*# sourceMappingURL=main.css.map */
