@@ -1,0 +1,22 @@
+{
+  "name": "sound-ideas",
+  "version": "1.0.0",
+  "description": "Sound Ideas instruments and web music tools: a collaboration betweenh BtB Arts and NaAC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blurringtheboundaries/sound-ideas.git"
+  },
+  "keywords": [
+    "music"
+  ],
+  "author": "Charles Matthews",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/blurringtheboundaries/sound-ideas/issues"
+  },
+  "homepage": "https://github.com/blurringtheboundaries/sound-ideas#readme"
+}
