@@ -1,6 +1,5 @@
 // note: consider using flex instead of grid for elements of this layout
 
-// @import 'style_fonts.scss';
 @import 'https://fonts.googleapis.com/css?family=Kanit';
 @import 'https://fonts.googleapis.com/css?family=Barlow';
 
@@ -13,6 +12,7 @@ body {
     font-family: 'Barlow', sans-serif;
     margin:0;
     overflow-x:hidden;
+    color:white;
 }
 
 h1 {

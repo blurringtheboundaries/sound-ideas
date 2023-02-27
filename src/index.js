@@ -1,13 +1,9 @@
-console.log('hello, sound ideas world')
-
-// just playing around for now
-
 const loader = ()=>{
     const testText = document.createElement('p');
-    testText.innerHTML = 'hello, sound ideas world';
+    testText.innerHTML = 'test page';
     document.body.appendChild(testText);
 }
 
 
 
-export default loader;
+export {loader}

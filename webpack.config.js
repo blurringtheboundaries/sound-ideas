@@ -10,7 +10,7 @@ export default {
     entry: resolve(__dirname, 'src/index.js'),
     output: {
         filename: 'sound-ideas-main.js',
-        path: resolve(__dirname, 'dist'),
+        path: resolve(__dirname, 'docs'),
         library: 'SoundIdeas',
         libraryTarget: 'umd'
     },
