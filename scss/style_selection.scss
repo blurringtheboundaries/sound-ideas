@@ -9,10 +9,10 @@
 
 body {
     background-color:#084A70;
+    color:white;
     font-family: 'Barlow', sans-serif;
     margin:0;
     overflow-x:hidden;
-    color:white;
 }
 
 h1 {
@@ -92,15 +92,24 @@ footer {
     // width:fit-content;
     // width:13vw;
     background-color:#ADD4CA;
+    color: black;
     border-radius: 5px;
     box-shadow: none;
-    color: black;
     font-size: 1.2rem;
     margin: 0;
     padding: 0.1em;
 }
 
 main{
+    background-color:#939598;
+    color:#111F34;
+    
+}
+
+main#codes{
+    background-color:#084A70;
+    color:white;
+    font-family: 'Barlow', sans-serif;
     // background-color:red;
     // margin:2em;
     // padding-bottom:1em;
