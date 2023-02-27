@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sound Ideas instruments and web music tools: a collaboration between BtB Arts and NaAC",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node compile.js && webpack ./src/index.js -o ./docs --mode development",
