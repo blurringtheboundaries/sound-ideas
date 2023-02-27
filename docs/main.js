@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("console.log('hello, sound ideas world')\n\n//# sourceURL=webpack://sound-ideas/./src/index.js?");
+eval("console.log('hello, sound ideas world')\n\n// just playing around for now\n\nconst testText = document.createElement('p');\ntestText.textContent = 'hello, sound ideas world';\ndocument.body.appendChild(testText);\n\n//# sourceURL=webpack://sound-ideas/./src/index.js?");
 
 /***/ })
 
