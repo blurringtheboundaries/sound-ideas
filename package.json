@@ -1,7 +1,7 @@
 {
   "name": "sound-ideas",
   "version": "1.0.0",
-  "description": "Sound Ideas instruments and web music tools: a collaboration betweenh BtB Arts and NaAC",
+  "description": "Sound Ideas instruments and web music tools: a collaboration between BtB Arts and NaAC",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
