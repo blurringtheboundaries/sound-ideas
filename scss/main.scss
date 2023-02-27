@@ -3,3 +3,11 @@
 p{
     margin:1em;
 }
+
+a{
+    color: gray;
+    text-decoration: none;
+    &:visited{
+        color:lightgray;
+    }
+}
