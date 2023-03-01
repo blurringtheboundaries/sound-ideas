@@ -227,34 +227,15 @@ main {
     background-color: $lightest !important;
     
 }
+
 .blurred {
-    // filter: brightness(0.5) blur(2px);
     filter: brightness(0.5);
 }
 
 
 
 
-@media only screen and (max-width: 375px) {
-    body{
-        overflow-x:hidden;
-    }
 
-    .partner{
-        height:2em;
-        padding:none;
-        padding-bottom:1em;
-        
-        & img{
-            height:2em;
-        }
-    }
-    
-    #options{
-        width:100vw;
-        text-align:right;
-    }
-}
 
 #partners{
 
@@ -269,3 +250,5 @@ main {
     flex-wrap:wrap;
 
 }
+
+@import 'responsive.scss';
