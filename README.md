@@ -14,6 +14,9 @@ This is still a work in progress.  Some instruments may have limited functionali
 
 If you would like to use (or contribute to) any of the code here, or simply have any questions, please get in touch!
 
+### Icons
+Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated in filenames.  
+
 ## Acknowledgements
 
 We are grateful to acknowledge the support of [Canada Council for the Arts / Conseil des arts du Canada](https://canadacouncil.ca/) in the dvelopment of this project.
