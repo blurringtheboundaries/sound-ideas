@@ -15,7 +15,7 @@ This is still a work in progress.  Some instruments may have limited functionali
 If you would like to use (or contribute to) any of the code here, or simply have any questions, get in touch!
 
 ### Icons
-Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated in filenames.  
+Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated by the noun prefix in the relevant filenames.  We have incorporated these through a paid license, but they may also be licensed through the original artists under a Creative Commons license.  Please check the Noun Project site for details.  
 
 ## Acknowledgements
 
