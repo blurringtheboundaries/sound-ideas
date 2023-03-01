@@ -28,6 +28,7 @@
     "babel-loader": "^9.1.2",
     "jsdoc": "^4.0.2",
     "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6",
     "qrcode-svg": "^1.1.0",
     "sass": "^1.58.3",
     "webpack": "^5.75.0",
