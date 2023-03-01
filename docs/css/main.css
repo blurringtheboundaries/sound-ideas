@@ -35,8 +35,8 @@ footer {
 }
 
 body {
-  background-color: #084A70;
-  color: white;
+  background-color: #111F34;
+  color: #F5FAFA;
   font-family: "Barlow", sans-serif;
   margin: 0;
   overflow-x: hidden;
@@ -95,7 +95,7 @@ main {
 
 #codes {
   background-color: #084A70;
-  color: white;
+  color: #F5FAFA;
   font-family: "Barlow", sans-serif;
   padding-top: 1em;
   padding: 3em;
@@ -117,7 +117,7 @@ main {
   height: 28vw;
   min-height: 300px;
   border-radius: 10px;
-  background-color: white;
+  background-color: #F5FAFA;
   position: relative;
   left: 0;
   right: 0;
@@ -132,10 +132,10 @@ main {
   transform: translate(0px, 0.4em);
 }
 .qr:hover {
-  background-color: white;
+  background-color: #F5FAFA;
 }
 .qr:hover image {
-  background-color: white;
+  background-color: #F5FAFA;
 }
 .qr * {
   cursor: pointer;
@@ -197,10 +197,10 @@ main {
   left: 0;
   right: 0;
   width: 28vw;
-  /* background-color:#939598; */
+  /* background-color:$light; */
   background-color: #111F34;
-  /* color: #111F34; */
-  color: white;
+  /* color: $dark; */
+  color: #F5FAFA;
   border-radius: 0 0 10px 10px;
   font-family: "Kanit";
   font-weight: 100;
@@ -211,13 +211,13 @@ main {
 }
 
 .thumbnail.selected {
-  /* border:7px solid #111F34 !important; */
-  background-color: white !important;
+  /* border:7px solid $dark !important; */
+  background-color: #F5FAFA !important;
 }
 
 .logo.selected {
   border: 7px solid #111F34 !important;
-  background-color: white !important;
+  background-color: #F5FAFA !important;
 }
 
 .blurred {
