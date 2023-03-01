@@ -51,6 +51,8 @@ main {
     // background-color: $light;
     color: $dark;
     flex-grow:1;
+    background-color:$light;
+    justify-content: space-around;
     
 }
 
@@ -59,7 +61,7 @@ section {
     padding: 0.5em 1em;
     max-width:800px;
     display:block;
-    background-color:$light;
+    background-color:$light--lighter;
     border-radius: 0.5em;
 }
 #codes {

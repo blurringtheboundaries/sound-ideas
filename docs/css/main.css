@@ -23,7 +23,7 @@ header h1 {
 header #banner__logo {
   width: 500px;
   max-width: 20em;
-  min-height: 20em;
+  min-height: 8em;
   margin: 0;
   padding: 0.5em 1em;
   display: block;
@@ -111,6 +111,8 @@ h1 {
 main {
   color: #111F34;
   flex-grow: 1;
+  background-color: #939598;
+  justify-content: space-around;
 }
 
 section {
@@ -118,7 +120,7 @@ section {
   padding: 0.5em 1em;
   max-width: 800px;
   display: block;
-  background-color: #939598;
+  background-color: #F5FAFA;
   border-radius: 0.5em;
 }
 
@@ -295,8 +297,8 @@ a:visited {
 }
 
 main {
-  border-radius: 1em;
   display: block;
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */
