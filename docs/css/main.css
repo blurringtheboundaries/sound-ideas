@@ -140,7 +140,6 @@ main {
   cursor: pointer;
 }
 
-/* on hover, all other qr elements fade opacity to 0.5 */
 .qr img, .qr__svg {
   width: 95%;
   height: 95%;
@@ -157,6 +156,8 @@ main {
 .qr img.logo {
   /* width: 86px; */
   /* height: 86px; */
+  /* border: 4px solid black; */
+  /* border-radius: 10px; */
   width: 20%;
   height: 20%;
   display: block;
@@ -166,9 +167,7 @@ main {
   bottom: 0;
   right: 0;
   margin: auto;
-  /* border: 4px solid black; */
   border: 7px solid #ADD4CA;
-  /* border-radius: 10px; */
   padding: 2px;
   background-color: #ADD4CA;
   transform: translate(0px, -0.4em);
@@ -189,6 +188,8 @@ main {
 }
 
 .qr .text {
+  /* background-color:$light; */
+  /* color: $dark; */
   text-align: center;
   display: block;
   position: absolute;
@@ -196,9 +197,7 @@ main {
   left: 0;
   right: 0;
   width: 28vw;
-  /* background-color:$light; */
   background-color: #111F34;
-  /* color: $dark; */
   color: #F5FAFA;
   border-radius: 0 0 10px 10px;
   font-family: "Kanit";
