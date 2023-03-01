@@ -12,7 +12,7 @@
 
 body {
     background-color: $dark;
-    color:$lightest;
+    color: $lightest;
     font-family: 'Barlow', sans-serif;
     margin:0;
     overflow-x:hidden;
@@ -35,7 +35,7 @@ banner {
     justify-content: space-between;
     // justify-content:space-around;
 
-    background-color:$dark;
+    background-color: $dark;
     // position: sticky;
     // height: 8em;
     min-height:calc(150px + 1em);
@@ -82,7 +82,7 @@ banner + main {
     // width:-moz-fit-content;
     // width:fit-content;
     // width:13vw;
-    background-color:$light-accent;
+    background-color: $light-accent;
     color: black;
     border-radius: 5px;
     box-shadow: none;
@@ -92,14 +92,14 @@ banner + main {
 }
 
 main{
-    background-color:$light;
-    color:$dark;
+    background-color: $light;
+    color: $dark;
     min-height:calc(100vh - 10em - 150px);    
 }
 
 #codes{
     background-color:#084A70;
-    color:$lightest;
+    color: $lightest;
     font-family: 'Barlow', sans-serif;
     // background-color:red;
     // margin:2em;
@@ -134,7 +134,7 @@ main{
     right:0;
     margin:auto;
     // margin: 10px;
-    background-color:$light-accent;
+    background-color: $light-accent;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     /* add a shadow */
@@ -143,11 +143,11 @@ main{
         transform: translate(0px, 0.4em);
     }
     &:hover { 
-        background-color:$lightest;
+        background-color: $lightest;
     } 
     
     &:hover image {
-     background-color:$lightest;
+     background-color: $lightest;
     }
 
     & * {
@@ -193,14 +193,14 @@ main{
     border: 7px solid $light-accent;
     /* border-radius: 10px; */
     padding:2px;
-    background-color:$light-accent;
+    background-color: $light-accent;
     transform: translate(0px, -0.4em);
     transition: all 0.2s ease-in-out;
 
 }
 
 .qr img.thumbnail {
-    background-color:$light-accent;
+    background-color: $light-accent;
     transition: all 1s ease;
     width:80%;
     height:80%;
@@ -221,7 +221,7 @@ main{
     right:0;
     width:28vw;
     /* background-color:$light; */
-    background-color:$dark;
+    background-color: $dark;
     /* color: $dark; */
     color: $lightest;
     border-radius: 0 0 10px 10px;
@@ -239,13 +239,13 @@ main{
 
 .thumbnail.selected {
     /* border:7px solid $dark !important; */
-    background-color:$lightest !important;
+    background-color: $lightest !important;
     
 }
 
 .logo.selected {
     border:7px solid $dark !important;
-    background-color:$lightest !important;
+    background-color: $lightest !important;
     
 }
 .blurred {
