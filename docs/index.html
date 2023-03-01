@@ -16,7 +16,7 @@
     </banner>
     <main>
         <p>This is currently a holding page while we pull together our content from various locations on GitHub. If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.</p>
-        <p>The website a set of open source instruments developed by <a class="link" href=https://www.blurringtheboundaries.org/>Blurring the Boundaries Arts</a> in collaboration with the <a href=https://accessarts.ca/>National accessArts Centre</a><span aria-hidden="true">🔗</span>.</p>
+        <p>The website a set of open source instruments developed by <a class="link" href=https://www.blurringtheboundaries.org/>Blurring the Boundaries Arts</a> in collaboration with the <a class="link" href=https://accessarts.ca/>National accessArts Centre</a>.</p>
         
 
         <p>We have developed these instruments through a series of workshops, and we are now making them available to the public through a set of JavaScript libraries. We hope that you will find them useful, and that you will share your creations with us.</p>
@@ -49,11 +49,11 @@
         </div>
       </footer>
       <script>
-        // query selector for all links that only contain text
+        
         const links = document.querySelectorAll("a.link");
         links.forEach((link) => {
-         // insert a paperclip emoji after each link
-            link.insertAdjacentHTML("beforeend", "<span aria-hidden='true'>🔗</span>");
+            // add an icon to the end of the link -- no alt text because the link element is sufficient
+            link.insertAdjacentHTML("beforeend", `<img src="icons/noun-link-1047903-FFFFFF.svg" style="width:1em; height:1em;" aria-hidden="true">`);
         });
       </script>
 </body>
