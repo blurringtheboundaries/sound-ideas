@@ -1,5 +1,5 @@
 import { gallery } from './gallery.js';
-window.gallery = gallery;
+
 
 const loader = ()=>{
     // const testText = document.createElement('p');
@@ -9,4 +9,4 @@ const loader = ()=>{
 
 
 
-export {loader}
+export {loader, gallery}
