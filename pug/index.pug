@@ -1,45 +1,46 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  script(src='./sound-ideas-main.js' type='module')
-  link(rel='stylesheet' href='./css/main.css')
-  title Sound Ideas
-  meta(http-equiv='cache-control' content='no-cache')
-  meta(http-equiv='expires' content='0')
-  meta(http-equiv='pragma' content='no-cache')
-body(onload='SoundIdeas.loader()')
-  banner
-    h1 Sound Ideas
-  main
-    p
-      | This is currently a holding page while we pull together our content from various locations on GitHub. If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.
-    p
-      | The website a set of open source instruments developed by 
-      a.link(href='https://www.blurringtheboundaries.org/') Blurring the Boundaries Arts
-      |  in collaboration with the 
-      a.link(href='https://accessarts.ca/') National accessArts Centre
-      | .
-    p
-      | We have developed these instruments through a series of workshops, and we are now making the tools used to create them available to the public through a set of JavaScript libraries. We hope that you will find them useful, and that you will share your creations with us.
-    ul
-      li
-        | View the source code for this website on the 
-        a.link(href='https://github.com/blurringtheboundaries/sound-ideas') project GitHub repository
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    script(src='./sound-ideas-main.js' type='module')
+    link(rel='stylesheet' href='./css/main.css')
+    title Sound Ideas
+    meta(http-equiv='cache-control' content='no-cache')
+    meta(http-equiv='expires' content='0')
+    meta(http-equiv='pragma' content='no-cache')
+  body(onload='SoundIdeas.loader()')
+    banner
+      h1 Sound Ideas
+    main
+      p
+        | This is currently a holding page while we pull together our content from various locations on GitHub. If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.
+      p
+        | The website a set of open source instruments developed by 
+        a.link(href='https://www.blurringtheboundaries.org/') Blurring the Boundaries Arts
+        |  in collaboration with the 
+        a.link(href='https://accessarts.ca/') National accessArts Centre
         | .
-      li
-        | Some development notes are available on the 
-        a.link(href='https://github.com/blurringtheboundaries/sound-ideas/wiki') project wiki
-        | .
-  footer
-    #partners(title='Project Partners')
-      .partner
-        a(href='https://www.blurringtheboundaries.org/')
-          img(src='logos/btba-logo-high-contrast_white.svg' alt='Blurring the Boundaries Arts')
-      .partner
-        a(href='https://www.accessarts.ca/')
-          img(src='logos/NaAC_logo.png' alt='National access Arts Centre')
-      .partner
-        a(href='https://canadacouncil.ca/')
-          img(src='logos/CCA_RGB_white_f.png' alt='Canada Council for the Arts')
-  
+      p
+        | We have developed these instruments through a series of workshops, and we are now making the tools used to create them available to the public through a set of JavaScript libraries. We hope that you will find them useful, and that you will share your creations with us.
+      ul
+        li
+          | View the source code for this website on the 
+          a.link(href='https://github.com/blurringtheboundaries/sound-ideas') project GitHub repository
+          | .
+        li
+          | Some development notes are available on the 
+          a.link(href='https://github.com/blurringtheboundaries/sound-ideas/wiki') project wiki
+          | .
+    footer
+      #partners(title='Project Partners')
+        .partner
+          a(href='https://www.blurringtheboundaries.org/')
+            img(src='logos/btba-logo-high-contrast_white.svg' alt='Blurring the Boundaries Arts')
+        .partner
+          a(href='https://www.accessarts.ca/')
+            img(src='logos/NaAC_logo.png' alt='National access Arts Centre')
+        .partner
+          a(href='https://canadacouncil.ca/')
+            img(src='logos/CCA_RGB_white_f.png' alt='Canada Council for the Arts')
+    
