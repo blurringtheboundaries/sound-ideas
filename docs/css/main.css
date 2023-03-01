@@ -97,6 +97,7 @@ h1 {
 main {
   background-color: #939598;
   color: #111F34;
+  flex-grow: 1;
 }
 
 #codes {
