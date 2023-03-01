@@ -2,6 +2,8 @@
 
 @import 'https://fonts.googleapis.com/css2?family=Kanit:wght@200';
 @import 'https://fonts.googleapis.com/css?family=Barlow';
+@import 'links.scss';
+@import 'footer.scss';
 
 * {
     box-sizing: border-box;
@@ -13,6 +15,7 @@ body {
     font-family: 'Barlow', sans-serif;
     margin:0;
     overflow-x:hidden;
+    // min-height:100vh;
 }
 
 h1 {
@@ -57,22 +60,7 @@ banner + main {
     // padding-top: 8em;
 }
 
-footer {
-    background-color:#111F34;
-    color:white;
-    position: fixed;
-    display:block;
-    min-height: 8em;
-    padding: 1em;
-    width:100%;
-    left:0;
-    bottom:0;
-    margin:0;
-    font-family: 'Kanit';
 
-    font-weight: 100;
-    font-size:1.5rem;
-}
 
 #options{
     // text-align:right;
@@ -105,10 +93,10 @@ footer {
 main{
     background-color:#939598;
     color:#111F34;
-    
+    min-height:calc(100vh - 10em - 150px);    
 }
 
-main#codes{
+#codes{
     background-color:#084A70;
     color:white;
     font-family: 'Barlow', sans-serif;

@@ -15,14 +15,14 @@
         <h1>Sound Ideas</h1>
     </banner>
     <main>
-        <p>If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.</p>
-        <p>This is a set of open source instruments developed by <a href=https://www.blurringtheboundaries.org/>Blurring the Boundaries Arts</a><span aria-hidden="true">🔗</span> in collaboration with the <a href=https://accessarts.ca/>National accessArts Centre</a><span aria-hidden="true">🔗</span>.</p>
+        <p>This is currently a holding page while we pull together our content from various locations on GitHub. If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.</p>
+        <p>The website a set of open source instruments developed by <a class="link" href=https://www.blurringtheboundaries.org/>Blurring the Boundaries Arts</a> in collaboration with the <a href=https://accessarts.ca/>National accessArts Centre</a><span aria-hidden="true">🔗</span>.</p>
         
 
         <p>We have developed these instruments through a series of workshops, and we are now making them available to the public through a set of JavaScript libraries. We hope that you will find them useful, and that you will share your creations with us.</p>
         <ul>
-            <li>View the source code for this website on the <a href=https://github.com/blurringtheboundaries/sound-ideas>project GitHub repository</a> <span aria-hidden="true">🔗</span></li>
-            <li>Some development notes are available on the <a href=https://github.com/blurringtheboundaries/sound-ideas/wiki>project wiki</a> <span aria-hidden="true">🔗</span></li>
+            <li>View the source code for this website on the <a class="link" href=https://github.com/blurringtheboundaries/sound-ideas>project GitHub repository</a>.</li>
+            <li>Some development notes are available on the <a class="link" href=https://github.com/blurringtheboundaries/sound-ideas/wiki>project wiki</a>.</li>
         </ul>
     </main>
     <footer>
@@ -48,6 +48,14 @@
           </div>
         </div>
       </footer>
+      <script>
+        // query selector for all links that only contain text
+        const links = document.querySelectorAll("a.link");
+        links.forEach((link) => {
+         // insert a paperclip emoji after each link
+            link.insertAdjacentHTML("beforeend", "<span aria-hidden='true'>🔗</span>");
+        });
+      </script>
 </body>
 </html>
     
