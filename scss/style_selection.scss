@@ -30,10 +30,7 @@ h1 {
 banner {
     display:flex;
     flex-wrap:wrap;
-    // grid-template-columns: 30vw 1fr 15vw;
-    // grid-gap: 1em;
     justify-content: space-between;
-    // justify-content:space-around;
 
     background-color: $dark;
     // position: sticky;
@@ -47,7 +44,7 @@ banner {
     // opacity:0.2;
 }
 
-#header_logo{
+#header_logo {
     // width:100%;
     // height:100%;
     width:400px;
@@ -61,27 +58,14 @@ banner + main {
     // padding-top: 8em;
 }
 
-
-
-#options{
-    // text-align:right;
+#options {
     display:inline-grid;
     align-content: center;
     margin: 1em;
-    // background-color:red;
 }
 
-#options select{
+#options select {
     display:block;
-    // position:absolute;
-    // right:2.5em;
-    // height:2em;
-    /* top: 1em; */
-    // bottom:1em;
-    // margin: auto;
-    // width:-moz-fit-content;
-    // width:fit-content;
-    // width:13vw;
     background-color: $light-accent;
     color: black;
     border-radius: 5px;
@@ -91,22 +75,17 @@ banner + main {
     padding: 0.1em;
 }
 
-main{
+main {
+
     background-color: $light;
     color: $dark;
     min-height:calc(100vh - 10em - 150px);    
 }
 
-#codes{
-    background-color:#084A70;
+#codes {
+    background-color:$dark-blue;
     color: $lightest;
     font-family: 'Barlow', sans-serif;
-    // background-color:red;
-    // margin:2em;
-    // padding-bottom:1em;
-    // padding:0;
-    // padding-right:1em;
-    // top:8em;
     padding-top: 1em;
     padding: 3em;
     left:0;
@@ -265,11 +244,12 @@ main{
         height:2em;
         padding:none;
         padding-bottom:1em;
-        // background-color:red;
+        
+        & img{
+            height:2em;
+        }
     }
-    .partner img{
-        height:2em;
-    }
+    
     #options{
         width:100vw;
         text-align:right;
