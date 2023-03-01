@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <path d="m105 1125h150v-600h-150zm30-570h90v540h-90z"/>
+  <path d="m465 1125v-930h-150v930zm-120-900h90v870h-90z"/>
+  <path d="m525 1125h150v-840h-150zm30-810h90v780h-90z"/>
+  <path d="m735 1125h150v-1050h-150zm30-1020h90v990h-90z"/>
+  <path d="m1095 375h-150v750h150zm-30 720h-90v-690h90z"/>
+ </g>
+</svg>
