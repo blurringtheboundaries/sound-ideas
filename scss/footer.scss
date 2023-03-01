@@ -33,16 +33,14 @@ header + main {
 footer {
     background-color:$dark;
     color:$light--lighter;
-    position: relative;
+    // position: relative;
     display:block;
-    // min-height: 8em;
     padding: 1em;
+    margin:0;
     width:100%;
     left:0;
     bottom:0;
-    margin:0;
     font-family: 'Kanit';
-    // min-height: 150px;
     font-weight: 100;
     font-size:1.5rem;
 }
