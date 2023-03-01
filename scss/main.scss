@@ -1,20 +1,36 @@
+
 @import "palette.scss";
 @import "style_selection.scss";
 
+body {
+    background-color: $dark--lighter;
+    color: $light--lighter;
+    font-family: 'Barlow', sans-serif;
+    margin:0;
+    overflow-x:hidden;
+    min-height:100vh;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
 p {
-    margin: 1em;
+    margin:1em;
 }
 
 a {
     color: black;
 
-    &:visited {
-        color: black;
+    &:visited{
+        color:black;
     }
 }
 
 main {
+    margin: 1em;
     padding: 1em;
-    max-width: 800px;
-    border-radius: 0 1em 1em 0;
+    max-width:800px;
+    // border-radius: 0 1em 1em 0;
+    border-radius: 1em;
+    display:block;
 }
