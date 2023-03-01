@@ -6,12 +6,19 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: #111F34;
-  min-height: calc(150px + 1em);
-  padding: 1em;
+  padding: 0.5em 1em;
   width: 100%;
   left: 0;
   top: 0;
   margin: 0;
+}
+header h1 {
+  padding: 0;
+  margin: 0.5em 0em 0.5em;
+  text-align: justify;
+  line-height: 0.8em;
+  width: 5em;
+  display: block;
 }
 
 #header_logo {
