@@ -1,4 +1,4 @@
-import { gallery } from './selection.js';
+import { gallery } from './gallery.js';
 window.gallery = gallery;
 
 const loader = ()=>{
