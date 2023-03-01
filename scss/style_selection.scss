@@ -48,12 +48,20 @@ h1 {
 
 main {
 
-    background-color: $light;
+    // background-color: $light;
     color: $dark;
     flex-grow:1;
     
 }
 
+section {
+    margin: 1em;
+    padding: 0.5em 1em;
+    max-width:800px;
+    display:block;
+    background-color:$light;
+    border-radius: 0.5em;
+}
 #codes {
     background-color:$dark--lighter;
     color: $light--lighter;

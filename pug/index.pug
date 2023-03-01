@@ -11,32 +11,35 @@ html(lang='en')
     meta(http-equiv='pragma' content='no-cache')
   body(onload='SoundIdeas.loader()')
     header
-      h1 SOUND<br> IDEAS.
+      //- h1 SOUND<br> IDEAS.
+      include sound_ideas_logo.svg
     main
-      h2 About this website
-      p
-        | This is currently a holding page while we pull together our content from various locations on GitHub. 
-        | We are using this page to communicate with our collaborators and testers for now, but please feel free to browse.
-      p
-        i If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.
-      p
-        | The website hosts a collection of open source instruments developed by 
-        a.link(href='https://www.blurringtheboundaries.org/') Blurring the Boundaries Arts
-        |  in collaboration with the 
-        a.link(href='https://accessarts.ca/') National accessArts Centre
-        | .
-      p
-        | We have developed these instruments through a series of workshops, and we are now making the tools used to create them available to the public through an array of JavaScript libraries. We hope that you will find them useful, and that you will share your creations with us.
-      h2 Links
-      ul
-        li
-          | View the source code for this website on the 
-          a.link(href='https://github.com/blurringtheboundaries/sound-ideas') project GitHub repository
+      section
+        h2 About this website
+        p
+          | This is currently a holding page while we pull together our content from various locations on GitHub. 
+          | We are using this page to communicate with our collaborators and testers for now, but please feel free to browse.
+        p
+          i If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.
+        p
+          | The website hosts a collection of open source instruments developed by 
+          a.link(href='https://www.blurringtheboundaries.org/') Blurring the Boundaries Arts
+          |  in collaboration with the 
+          a.link(href='https://accessarts.ca/') National accessArts Centre
           | .
-        li
-          | Some development notes are available on the 
-          a.link(href='https://github.com/blurringtheboundaries/sound-ideas/wiki') project wiki
-          | .
+        p
+          | We have developed these instruments through a series of workshops, and we are now making the tools used to create them available to the public through an array of JavaScript libraries. We hope that you will find them useful, and that you will share your creations with us.
+      section
+        h2 Links
+        ul
+          li
+            | View the source code for this website on the 
+            a.link(href='https://github.com/blurringtheboundaries/sound-ideas') project GitHub repository
+            | .
+          li
+            | Some development notes are available on the 
+            a.link(href='https://github.com/blurringtheboundaries/sound-ideas/wiki') project wiki
+            | .
     footer
       #partners(title='Project Partners')
         .partner

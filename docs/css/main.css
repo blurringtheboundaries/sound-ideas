@@ -20,6 +20,13 @@ header h1 {
   width: 5em;
   display: block;
 }
+header #banner__logo {
+  width: 500px;
+  max-width: 50vw;
+  margin: 0;
+  padding: 0.5em 1em;
+  display: block;
+}
 
 #header_logo {
   width: 400px;
@@ -46,7 +53,7 @@ footer {
   margin: none;
   padding: none;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
 }
@@ -101,9 +108,17 @@ h1 {
 }
 
 main {
-  background-color: #939598;
   color: #111F34;
   flex-grow: 1;
+}
+
+section {
+  margin: 1em;
+  padding: 0.5em 1em;
+  max-width: 800px;
+  display: block;
+  background-color: #939598;
+  border-radius: 0.5em;
 }
 
 #codes {
@@ -279,9 +294,6 @@ a:visited {
 }
 
 main {
-  margin: 1em;
-  padding: 1em;
-  max-width: 800px;
   border-radius: 1em;
   display: block;
 }
