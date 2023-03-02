@@ -7,6 +7,4 @@ const loader = ()=>{
    gallery.init();
 }
 
-
-
 export {loader, gallery}

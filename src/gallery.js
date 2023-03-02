@@ -27,7 +27,7 @@ const pages = {
 
 
 const initGallery = ()=>{
-    // we shouldn't have to unlisten by default...
+    // we are on the gallery page, so we probably don't have any specific multitouch elements for now
     if(typeof multitouchMapper != 'undefined')multitouchMapper.unlisten();
 
     document.body.addEventListener('click', e=>{
