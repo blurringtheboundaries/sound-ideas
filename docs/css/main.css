@@ -126,12 +126,12 @@ footer {
 
 .qr {
   display: block;
-  width: 28vw;
+  width: 20vw;
+  height: 20vw;
   min-width: 300px;
+  min-height: 300px;
   max-width: 340px;
   max-height: 340px;
-  height: 28vw;
-  min-height: 300px;
   border-radius: 10px;
   background-color: #F5FAFA;
   position: relative;
@@ -139,6 +139,7 @@ footer {
   right: 0;
   margin: auto;
   background-color: #ADD4CA;
+  border: #111F34 2px solid;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   /* add a shadow */
@@ -155,8 +156,7 @@ footer {
 .qr * {
   cursor: pointer;
 }
-
-.qr img, .qr__svg {
+.qr img, .qr .qr__svg {
   width: 95%;
   height: 95%;
   display: block;
@@ -168,7 +168,6 @@ footer {
   margin: auto;
   transform: translate(0px, -0.4em);
 }
-
 .qr img.logo {
   /* width: 86px; */
   /* height: 86px; */
@@ -189,7 +188,6 @@ footer {
   transform: translate(0px, -0.4em);
   transition: all 0.2s ease-in-out;
 }
-
 .qr img.thumbnail {
   background-color: #ADD4CA;
   transition: all 1s ease;
@@ -198,11 +196,9 @@ footer {
   clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
   border-radius: 10px;
 }
-
 .qr img.thumbnail.active {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-
 .qr .text {
   /* background-color:$light; */
   /* color: $dark; */
@@ -210,9 +206,8 @@ footer {
   display: block;
   position: absolute;
   bottom: -5px;
-  left: 0;
+  left: -2px;
   right: 0;
-  width: 28vw;
   background-color: #111F34;
   color: #F5FAFA;
   border-radius: 0 0 10px 10px;
@@ -220,6 +215,7 @@ footer {
   font-weight: 100;
   font-size: 1.5rem;
   transition: none;
+  width: calc(20vw - 2px);
   min-width: 300px;
   max-width: 340px;
 }
