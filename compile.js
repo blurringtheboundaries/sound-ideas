@@ -5,7 +5,9 @@ let pugFiles = [
     'index',
     'gallery',
     'chord-player',
-    'note-player'
+    'note-player',
+    'fullscreen',
+    'embed-demo'
 ]
 
 let pugSourceFolder = './pug';
