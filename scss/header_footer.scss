@@ -33,6 +33,24 @@ header {
         padding:0.5em 1em;
         display:block;
     }
+    & #options {
+        display:inline-grid;
+        align-content: center;
+        margin: 1em;
+        
+        & select {
+            display:block;
+            background-color: $light--accent;
+            color: black;
+            border-radius: 5px;
+            box-shadow: none;
+            font-size: 1.2rem;
+            margin: 0;
+            padding: 0.1em;
+        }
+    }
+    
+    
 }
 
 #header_logo {

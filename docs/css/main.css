@@ -28,6 +28,21 @@ header #banner__logo {
   padding: 0.5em 1em;
   display: block;
 }
+header #options {
+  display: inline-grid;
+  align-content: center;
+  margin: 1em;
+}
+header #options select {
+  display: block;
+  background-color: #ADD4CA;
+  color: black;
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0.1em;
+}
 
 #header_logo {
   width: 400px;
@@ -71,57 +86,6 @@ footer {
   height: 3em;
   padding: 0;
   max-width: 80vw;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-p, li {
-  font-family: Pontano Sans;
-  font-size: 12pt;
-  letter-spacing: 1.2546875125pt;
-}
-
-h1 {
-  color: #ADD4CA;
-  font-family: "Kanit";
-  font-weight: 100;
-  font-size: 3rem;
-  margin-left: 0.2em;
-}
-
-#options {
-  display: inline-grid;
-  align-content: center;
-  margin: 1em;
-}
-
-#options select {
-  display: block;
-  background-color: #ADD4CA;
-  color: black;
-  border-radius: 5px;
-  box-shadow: none;
-  font-size: 1.2rem;
-  margin: 0;
-  padding: 0.1em;
-}
-
-main {
-  color: #111F34;
-  flex-grow: 1;
-  background-color: #939598;
-  justify-content: space-around;
-}
-
-section {
-  margin: 1em;
-  padding: 0.5em 1em;
-  max-width: 800px;
-  display: block;
-  background-color: #F5FAFA;
-  border-radius: 0.5em;
 }
 
 #codes {
@@ -252,6 +216,40 @@ section {
 
 .blurred {
   filter: brightness(0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p, li {
+  font-family: Pontano Sans;
+  font-size: 12pt;
+  letter-spacing: 1.2546875125pt;
+}
+
+h1 {
+  color: #ADD4CA;
+  font-family: "Kanit";
+  font-weight: 100;
+  font-size: 3rem;
+  margin-left: 0.2em;
+}
+
+main {
+  color: #111F34;
+  flex-grow: 1;
+  background-color: #939598;
+  justify-content: center;
+}
+
+section {
+  margin: 1em;
+  padding: 0.5em 1em;
+  max-width: 800px;
+  display: block;
+  background-color: #F5FAFA;
+  border-radius: 0.5em;
 }
 
 @media only screen and (max-width: 400px) {
