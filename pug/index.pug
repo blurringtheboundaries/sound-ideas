@@ -1,34 +1,28 @@
 doctype html
 html(lang='en')
   head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    script(src='./sound-ideas-main.js' type='module')
-    link(rel='stylesheet' href='./css/main.css')
+    include head.pug
     title Sound Ideas demo site
-    meta(http-equiv='cache-control' content='no-cache')
-    meta(http-equiv='expires' content='0')
-    meta(http-equiv='pragma' content='no-cache')
   body(onload='SoundIdeas.loader()')
     header
       //- h1 SOUND<br> IDEAS.
       include sound_ideas_logo.svg
     main
+      h2 About this website
       section
-        h2 About this website
         p
-          | This is currently a holding page while we pull together our content from various locations on GitHub. 
-          | We are using this page to communicate with our collaborators and testers for now, but please feel free to browse.
-        p
-          i If you're looking for the test page with the QR codes and instrument examples, hold tight! They'll be back up here soon.
-        p
-          | The website will host a collection of open source instruments developed by 
+          | This website will host a collection of open source instruments developed by 
           a.link(href='https://www.blurringtheboundaries.org/') Blurring the Boundaries Arts
           |  in collaboration with the 
           a.link(href='https://accessarts.ca/') National accessArts Centre
           | .
+        p
+          | This is currently a holding page while we pull together our content from various locations on GitHub. 
+
+        p
+          i If you're looking for the test page with the QR codes and instrument examples, they'll be back up here soon.
+      h2 Links
       section
-        h2 Links
         ul
           li
             | View the source code for this website on the 
@@ -50,3 +44,7 @@ html(lang='en')
           a(href='https://canadacouncil.ca/')
             img(src='logos/CCA_RGB_white_f.png' alt='Canada Council for the Arts')
     
+    script.
+      //- window.onresize=(e=>{
+      //-   document.querySelector('#banner__logo').style.left = document.querySelector('.partner img').getBoundingClientRect().left + 'px'
+      //- })

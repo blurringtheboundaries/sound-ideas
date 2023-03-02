@@ -236,20 +236,30 @@ h1 {
   margin-left: 0.2em;
 }
 
+h2 {
+  width: 70em;
+  max-width: 80vw;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  margin: 0.5em 1em 0em 1em;
+  background-color: #ADD4CA;
+}
+
 main {
   color: #111F34;
-  flex-grow: 1;
   background-color: #939598;
+  flex-grow: 1;
   justify-content: center;
+  align-items: center;
 }
 
 section {
-  margin: 1em;
-  padding: 0.5em 1em;
-  max-width: 800px;
+  margin: 0em 1em 1em 1em;
+  padding: 0.5em 0.5em 1.5em 0.5em;
+  width: 70em;
+  max-width: 80vw;
   display: block;
   background-color: #F5FAFA;
-  border-radius: 0.5em;
+  border-radius: 0.1em;
 }
 
 @media only screen and (max-width: 400px) {
@@ -289,13 +299,15 @@ p {
 
 a {
   color: black;
+  display: inline-block;
 }
 a:visited {
   color: black;
 }
 
 main {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
