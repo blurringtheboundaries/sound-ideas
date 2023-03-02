@@ -1,5 +1,6 @@
 import pkg from 'qrcode-svg';
 const QRCode = pkg;
+
 const qrCheck = function(error) {
     if (error) throw error;
     console.log('File created.');
@@ -27,7 +28,7 @@ const pages = {
 
 const initGallery = ()=>{
     // we shouldn't have to unlisten by default...
-    multitouchMapper.unlisten();
+    if(typeof multitouchMapper != 'undefined')multitouchMapper.unlisten();
 
     document.body.addEventListener('click', e=>{
         document.querySelectorAll('.qr').forEach(x=>{
@@ -76,11 +77,13 @@ const initGallery = ()=>{
         })
     
     })
+
     document.querySelector('#options__icon-type').value =  localStorage.getItem('icon-type') || 'Icons'
     const value = document.querySelector('#options__icon-type').value === 'Icons';
     document.querySelectorAll('.qr').forEach(x=>{
         displayThumbnail(x, value);
     })
+
     Object.entries(pages).forEach(([name, url])=>{
             
         document.querySelectorAll(`.qr #svg_${name}`).forEach(x=>{

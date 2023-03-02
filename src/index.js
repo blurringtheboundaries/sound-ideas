@@ -4,6 +4,7 @@ import { createLinkSVG } from './links.js';
 
 const loader = ()=>{
    createLinkSVG();
+   gallery.init();
 }
 
 
