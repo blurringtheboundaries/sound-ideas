@@ -3,7 +3,8 @@ import fs from 'fs';
 
 let pugFiles = [
     'index',
-    'gallery'
+    'gallery',
+    'chord-player'
 ]
 
 let pugSourceFolder = './pug';

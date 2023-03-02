@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+
+  head
+    include head.pug
+    title Sound Ideas: chord player
+  body(onload='SoundIdeas.loader()')
+    
+    header
+      include header
+    
+    main
+      h2 Chord Player
+        
+    
+    footer
+      include footer
+      
+    script.
+      const params = new URLSearchParams(window.location.search);
+      console.log(params.get('embed'))

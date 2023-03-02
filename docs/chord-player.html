@@ -8,7 +8,7 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-    <title>Sound Ideas demo site</title>
+    <title>Sound Ideas: chord player</title>
   </head>
   <body onload="SoundIdeas.loader()">
     <header><a href="https://blurringtheboundaries.github.io/sound-ideas/"><svg id="banner__logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1154.33 317.11" id="header_logo" alt="Sound Ideas" aria-level="1" role="heading">
@@ -54,16 +54,7 @@
       </div>
     </header>
     <main>
-      <h2>Instrument gallery</h2>
-      <section id="codes">
-        <!-- note: include verbosity checkbox to turn on alt text for icons-->
-        <div class="qr blurred" role="link" title="note player"><a><img class="icon" src="icons/noun-bars-2764469.svg" aria-hidden="true">
-            <div id="svg_note-player"></div><img class="logo" src="icons/noun-bars-2764469.svg" aria-hidden="true"><img class="thumbnail active" src="icons/icon-note-player.svg" alt="image of a set of buttons labelled with note names">
-            <div class="text" id="note-player__caption">Note Player</div></a></div>
-        <div class="qr blurred" role="link" title="chord player"><a>
-            <div id="svg_chord-player"></div><img class="logo" src="icons/noun-b-chord-5525419.svg" aria-hidden="true"><img class="thumbnail active" src="icons/icon-chord-player.svg" alt="image of a set of buttons labelled with chord names alongside colourful strings">
-            <div class="text" id="chord-player__caption">Chord Player</div></a></div>
-      </section>
+      <h2>Chord Player</h2>
     </main>
     <footer>
       <div id="partners" title="Project Partners">
@@ -72,5 +63,9 @@
         <div class="partner"><a href="https://canadacouncil.ca/"><img src="logos/CCA_RGB_white_f.png" alt="Canada Council for the Arts"></a></div>
       </div>
     </footer>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      console.log(params.get('embed'))
+    </script>
   </body>
 </html>
