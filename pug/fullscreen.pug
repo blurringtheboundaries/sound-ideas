@@ -4,4 +4,15 @@ html(lang='en')
     head
         include head
         title Embedded
+        script.
+            function back(){
+                if (!history.back()){console.log('alternative')}
+            }
     body(onload='SoundIdeas.loader()')
+        header
+            include header
+        main
+            h2 This instrument is has been opened in another window.
+            section 
+                p Use this button to return to the instrument:
+                button(onclick='window.close()') Close this window
