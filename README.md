@@ -17,6 +17,9 @@ If you would like to use (or contribute to) any of the code here, or simply have
 ### Icons
 Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated by the noun prefix in the relevant filenames.  We have incorporated these through a paid license, but they may also be licensed through the original artists under a Creative Commons license.  Please check the Noun Project site for details.  
 
+### Sound files
+Some sound files in the instrument demos have been used from [Freesound](https://freesound.org/) as indicated by the freesound prefix in the relevant filenames.  Relevant attributions and licenses will be uploaded alongside the files.
+
 ## Acknowledgements
 
 We are grateful to acknowledge the support of [Canada Council for the Arts / Conseil des arts du Canada](https://canadacouncil.ca/) in the dvelopment of this project.
