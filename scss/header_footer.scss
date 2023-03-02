@@ -43,7 +43,9 @@ header {
             padding: 0.1em;
         }
     }
-    
+    &.embed{
+        display:none;
+    }
     
 }
 
@@ -61,6 +63,9 @@ footer {
     font-family: $font-header-1;
     font-weight: 100;
     font-size:1.5rem;
+    &.embed{
+        display:none;
+    }
 }
 
 #partners{

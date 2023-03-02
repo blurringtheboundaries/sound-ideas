@@ -72,6 +72,9 @@ header #options select {
   margin: 0;
   padding: 0.1em;
 }
+header.embed {
+  display: none;
+}
 
 #header_logo {
   width: 400px;
@@ -86,6 +89,9 @@ footer {
   font-family: "Kanit", sans-serif;
   font-weight: 100;
   font-size: 1.5rem;
+}
+footer.embed {
+  display: none;
 }
 
 #partners {
