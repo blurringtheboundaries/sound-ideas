@@ -7,7 +7,7 @@ console.log(params.has('embed'))
 
 const checkEmbed = ()=>{
     if(params.has('embed')){
-        document.querySelectorAll('header,footer').forEach(x=>x.classList.add('embed'));
+        document.querySelectorAll('header,footer,.instrument__title').forEach(x=>x.classList.add('embed'));
     }
 }
 
