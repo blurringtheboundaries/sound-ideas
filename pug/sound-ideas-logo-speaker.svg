@@ -1,4 +1,4 @@
-<svg id="banner__logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1154.33 317.11" id="header_logo" alt="Sound Ideas" role="heading">
+<svg id="banner__logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1154.33 317.11" id="header_logo" alt="Sound Ideas" aria-level="1" role="heading">
   <defs>
     <style>
       path {
