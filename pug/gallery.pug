@@ -1,17 +1,14 @@
 doctype html
 html(lang='en')
+
   head
     include head.pug
     title Sound Ideas demo site
   body(onload='SoundIdeas.loader()')
+    
     header
-      include sound-ideas-logo-speaker.svg
-      #misc
-        #options 
-            label(for="options" style="opacity:0;") Display
-            select#options__icon-type
-                option Icons
-                option QR Codes
+      include header
+    
     main
       section#codes    
         .qr.blurred
@@ -20,5 +17,7 @@ html(lang='en')
               img.logo(src="icons/noun-bars-2764469.svg")
               img.thumbnail.active(src="icons/noun-bars-2764469.svg")
               .text Note Player
+    
     footer
+      include footer
       
