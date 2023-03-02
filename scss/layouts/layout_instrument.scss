@@ -1,10 +1,11 @@
 .instrument__title{
     &.embed{
         display:block;
-        position:sticky;
+        position:absolute;
+        margin:0;
         top:0;
         left:0;
-        width:100%;
+        width:100vw;
     }
     
 }

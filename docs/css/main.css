@@ -315,6 +315,15 @@ section {
     text-align: right;
   }
 }
+.instrument__title.embed {
+  display: block;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
 body {
   background-color: #084A70;
   color: #F5FAFA;
