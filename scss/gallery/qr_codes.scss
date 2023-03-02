@@ -14,6 +14,7 @@
     /* grid-template-columns: 1fr 1fr 1fr; */
 }
 
+
 $qr--size:20vw;
 $qr--size--min: 300px;
 $qr--size--max: 340px;
@@ -97,18 +98,39 @@ $qr--size--max: 340px;
     
     }
     
-    & img.thumbnail {
+
+    & img.icon {
         background-color: $light--accent;
         transition: all 1s ease;
         width:80%;
         height:80%;
         clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
         border-radius:10px;
+
+        &.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+
+      
     }
     
-    & img.thumbnail.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    & img.thumbnail {
+        background-color: $light--accent;
+        transition: all 1s ease;
+        width:100%;
+        height:100%;
+
+
+        clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+        border-radius:10px;
+        transform: translate(0px, 0px);
+        // border: 2px solid $light--accent;
+        &.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
     }
+    
     
     & .text {
         /* background-color:$light; */

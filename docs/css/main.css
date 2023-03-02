@@ -188,13 +188,25 @@ footer {
   transform: translate(0px, -0.4em);
   transition: all 0.2s ease-in-out;
 }
-.qr img.thumbnail {
+.qr img.icon {
   background-color: #ADD4CA;
   transition: all 1s ease;
   width: 80%;
   height: 80%;
   clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
   border-radius: 10px;
+}
+.qr img.icon.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.qr img.thumbnail {
+  background-color: #ADD4CA;
+  transition: all 1s ease;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+  border-radius: 10px;
+  transform: translate(0px, 0px);
 }
 .qr img.thumbnail.active {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
