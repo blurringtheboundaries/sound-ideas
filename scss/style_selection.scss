@@ -4,7 +4,7 @@
 @import 'style/palette.scss';
 @import 'links.scss';
 @import 'header_footer.scss';
-@import 'qr_codes.scss';
+@import 'gallery/qr_codes.scss';
 
 * {
     box-sizing: border-box;
@@ -18,7 +18,7 @@ p, li {
 
 h1 {
     color: $light--accent;
-    
+
     font-family: $font-header-1;
     font-weight:100;
     font-size:3rem;

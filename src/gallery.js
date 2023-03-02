@@ -1,4 +1,5 @@
 import pkg from 'qrcode-svg';
+import {pages} from './pages.js';
 const QRCode = pkg;
 
 const qrCheck = function(error) {
@@ -20,9 +21,7 @@ const displayThumbnails = (e)=>{
     })
 }
 
-const pages = {
-    'index': 'https://blurringtheboundaries.github.io/sound-ideas/index.html'
-}
+
 
 
 

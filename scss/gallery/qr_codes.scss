@@ -1,7 +1,7 @@
 #codes {
-    background-color:$dark--lighter;
-    color: $light--lighter;
-    font-family: 'Barlow', sans-serif;
+    // background-color:$dark--lighter;
+    // color: $light--lighter;
+    font-family: $font-body-condensed;
     padding-top: 1em;
     padding: 3em;
     left:0;
@@ -33,7 +33,8 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     /* add a shadow */
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    // removed for now since I would also need to add a shadow to the caption
+    // box-shadow: 0 0 10px rgba(0,0,0,0.5);
     &:active {
         transform: translate(0px, 0.4em);
     }
