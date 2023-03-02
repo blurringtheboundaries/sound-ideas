@@ -11,20 +11,20 @@ html(lang='en')
     
     main
       h2 Instrument gallery
-      section#codes    
-        .qr.blurred
+      section#codes   
+        .qr.blurred(role="link" aria-labelled-by='note-player__caption')
           a
-            img.icon(src="icons/noun-bars-2764469.svg")
+            img.icon(src="icons/noun-bars-2764469.svg" aria-hidden="true")
             #svg_note-player
-            img.logo(src="icons/noun-bars-2764469.svg")
-            img.thumbnail.active(src="icons/icon-note-player.svg")
-            .text Note Player
-        .qr.blurred
+            img.logo(src="icons/noun-bars-2764469.svg" aria-hidden="true")
+            img.thumbnail.active(src="icons/icon-note-player.svg" alt='a set of buttons labelled with note names')
+            .text#note-player__caption Note Player
+        .qr.blurred(role="link" title="chord player")
           a
             #svg_chord-player
-            img.logo(src="icons/noun-b-chord-5525419.svg")
-            img.thumbnail.active(src="icons/icon-chord-player.svg")
-            .text Chord Player
+            img.logo(src="icons/noun-b-chord-5525419.svg" aria-hidden="true")
+            img.thumbnail.active(src="icons/icon-chord-player.svg" alt='a set of buttons labelled with chord names alongside colourful strings')
+            .text#chord-player__caption Chord Player
     
     footer
       include footer
