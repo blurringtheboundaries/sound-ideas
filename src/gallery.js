@@ -21,10 +21,6 @@ const displayThumbnails = (e)=>{
     })
 }
 
-
-
-
-
 const initGallery = ()=>{
     // we are on the gallery page, so we probably don't have any specific multitouch elements for now
     if(typeof multitouchMapper != 'undefined')multitouchMapper.unlisten();
