@@ -83,7 +83,7 @@ header #options select {
 footer {
   background-color: #111F34;
   color: #F5FAFA;
-  font-family: "Kanit";
+  font-family: "Kanit", sans-serif;
   font-weight: 100;
   font-size: 1.5rem;
 }
@@ -219,7 +219,7 @@ footer {
   background-color: #111F34;
   color: #F5FAFA;
   border-radius: 0 0 10px 10px;
-  font-family: "Kanit";
+  font-family: "Kanit", sans-serif;
   font-weight: 100;
   font-size: 1.5rem;
   transition: none;
@@ -253,7 +253,7 @@ p, li {
 
 h1 {
   color: #ADD4CA;
-  font-family: "Kanit";
+  font-family: "Kanit", sans-serif;
   font-weight: 100;
   font-size: 3rem;
   margin-left: 0.2em;

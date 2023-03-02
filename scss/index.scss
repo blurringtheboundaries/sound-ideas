@@ -1,12 +1,12 @@
 
 @import "style/palette.scss";
-@import "layout.scss";
+@import "layouts/layout.scss";
 @import "style_selection.scss";
 
 body {
     background-color: $dark--lighter;
     color: $light--lighter;
-    font-family: 'Barlow', sans-serif;
+    font-family: $font-body-condensed;
     
 }
 

@@ -1,17 +1,14 @@
 // note: consider using flex instead of grid for elements of this layout
 
-@import 'https://fonts.googleapis.com/css2?family=Kanit:wght@200';
-@import 'https://fonts.googleapis.com/css?family=Barlow';
-@import 'https://fonts.googleapis.com/css2?family=Pontano+Sans';
+@import 'style/fonts.scss';
+@import 'style/palette.scss';
 @import 'links.scss';
 @import 'header_footer.scss';
-@import 'style/palette.scss';
 @import 'qr_codes.scss';
+
 * {
     box-sizing: border-box;
 }
-
-
 
 p, li {
     font-family: Pontano Sans;
@@ -21,7 +18,8 @@ p, li {
 
 h1 {
     color: $light--accent;
-    font-family: 'Kanit';
+    
+    font-family: $font-header-1;
     font-weight:100;
     font-size:3rem;
     margin-left: 0.2em;
@@ -37,8 +35,6 @@ h2 {
     // width:calc(100% - 2em);
     background-color:$light--accent;
 }
-
-
 
 main {
 
@@ -60,10 +56,6 @@ section {
     background-color:$light--lighter;
     border-radius: 0.1em;
 }
-
-
-
-
 
 
 @import 'responsive.scss';

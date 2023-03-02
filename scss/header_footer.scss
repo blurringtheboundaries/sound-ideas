@@ -18,17 +18,14 @@ header {
         display:block;
     }
     & #banner__logo {
-        // width: 5em;
-        // height: 5em;
-        // width: 50vw;
-        // max-width:300px;
+
         width:500px;
         max-width:20em;
         min-height:8em;
         margin:0;
         padding:0.5em 1em;
         display:block;
-        // position:absolute;
+
     }
     & #options {
         display:inline-grid;
@@ -58,13 +55,10 @@ header {
     // padding:1em;
 }
 
-
-
-
 footer {
     background-color:$dark;
     color:$light--lighter;
-    font-family: 'Kanit';
+    font-family: $font-header-1;
     font-weight: 100;
     font-size:1.5rem;
 }
