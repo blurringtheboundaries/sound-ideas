@@ -1,5 +1,6 @@
 import { gallery } from './gallery.js';
 import { createLinkSVG } from './links.js';
+import { ScreenInstrument, CM } from './instrument.js';
 
 const params = new URLSearchParams(window.location.search);
 console.log(params.has('embed'))

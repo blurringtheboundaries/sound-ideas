@@ -1,17 +1,33 @@
 /**
  * Imports ... temporary method using window object
+ * (this is legacy code from an early version of the project)
  */
 
-window.cm = require('@matthewscharles/cm-toolbox');
-
-const { ScreenInstrument } = require('@matthewscharles/screen-instrument');
-window.ScreenInstrument = ScreenInstrument;
-
-const KeyboardMapper = require('keyboard-mapper');
-window.keyboardMapper = new KeyboardMapper({},{},false);
-
-window.MidiMapper = require('midi-mapper');
-
-const MultitouchMapper = require('@matthewscharles/multitouch-mapper');
+import MultitouchMapper from '@matthewscharles/multitouch-mapper';
 window.multitouchMapper = new MultitouchMapper();
 
+import KeyboardMapper from 'keyboard-mapper';
+window.keyboardMapper = new KeyboardMapper({},{},false);
+
+import { ScreenInstrument } from '@matthewscharles/screen-instrument';
+
+import CM from '@matthewscharles/cm-toolbox';
+window.cm = CM;
+
+import { Tonal, Scale } from 'tonal';
+window.Tonal = Tonal;
+window.Scale = Scale;
+
+// import { presetTemplate } from './presetTemplate.js';
+// window.presetTemplate = presetTemplate;
+
+// import { SynthControl } from './synthControl.js';
+// window.SynthControl = SynthControl;
+
+// -------
+
+window.getRotation = (value) => {
+    return cm.map(value, 0, 127, 0, 270, true) - 135;
+}
+
+export { ScreenInstrument, CM }
