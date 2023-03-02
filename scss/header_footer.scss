@@ -1,13 +1,9 @@
 @import 'palette.scss';
 
 header {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: space-between;
 
     background-color: $dark;
-    // position: sticky;
-    // min-height:calc(150px + 1em);
+
     padding: 0.5em 1em;
     width:100%;
     left:0;
@@ -62,21 +58,12 @@ header {
     // padding:1em;
 }
 
-header + main {
-    // padding-top: 8em;
-}
+
 
 
 footer {
     background-color:$dark;
     color:$light--lighter;
-    // position: relative;
-    display:block;
-    padding: 1em;
-    margin:0;
-    width:100%;
-    left:0;
-    bottom:0;
     font-family: 'Kanit';
     font-weight: 100;
     font-size:1.5rem;

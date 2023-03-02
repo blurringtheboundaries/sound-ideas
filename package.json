@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node compile.js && webpack && sass ./scss/main.scss ./docs/css/main.css"
+    "build": "node compile.js && webpack && sass ./scss/index.scss ./docs/css/main.css"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,38 @@
+body {
+    margin:0;
+    overflow-x:hidden;
+    min-height:100vh;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+header {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    // position: sticky;
+    // min-height:calc(150px + 1em);
+}
+
+header + main {
+    // padding-top: 8em;
+}
+
+main {
+    display:flex;
+    flex-direction:column;
+    width:100%;
+}
+
+footer {
+    display:block;
+    padding: 1em;
+    margin:0;
+    width:100%;
+    left:0;
+    bottom:0;
+    flex-wrap:wrap;
+    justify-content: space-between;
+
+}

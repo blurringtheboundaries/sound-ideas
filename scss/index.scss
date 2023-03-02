@@ -1,17 +1,13 @@
 
 @import "palette.scss";
+@import "layout.scss";
 @import "style_selection.scss";
 
 body {
     background-color: $dark--lighter;
     color: $light--lighter;
     font-family: 'Barlow', sans-serif;
-    margin:0;
-    overflow-x:hidden;
-    min-height:100vh;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
+    
 }
 
 p {
@@ -30,7 +26,5 @@ main {
     
     // border-radius: 0 1em 1em 0;
     // border-radius: 1em;
-    display:flex;
-    flex-direction:column;
-    width:100%;
+
 }
