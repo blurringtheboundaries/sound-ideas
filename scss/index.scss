@@ -1,5 +1,5 @@
 
-@import "palette.scss";
+@import "style/palette.scss";
 @import "layout.scss";
 @import "style_selection.scss";
 
@@ -17,14 +17,15 @@ p {
 a {
     color: black;
     display: inline-block;
+
     &:visited{
         color:black;
     }
 }
 
-main {
+// main {
     
     // border-radius: 0 1em 1em 0;
     // border-radius: 1em;
 
-}
+// }

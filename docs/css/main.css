@@ -186,8 +186,8 @@ footer {
   bottom: 0;
   right: 0;
   margin: auto;
-  border: 7px solid #ADD4CA;
   padding: 2px;
+  border: 7px solid #ADD4CA;
   background-color: #ADD4CA;
   transform: translate(0px, -0.4em);
   transition: all 0.2s ease-in-out;

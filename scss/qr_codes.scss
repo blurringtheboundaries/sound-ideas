@@ -73,6 +73,7 @@
     // height: 45px;
     /* border: 4px solid black; */
     /* border-radius: 10px; */
+    
     width:20%;
     height:20%;
     display: block;
@@ -82,9 +83,10 @@
     bottom:0;
     right:0;
     margin:auto;
-    border: 7px solid $light--accent;
     padding:2px;
+    border: 7px solid $light--accent;
     background-color: $light--accent;
+    
     transform: translate(0px, -0.4em);
     transition: all 0.2s ease-in-out;
 
