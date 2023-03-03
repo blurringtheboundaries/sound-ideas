@@ -38,6 +38,7 @@ const loader = ()=>{
    gallery.init();
    checkEmbed();
    document.querySelectorAll('.instrument__fullscreen').forEach(x=>x.addEventListener('click', toggleFullscreen));
+   document.querySelectorAll('header,footer').forEach(x=>x.classList.add('allowDefault'));
 }
 
 export {
