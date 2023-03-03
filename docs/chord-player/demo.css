@@ -9,7 +9,7 @@
 } */
 
 
-main {
+#main__instrument {
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr; 
@@ -19,6 +19,10 @@ main {
     "instrument instrument instrument"
     "instrument instrument instrument"; 
     overflow:hidden;
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
 }
 
 #instrument { 
@@ -27,17 +31,18 @@ main {
     padding:2%;
 }
 
-main {
-    /* display:grid;
+#main__instrument {
+    display:grid;
     place-items:center;
     width:100%;
     height:100%;
+    max-width:auto;
     position:absolute;
     margin:none;
     left:0;
     top:0;
     bottom:0;
-    right:0; */
+    right:0;
 }
 
 #instrument__underlay {
