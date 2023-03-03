@@ -1,0 +1,33 @@
+.instrument__playable__note{
+    stroke:black;
+    width:10px;
+    height:100px;
+}
+
+.instrument__playable__group {
+    transition:transform 0.1s ease;
+}
+
+#note_0{
+    fill:hsl(0deg 50% 50%);
+}
+
+#note_1{
+    fill:hsl(60deg 50% 50%);
+}
+
+#note_2{
+    fill:hsl(120deg 50% 50%);
+}
+
+#note_3{
+    fill:hsl(180deg 50% 50%);
+}
+
+#note_4{
+    fill:hsl(240deg 50% 50%);
+}
+
+#note_5{
+    fill:hsl(300deg 50% 50%);
+}

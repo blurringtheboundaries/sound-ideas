@@ -9,8 +9,14 @@
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
     <title>Sound Ideas: chord player</title>
+    <script src="./chord-player/setup.js" defer></script>
+    <script src="./chord-player/keyboard.js" defer></script>
+    <link rel="stylesheet" href="./chord-player/demo.css">
+    <link rel="stylesheet" href="./chord-player/instrument.css">
+    <script src="./chord-player/demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js" type="text/javascript"> </script>
   </head>
-  <body onload="SoundIdeas.loader();">
+  <body onload="SoundIdeas.loader();assign();">
     <header><a href="https://blurringtheboundaries.github.io/sound-ideas/"><svg id="banner__logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1154.33 317.11" id="header_logo" alt="Sound Ideas" aria-level="1" role="heading">
   <defs>
     <style>
@@ -55,6 +61,37 @@
     </header>
     <main>
       <h2 class="instrument__title">Chord Player</h2>
+      <section>
+        <div id="chord-selection">
+          <button class="chord-selection__button" id="chord_0">C</button>
+          <button class="chord-selection__button" id="chord_1">F</button>
+          <button class="chord-selection__button" id="chord_2">G</button>
+          <button class="chord-selection__button" id="chord_3">Am</button>
+        </div>
+        <div id="instrument">
+          <div id="instrument__underlay"></div>
+          <svg id="instrument__playable" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 60 100" preserveaspectratio="none" width="100%" height="100%">
+            <g class="instrument__playable__group">
+              <rect class="instrument__playable__note" id="note_0" x="0" y="0"></rect>
+            </g>
+            <g class="instrument__playable__group">
+              <rect class="instrument__playable__note" id="note_1" x="10" y="0"></rect>
+            </g>
+            <g class="instrument__playable__group">
+              <rect class="instrument__playable__note" id="note_2" x="20" y="0"></rect>
+            </g>
+            <g class="instrument__playable__group">
+              <rect class="instrument__playable__note" id="note_3" x="30" y="0"></rect>
+            </g>
+            <g class="instrument__playable__group">
+              <rect class="instrument__playable__note" id="note_4" x="40" y="0"></rect>
+            </g>
+            <g class="instrument__playable__group">
+              <rect class="instrument__playable__note" id="note_5" x="50" y="0"></rect>
+            </g>
+          </svg>
+        </div>
+      </section>
     </main>
     <footer>
       <div id="partners" title="Project Partners">

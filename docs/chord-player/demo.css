@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html{
+    background-color:darkgray;
+    overflow:hidden;
+    touch-action: none;
+}
+
+
+main {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "chords chords chords"
+    "instrument instrument instrument"
+    "instrument instrument instrument"; 
+    overflow:hidden;
+}
+
+#instrument { 
+    grid-area: instrument; 
+    height:100%;
+    padding:2%;
+}
+
+main {
+    display:grid;
+    place-items:center;
+    width:100%;
+    height:100%;
+    position:absolute;
+    margin:none;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+}
+
+#instrument__underlay {
+    display:block;
+    position:relative;
+    opacity:0;
+    display:block;
+    position:relative;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+#instrument__playable {
+    display:block;
+    position:relative;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+#chord-selection {
+    grid-area:chords;
+    display: flex;
+    justify-content: space-around;
+    padding:1rem;
+    margin:none;
+    background-color: lightgray;
+}
+
+.chord-selection__button {
+    font-size:5vw;
+    min-width: 2em;
+    min-height: 2em;
+    max-height: 4em;
+    max-width: 4em;
+    text-align: center;
+    transition:background-color 0.1s ease, color 0.1s ease;
+    color:lightgoldenrodyellow;
+    background-color:black;
+}
+
+.chord_selected {   
+    background-color:lightgoldenrodyellow;
+    color:black;
+}
+
+@media(orientation: landscape){
+    body{
+        background-color: gray;
+    }
+    main {
+        grid-template-areas: 
+          "chords instrument instrument"
+          "chords instrument instrument"
+          "chords instrument instrument"; 
+      }
+      #chord-selection {
+        /* one item per line */
+        flex-direction: column;
+        margin:auto;
+        max-height:32em;
+      }
+      .chord-selection__button{
+        font-size:5vh;
+      }
+}
