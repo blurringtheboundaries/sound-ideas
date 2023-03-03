@@ -11,6 +11,15 @@ html(lang='en')
     script(src='./chord-player/keyboard.js' defer)
     script(src='./chord-player/demo.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js' type='text/javascript') 
+    style.
+      #instrument__chord-player{
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+      }
   body(onload='SoundIdeas.loader();assign();')
     //- header
       include header
@@ -43,7 +52,7 @@ html(lang='en')
         include chord-player_svg-test
       script.
         document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach(x=>{
-          console.log('♦️',x);
+          
           let button = document.createElement('button');
           button.classList.add('chord-selection__button');
           button.innerHTML = x.id;
@@ -57,7 +66,19 @@ html(lang='en')
           button.style.position='absolute';
           document.querySelector('#chord-selection').appendChild(button);
         })
-        
+
+        window.onresize = () => {
+          document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach(x=>{
+            
+            let button = document.querySelector('#chord-selection').querySelector('#'+x.id);
+            let rect = x.getBoundingClientRect();
+            button.style.left = rect.left + 'px';
+            button.style.top = rect.top + 'px';
+            button.style.width = rect.width + 'px';
+            button.style.height = rect.height + 'px';
+          })
+        }
+        window.onresize();
 
     //- footer
     //-   include footer
