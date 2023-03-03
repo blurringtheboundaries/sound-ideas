@@ -14,6 +14,10 @@ function displayThumbnail(element, value){
     element.querySelector('img.thumbnail').classList[value ? 'add' : 'remove']('active');
 }
 
+const getPageName = ()=>{
+    return window.location.href.split('/').at(-1).split('.html')[0]
+}
+
 const displayThumbnails = (e)=>{
     const value = e.target.value === 'Icons';
     document.querySelectorAll('.qr').forEach(x=>{
@@ -22,8 +26,11 @@ const displayThumbnails = (e)=>{
 }
 
 const initGallery = ()=>{
-    // we are on the gallery page, so we probably don't have any specific multitouch elements for now
-    if(typeof multitouchMapper != 'undefined')multitouchMapper.unlisten();
+    if(getPageName() === 'gallery'){
+        // probably don't need multitouchMapper here
+        if(typeof multitouchMapper != 'undefined') multitouchMapper.unlisten();
+    }
+    
 
     document.body.addEventListener('click', e=>{
         document.querySelectorAll('.qr').forEach(x=>{
