@@ -10,7 +10,9 @@ Developed in collaboration with [National accessArts Centre](https://accessarts.
 
 Instead, as much as possible, we have developed the back-end code as a set of open-source libraries/modules to be published on NPM.
 
-This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  Some instruments may have limited functionality or accessibility issues. We are prioritising screen reader access alongside touch screen access, and some of our experimental designs can occasionally cause automated accessibility checkers to fail.  Although these tools are essential, our preference at BtB is to employ consultants and collaborators to work on this, rather than just meeting requirements in abstract.  If you encounter any barriers while using any of the pages, please let us know and we will do our best to fix them.
+This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  Some instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.  Our preference is to employ human testers and collaborators with lived experience ;)
+
+If you encounter any barriers while using any of the pages, please let us know and we will do our best to fix them.
 
 If you would like to use (or contribute to) any of the code here, or simply have any questions, get in touch!
 
