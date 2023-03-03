@@ -331,6 +331,10 @@ section {
   width: 100vw;
 }
 
+body.embed {
+  touch-action: none;
+}
+
 .instrument__fullscreen {
   position: fixed;
   top: 2rem;
