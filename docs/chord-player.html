@@ -22,10 +22,20 @@
         bottom:0;
         margin:auto;
       }
+      .chord-selection__button{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        //- border-radius: 50%;
+        background-color: #fff;
+        font-size: 20px;
+        border: 1px solid #000;
+        //- margin: 10px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body onload="SoundIdeas.loader();assign();">
-    <div id="chord-selection" style="width:100%; height:100%; display: block; margin:0; padding:0; position:absolute;"></div>
     <main>
       <div id="instrument">
         <div id="instrument__underlay"></div>
@@ -47,15 +57,19 @@
               }
               .playing{
                 fill:yellow;
-                stroke:black;
-                stroke-width:2;
+                stroke:white;
+                stroke-width:4;
               }
+              .resonator{
+                opacity:0.5;
+              }
+              
             </style>
           </defs>
           <g id="Canvas_1" fill="none" fill-opacity="1" stroke-opacity="1" stroke-dasharray="none" stroke="none">
             <g id="backdrop">
               <g id="Graphic_22">
-                <circle cx="532" cy="420" r="180.000287622341" fill="black"></circle>
+                <circle class="resonator" cx="532" cy="420" r="180.000287622341" fill="black"></circle>
               </g>
             </g>
             <g id="strings">
@@ -103,12 +117,14 @@
           </g>
         </svg>
       </div>
+      <div id="chord-selection" style="width:100%; height:100%; display: block; margin:0; padding:0; position:absolute;"></div>
       <script>
-        document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach(x=>{
+        let buttonNotes = ['C','F','G','Am'];
+        document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach((x,i)=>{
           
           let button = document.createElement('button');
           button.classList.add('chord-selection__button');
-          button.innerHTML = x.id;
+          button.innerHTML = buttonNotes[i];
           button.setAttribute('id',x.id);
           let rect = x.getBoundingClientRect();
           button.style.left = rect.left + 'px';

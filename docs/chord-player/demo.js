@@ -17,14 +17,13 @@ const presetTemplate = {
 const assign = function(){
   instrument.setAnimationsAsDictionary({
       'down': function(){
-            //   this.screenElement.container.style.transform='translate(0px, 20px)';
-              this.screenElement.classList.add('playing')
-          //   this.translateContainer(0,20);
+              this.screenElement.element.classList.add('playing')
       },
       'up': function(){
-        //   this.screenElement.container.style.transform='translate(0px, 0px)';
-          this.screenElement.classList.remove('playing')
-          // this.translateContainer(0,0);
+        console.log(' 📖',this.screenElement)
+        
+          this.screenElement.element.classList.remove('playing')
+          
       },
       'setNote': function(){
           let colour = cm.stom(this.note) % 12 * 30;
