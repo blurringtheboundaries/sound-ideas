@@ -3,7 +3,7 @@
  * (this is legacy code from an early version of the project)
  */
 
-import { MidiMapper } from 'midi-mapper';
+import MidiMapper from 'midi-mapper';
 console.log('MidiMapper',MidiMapper)
 window.MidiMapper = MidiMapper;
 
