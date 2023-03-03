@@ -11,7 +11,7 @@ const checkEmbed = ()=>{
     }
 }
 
-const openFullScreen = ()=>{
+const openFullscreen = ()=>{
     if (document.fullscreenElement) {
         document.exitFullscreen();
     } else {
