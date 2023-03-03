@@ -11,7 +11,7 @@
     <title>Sound Ideas: chord player</title>
     <script src="./chord-player/setup.js" defer></script>
     <script src="./chord-player/keyboard.js" defer></script>
-    <script src="./chord-player/demo.js"></script>
+    <script src="./chord-player/demo.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js" type="text/javascript"> </script>
     <style>
       #instrument__chord-player{
@@ -105,7 +105,7 @@
       </div>
       <script>
         document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach(x=>{
-          console.log('♦️',x);
+          
           let button = document.createElement('button');
           button.classList.add('chord-selection__button');
           button.innerHTML = x.id;
@@ -120,6 +120,18 @@
           document.querySelector('#chord-selection').appendChild(button);
         })
         
+        window.onresize = () => {
+          document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach(x=>{
+            
+            let button = document.querySelector('#chord-selection').querySelector('#'+x.id);
+            let rect = x.getBoundingClientRect();
+            button.style.left = rect.left + 'px';
+            button.style.top = rect.top + 'px';
+            button.style.width = rect.width + 'px';
+            button.style.height = rect.height + 'px';
+          })
+        }
+        window.onresize();
         
       </script>
     </main>
