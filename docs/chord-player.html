@@ -11,7 +11,8 @@
     <title>Sound Ideas: chord player</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js" type="text/javascript"> </script>
   </head>
-  <body>
+  <body onload="SoundIdeas.loader();assign();">
+    <div id="chord-selection"></div>
     <main>
       <div id="instrument">
         <div id="instrument__underlay"></div>
@@ -68,16 +69,16 @@
             </g>
             <g id="buttons">
               <g id="Graphic_6">
-                <rect class="button" id="button_3" x="48" y="312" width="96" height="96" fill="white"></rect>
+                <rect class="button" id="button_0" x="48" y="312" width="96" height="96" fill="white"></rect>
               </g>
               <g id="Graphic_19">
-                <rect class="button" id="button_2" x="168" y="312" width="96" height="96" fill="white"></rect>
+                <rect class="button" id="button_1" x="168" y="312" width="96" height="96" fill="white"></rect>
               </g>
               <g id="Graphic_20">
-                <rect class="button" id="button_1" x="48" y="432" width="96" height="96" fill="white"></rect>
+                <rect class="button" id="button_2" x="48" y="432" width="96" height="96" fill="white"></rect>
               </g>
               <g id="Graphic_21">
-                <rect class="button" id="button_0" x="168" y="432" width="96" height="96" fill="white"></rect>
+                <rect class="button" id="button_3" x="168" y="432" width="96" height="96" fill="white"></rect>
               </g>
             </g>
           </g>

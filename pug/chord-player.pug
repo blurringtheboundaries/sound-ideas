@@ -11,11 +11,11 @@ html(lang='en')
     //- script(src='./chord-player/keyboard.js' defer)
     //- script(src='./chord-player/demo.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js' type='text/javascript') 
-  //- body(onload='SoundIdeas.loader();assign();')
-  body
+  body(onload='SoundIdeas.loader();assign();')
     //- header
       include header
     
+    #chord-selection
     main
       //- h2.instrument__title Chord Player
       //- #chord-selection
