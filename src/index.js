@@ -18,10 +18,17 @@ const openFullscreen = ()=>{
         // try a throw/catch here
         if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen()
+        } else if(document.documentElement.webkitRequestFullscreen){
+            document.documentElement.webkitRequestFullscreen();
         } else {
             // todo: add a back button or message
-            console.log('fullscreen not supported -- goto page with ?embed=true to hide header and footer')
-            window.top.location.href=window.location.href;
+            if(window.top!=window.self){
+                window.top.location.href=window.location.href;
+            } else {
+                // go back
+                window.history.back();
+            }
+            
         }
     }    
 }
