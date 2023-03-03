@@ -1,6 +1,13 @@
+.instrument__embed__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .instrument__title{
     &.embed{
-        display:block;
+        display:none;
         position:absolute;
         margin:0;
         top:0;
