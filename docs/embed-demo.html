@@ -54,11 +54,17 @@
       </div>
     </header>
     <main>
-      <h2 class="instrument__title">Note Player (embedded version)</h2>
-      <!-- todo: add script from the wordpress demo to allow keyboard access through-->
-      <section class="instrument__embed__container" id="note-player">
-        <iframe src="note-player.html?embed" width="800px" height="600px" allow="fullscreen"></iframe>
+      <h2 class="instrument__title">Chord Player (embedded version)</h2>
+      <section class="instrument__embed__container" id="chord-player">
+        <iframe src="chord-player.html?embed" width="800px" height="600px" allow="fullscreen"></iframe>
       </section>
+      <script>
+        document.addEventListener('keydown',function(){
+            document.querySelector('iframe').contentWindow.focus();
+        })
+        
+        
+      </script>
     </main>
     <footer>
       <div id="partners" title="Project Partners">

@@ -29,6 +29,7 @@ const toggleFullscreen = ()=>{
             window.history.back();
         }
     }
+    window.onresize();
 }    
 
 

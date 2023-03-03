@@ -10,10 +10,16 @@ html(lang='en')
       include header
     
     main
-      h2.instrument__title Note Player (embedded version)
-      // todo: add script from the wordpress demo to allow keyboard access through
-      section#note-player.instrument__embed__container
-        iframe(src="note-player.html?embed" width="800px" height="600px" allow="fullscreen")
+      h2.instrument__title Chord Player (embedded version)
+      
+      section#chord-player.instrument__embed__container
+        iframe(src="chord-player.html?embed" width="800px" height="600px" allow="fullscreen")
+      script.
+
+        document.addEventListener('keydown',function(){
+            document.querySelector('iframe').contentWindow.focus();
+        })
+
         
     footer
       include footer
