@@ -26,7 +26,7 @@ const displayThumbnails = (e)=>{
 }
 
 const initGallery = ()=>{
-    if(getPageName() === 'gallery' || getPageName() === 'index' || getPageName() === ''){
+    if(getPageName() === 'gallery' || getPageName() === 'index' || getPageName() === '' ){
         // probably don't need multitouchMapper here
         if(typeof multitouchMapper != 'undefined') multitouchMapper.unlisten();
     }
