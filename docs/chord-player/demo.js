@@ -18,6 +18,7 @@ const assign = function(){
   instrument.setAnimationsAsDictionary({
       'down': function(){
               this.screenElement.container.style.transform='translate(0px, 20px)';
+              this.screenElement.classList.
           //   this.translateContainer(0,20);
       },
       'up': function(){
