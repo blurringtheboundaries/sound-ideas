@@ -3,15 +3,16 @@ html(lang='en')
 
   head
     include head.pug
+    //- link(rel='stylesheet' href='./chord-player/demo.css')
+    //- link(rel='stylesheet' href='./chord-player/instrument.css')
     title Sound Ideas: chord player
     //- script(src='./main.js' defer)
-    script(src='./chord-player/setup.js' defer)
-    script(src='./chord-player/keyboard.js' defer)
-    link(rel='stylesheet' href='./chord-player/demo.css')
-    link(rel='stylesheet' href='./chord-player/instrument.css')
-    script(src='./chord-player/demo.js')
+    //- script(src='./chord-player/setup.js' defer)
+    //- script(src='./chord-player/keyboard.js' defer)
+    //- script(src='./chord-player/demo.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js' type='text/javascript') 
-  body(onload='SoundIdeas.loader();assign();')
+  //- body(onload='SoundIdeas.loader();assign();')
+  body
     //- header
       include header
     
