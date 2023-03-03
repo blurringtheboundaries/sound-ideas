@@ -18,35 +18,94 @@
   </head>
   <body onload="SoundIdeas.loader();assign();">
     <main>
-      <div id="chord-selection">
-        <button class="chord-selection__button" id="chord_0">C</button>
-        <button class="chord-selection__button" id="chord_1">F</button>
-        <button class="chord-selection__button" id="chord_2">G</button>
-        <button class="chord-selection__button" id="chord_3">Am</button>
-      </div>
       <div id="instrument">
         <div id="instrument__underlay"></div>
-        <svg id="instrument__playable" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 60 100" preserveaspectratio="none" width="100%" height="100%">
-          <g class="instrument__playable__group">
-            <rect class="instrument__playable__note" id="note_0" x="0" y="0"></rect>
-          </g>
-          <g class="instrument__playable__group">
-            <rect class="instrument__playable__note" id="note_1" x="10" y="0"></rect>
-          </g>
-          <g class="instrument__playable__group">
-            <rect class="instrument__playable__note" id="note_2" x="20" y="0"></rect>
-          </g>
-          <g class="instrument__playable__group">
-            <rect class="instrument__playable__note" id="note_3" x="30" y="0"></rect>
-          </g>
-          <g class="instrument__playable__group">
-            <rect class="instrument__playable__note" id="note_4" x="40" y="0"></rect>
-          </g>
-          <g class="instrument__playable__group">
-            <rect class="instrument__playable__note" id="note_5" x="50" y="0"></rect>
+        <svg id="instrument__chord-player" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 800" width="800" height="800">
+          <defs>
+            style.
+              .button{
+                fill:orange;
+                stroke:black;
+              }
+              .string{
+                fill:lightgray;
+                stroke:black;
+              }
+              .base{
+                fill:brown;
+                stroke:black;
+              }
+          </defs>
+          <g id="Canvas_1" fill="none" fill-opacity="1" stroke-opacity="1" stroke-dasharray="none" stroke="none">
+            <g id="backdrop">
+              <g id="Graphic_22">
+                <circle cx="532" cy="420" r="180.000287622341" fill="black"></circle>
+              </g>
+            </g>
+            <g id="strings">
+              <g id="Graphic_32">
+                <rect class="instrument__playable__note string" id="note_5" x="288" y="512" width="480" height="16" fill="white"></rect>
+              </g>
+              <g id="Graphic_33">
+                <rect class="instrument__playable__note string" id="note_4" x="288" y="472" width="480" height="16" fill="white"></rect>
+              </g>
+              <g id="Graphic_34">
+                <rect class="instrument__playable__note string" id="note_3" x="288" y="432" width="480" height="16" fill="white"></rect>
+              </g>
+              <g id="Graphic_35">
+                <rect class="instrument__playable__note string" id="note_2" x="288" y="392" width="480" height="16" fill="white"></rect>
+              </g>
+              <g id="Graphic_36">
+                <rect class="instrument__playable__note string" id="note_1" x="288" y="352" width="480" height="16" fill="white"></rect>
+              </g>
+              <g id="Graphic_38">
+                <rect class="instrument__playable__note string" id="note_0" x="288" y="312" width="480" height="16" fill="white"></rect>
+              </g>
+            </g>
+            <g id="middle">
+              <g id="Graphic_24">
+                <rect class="base" x="752" y="248" width="32" height="336" fill="white"></rect>
+              </g>
+              <g id="Graphic_23">
+                <rect class="base" x="16" y="248" width="288" height="336" fill="white"></rect>
+              </g>
+            </g>
+            <g id="buttons">
+              <g id="Graphic_6">
+                <rect class="button" id="button_3" x="48" y="312" width="96" height="96" fill="white"></rect>
+              </g>
+              <g id="Graphic_19">
+                <rect class="button" id="button_2" x="168" y="312" width="96" height="96" fill="white"></rect>
+              </g>
+              <g id="Graphic_20">
+                <rect class="button" id="button_1" x="48" y="432" width="96" height="96" fill="white"></rect>
+              </g>
+              <g id="Graphic_21">
+                <rect class="button" id="button_0" x="168" y="432" width="96" height="96" fill="white"></rect>
+              </g>
+            </g>
           </g>
         </svg>
       </div>
+      <script>
+        document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach(x=>{
+          console.log('♦️',x);
+          let button = document.createElement('button');
+          button.classList.add('chord-selection__button');
+          button.innerHTML = x.id;
+          button.setAttribute('id',x.id);
+          let rect = x.getBoundingClientRect();
+          button.style.left = rect.left + 'px';
+          button.style.top = rect.top + 'px';
+          button.style.width = rect.width + 'px';
+          button.style.height = rect.height + 'px';
+          button.style.display='block';
+          button.style.position='absolute';
+          document.querySelector('#chord-selection').appendChild(button);
+        })
+        
+        
+      </script>
     </main>
   </body>
 </html>
