@@ -14,24 +14,25 @@ const checkEmbed = ()=>{
 const openFullscreen = ()=>{
     if (document.fullscreenElement) {
         document.exitFullscreen();
-    } else {
-        // try a throw/catch here
-        if (document.documentElement.requestFullscreen) {
+    } else if(document.webkitFullscreenElement){
+        document.webkitExitFullscreen();
+    } else if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen()
-        } else if(document.documentElement.webkitRequestFullscreen){
-            document.documentElement.webkitRequestFullscreen();
+    } else if(document.documentElement.webkitRequestFullscreen){
+
+        document.documentElement.webkitRequestFullscreen();
+    } else {
+        // todo: add a back button or message
+        if(window.top!=window.self){
+            window.top.location.href=window.location.href;
         } else {
-            // todo: add a back button or message
-            if(window.top!=window.self){
-                window.top.location.href=window.location.href;
-            } else {
-                // go back
-                window.history.back();
-            }
-            
+            // go back
+            window.history.back();
         }
-    }    
-}
+        
+    }
+}    
+
 
 const loader = ()=>{
    createLinkSVG();
