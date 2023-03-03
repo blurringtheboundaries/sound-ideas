@@ -68,6 +68,9 @@ html(lang='en')
           button.style.display='block';
           button.style.position='absolute';
           document.querySelector('#chord-selection').appendChild(button);
+          button.addEventListener('click',()=>{
+            console.log('click');
+          })
         })
 
         window.onresize = () => {
