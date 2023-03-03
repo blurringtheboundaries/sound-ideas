@@ -80,11 +80,14 @@ const initGallery = ()=>{
     
     })
 
-    document.querySelector('#options__icon-type').value =  localStorage.getItem('icon-type') || 'Icons'
-    const value = document.querySelector('#options__icon-type').value === 'Icons';
-    document.querySelectorAll('.qr').forEach(x=>{
-        displayThumbnail(x, value);
-    })
+    document.querySelectorAll('#options__icon-type').forEach(x=>{
+
+        x.value =  localStorage.getItem('icon-type') || 'Icons';
+        const value = document.querySelector('#options__icon-type').value === 'Icons';
+        document.querySelectorAll('.qr').forEach(y=>{
+            displayThumbnail(y, value);
+        })
+    })  
 
     Object.entries(pages).forEach(([name, url])=>{
             
