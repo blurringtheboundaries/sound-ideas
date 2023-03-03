@@ -1,7 +1,17 @@
 .instrument__fullscreen{
     position: fixed;
-    bottom: 2rem;
+    top: 2rem;
     right: 2rem;
-    width: 2rem;
-    height: 2rem;
+    width: 10vh;
+    height: 10vh;
+    display:none;
+    opacity:0.7;
+    transition:all 0.2s ease-in-out;
+    &:hover{
+        cursor:pointer;
+        opacity:1;
+    }
+    &.embed{
+        display:block;
+    }
 }

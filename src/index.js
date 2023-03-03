@@ -7,8 +7,16 @@ console.log(params.has('embed'))
 
 const checkEmbed = ()=>{
     if(params.has('embed')){
-        document.querySelectorAll('header,footer,.instrument__title').forEach(x=>x.classList.add('embed'));
+        document.querySelectorAll('header,footer,.instrument__title,.instrument__fullscreen').forEach(x=>x.classList.add('embed'));
     }
+}
+
+const openFullScreen = ()=>{
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    } else {
+        document.documentElement.requestFullscreen();
+    }    
 }
 
 const loader = ()=>{
@@ -17,4 +25,10 @@ const loader = ()=>{
    checkEmbed();
 }
 
-export {loader, gallery, params,checkEmbed}
+export {
+    loader, 
+    gallery, 
+    params,
+    checkEmbed,
+    openFullscreen
+}
