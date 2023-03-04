@@ -4,12 +4,12 @@ import { ScreenInstrument, CM } from './instrument.js';
 import { toggleFullscreen } from './toggleFullScreen.js';
 
 const params = new URLSearchParams(window.location.search);
-console.log(params.has('embed'))
 
 const checkEmbed = ()=>{
     if(params.has('embed')){
-        document.querySelectorAll('header,footer,.instrument__title,.instrument__fullscreen,body')
-            .forEach(x=>x.classList.add('embed'));
+        document.querySelectorAll(
+            'header,footer,.instrument__title,.instrument__fullscreen,body'
+            ).forEach(x=>x.classList.add('embed'));
     }
 }
 
