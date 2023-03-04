@@ -24,7 +24,9 @@ const loader = ()=>{
    document.querySelectorAll('.instrument__fullscreen').forEach(x=>x.addEventListener('click', toggleFullscreen));
    document.querySelectorAll('header,footer').forEach(x=>x.classList.add('allowDefault'));
    document.addEventListener('screen-instrument-message', (e)=> {
+        Tone.start();
         document.querySelectorAll('.audio_message').forEach(x=>{
+            
             x.innerHTML=e.detail.message;
             x.classList.add('show');
             setTimeout(()=>x.classList.remove('show'), 2000);

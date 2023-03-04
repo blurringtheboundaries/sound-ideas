@@ -3,14 +3,13 @@ html(lang='en')
 
   head
     include head.pug
-    //- link(rel='stylesheet' href='./chord-player/demo.css')
-    //- link(rel='stylesheet' href='./chord-player/instrument.css')
     title Sound Ideas: chord player
-    //- script(src='./main.js' defer)
+
     script(src='./chord-player/setup.js' defer)
     script(src='./chord-player/keyboard.js' defer)
     script(src='./chord-player/demo.js' defer)
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js' type='text/javascript') 
+
     style.
       #instrument__chord-player{
         position:absolute;
@@ -53,6 +52,12 @@ html(lang='en')
       #chord-selection(style="width:100%; height:100%; display: block; margin:0; padding:0; position:absolute;")
         include instrument_setup
       script.
+        document.querySelector('#instrument__chord-player').addEventListener('touchstart',(e)=>{
+          e.preventDefault();
+        })
+        document.querySelector('#instrument__chord-player').addEventListener('touchmove',(e)=>{
+          e.preventDefault();
+        })
         let buttonNotes = ['C','F','G','Am'];
         document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach((x,i)=>{
           
