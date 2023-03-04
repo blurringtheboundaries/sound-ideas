@@ -15,22 +15,19 @@ const presetTemplate = {
 // todo: make some template functions so that these don't have to be written out every time
 
 const assign = function(){
+    
   instrument.setAnimationsAsDictionary({
       'down': function(){
               this.screenElement.element.classList.add('playing')
       },
       'up': function(){
-        console.log(' 📖',this.screenElement)
-        
-          this.screenElement.element.classList.remove('playing')
-          
+          this.screenElement.element.classList.remove('playing')     
       },
       'setNote': function(){
           let colour = cm.stom(this.note) % 12 * 30;
           this.screenElement.element.style.fill=`hsl(${colour}deg 40% 40%)`;
       }
-  }) 
-      .refreshElements()
+    }).refreshElements()
       .initChordElement()
       .setChordList('C /G, F major, G major, A m/E')
       .selectChord(0)

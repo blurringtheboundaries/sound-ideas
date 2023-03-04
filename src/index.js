@@ -1,6 +1,7 @@
 import { gallery } from './gallery.js';
 import { createLinkSVG } from './links.js';
 import { ScreenInstrument, CM } from './instrument.js';
+import { toggleFullscreen } from './toggleFullScreen.js';
 
 const params = new URLSearchParams(window.location.search);
 console.log(params.has('embed'))
@@ -12,33 +13,17 @@ const checkEmbed = ()=>{
     }
 }
 
-const toggleFullscreen = ()=>{
-    if (document.fullscreenElement) {
-        document.exitFullscreen();
-    } else if(document.webkitFullscreenElement){
-        document.webkitExitFullscreen();
-    } else if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen()
-    } else if(document.documentElement.webkitRequestFullscreen){
-        document.documentElement.webkitRequestFullscreen();
-    } else {
-        if(window.top!=window.self){
-            window.top.location.href=window.location.href;
-        } else {
-            // go back
-            window.history.back();
-        }
-    }
-    window.onresize();
-}    
+
 
 
 const loader = ()=>{
    createLinkSVG();
    gallery.init();
    checkEmbed();
+
    document.querySelectorAll('.instrument__fullscreen').forEach(x=>x.addEventListener('click', toggleFullscreen));
    document.querySelectorAll('header,footer').forEach(x=>x.classList.add('allowDefault'));
+   document.addEventListener('screen-instrument-message', e=> {console.log('🎚',e)})
 }
 
 export {
