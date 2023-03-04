@@ -51,7 +51,7 @@ multitouchMapper
             }
 
             if(settings.y.velocity){
-                velocity = obj.relative.y / obj.relative.range.y
+                velocity = obj.relative.x / obj.relative.range.x
             }
 
             instrument.noteEvent(getNoteId(element.id), velocity);
@@ -64,7 +64,7 @@ multitouchMapper
             let velocity = 1;
 
             if(settings.y.velocity){
-                velocity = obj.relative.y / obj.relative.range.y
+                velocity = obj.relative.x / obj.relative.range.x
             }
 
             if(settings.y.bend){

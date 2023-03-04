@@ -4,12 +4,12 @@
 @import "style_selection.scss";
 @import "layouts/layout_instrument.scss";
 @import "instrument/fullscreen.scss";
+@import "instrument/audio_message.scss";
 
 body {
     background-color: $dark--lighter;
     color: $light--lighter;
     font-family: $font-body-condensed;
-    
 }
 
 p {
