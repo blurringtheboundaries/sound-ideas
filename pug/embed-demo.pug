@@ -4,6 +4,13 @@ html(lang='en')
   head
     include head
     title Sound Ideas: chord player
+    style.
+      embedded{
+        width:800px;
+        height:600px;
+        max-width:90%;
+        max-height:90%;
+      }
   body(onload='SoundIdeas.loader();')
     
     header
@@ -13,9 +20,9 @@ html(lang='en')
       h2.instrument__title Chord Player (embedded version)
       
       section#chord-player.instrument__embed__container
-        iframe(src="chord-player.html?embed" width="800px" height="600px" allow="fullscreen")
+        iframe.embedded(src="chord-player.html?embed" allow="fullscreen")
+      
       script.
-
         document.addEventListener('keydown',function(){
             document.querySelector('iframe').contentWindow.focus();
         })
