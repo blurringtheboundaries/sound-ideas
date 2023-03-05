@@ -14,8 +14,38 @@
     <script src="./chord-player/demo.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js" type="text/javascript"> </script>
     <style>
+      body{
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+      }
+      main{
+        position:absolute;
+        display:block;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        width:100%;
+        height:100%;
+      }
       #instrument__chord-player{
         position:absolute;
+        display:block;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        width:100%;
+        height:100%;
+      }
+      #instrument__underlay{
+        position:absolute;
+        display:block;
         top:0;
         left:0;
         right:0;
@@ -27,11 +57,10 @@
       
       .chord-selection__button{
         display: block;
-        //- width: 50px;
-        //- height: 50px;
         position:absolute;
-        font-size: 2rem;
+        font-size: 2vw;
         border: 1px solid #000;
+        padding:0;
         margin:0;
         cursor: pointer;
         text-align: center;
@@ -48,6 +77,7 @@
   </head>
   <body onload="SoundIdeas.loader();assign();">
     <main>
+      <div class="audio_message" id="audio_message" aria-hidden="true"></div>
       <div id="instrument">
         <div id="instrument__underlay"></div>
         <svg id="instrument__chord-player" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 800" width="800" height="800">
@@ -74,7 +104,6 @@
               .resonator{
                 opacity:0.5;
               }
-              
             </style>
           </defs>
           <g id="Canvas_1" fill="none" fill-opacity="1" stroke-opacity="1" stroke-dasharray="none" stroke="none">
@@ -128,9 +157,7 @@
           </g>
         </svg>
       </div>
-      <div id="chord-selection" style="width:100%; height:100%; display: block; margin:0; padding:0; position:absolute;">
-        <div class="audio_message" id="audio_message" aria-hidden="true"></div><img class="allowDefault instrument__fullscreen" id="fullscreen" src="icons/noun-fullscreen-1345526-FFFFFF.svg" title="fullscreen mode" alt="fullscreen mode">
-      </div>
+      <div id="chord-selection" style="width:100%; height:100%; display: block; margin:0; padding:0; position:absolute;"><img class="allowDefault instrument__fullscreen" id="fullscreen" src="icons/noun-fullscreen-1345526-FFFFFF.svg" title="fullscreen mode" alt="fullscreen mode"></div>
       <script>
         document.querySelector('#instrument__chord-player').addEventListener('touchstart',(e)=>{
           e.preventDefault();
@@ -168,7 +195,9 @@
             button.style.width = rect.width + 'px';
             button.style.height = rect.height + 'px';
           })
+          console.log(document.querySelector('#Graphic_24').getBoundingClientRect());
         }
+        
         window.onresize();
         //- instrument.initChordElement();
         

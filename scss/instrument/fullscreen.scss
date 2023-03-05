@@ -1,7 +1,7 @@
 .instrument__fullscreen{
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
+    position: absolute;
+    top: 5vw;
+    right: 5vw;
     width: 2rem;
     height: 2rem;
     display:none;
@@ -15,3 +15,4 @@
         display:block;
     }
 }
+
