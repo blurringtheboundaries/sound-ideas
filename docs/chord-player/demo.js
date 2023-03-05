@@ -25,7 +25,7 @@ const assign = function(){
       },
       'setNote': function(){
           let colour = cm.stom(this.note) % 12 * 30;
-          // set this.screenElement.style.fill to the note colour with a gradient of opacity 0 to 1 from left to right
+          // todo: set this.screenElement.style.fill to the note colour with a gradient of opacity 0 to 1 from left to right
           this.screenElement.element.style.fill=`hsl(${colour}deg 40% 40%)`;
 
       }
