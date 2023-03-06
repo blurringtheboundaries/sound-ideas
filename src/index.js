@@ -3,6 +3,9 @@ import { createLinkSVG } from './links.js';
 import { ScreenInstrument, CM } from './instrument.js';
 import { toggleFullscreen } from './toggleFullScreen.js';
 
+import helloWorld from './testFolder/hello.js';
+import gb from './testFolder/goodbye.js';
+
 const params = new URLSearchParams(window.location.search);
 
 const checkEmbed = ()=>{
@@ -14,7 +17,7 @@ const checkEmbed = ()=>{
 }
 
 
-
+window.ScreenInstrument = ScreenInstrument;
 
 const loader = ()=>{
    createLinkSVG();
@@ -39,5 +42,7 @@ export {
     gallery, 
     params,
     checkEmbed,
-    toggleFullscreen
+    toggleFullscreen,
+    helloWorld,
+    gb
 }

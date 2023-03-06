@@ -391,6 +391,14 @@ body.embed {
   opacity: 1;
 }
 
+.embedded {
+  width: 800px;
+  height: 800px;
+  max-width: 80vw;
+  max-height: 80vw;
+  border: black 2px solid;
+}
+
 body {
   background-color: #084A70;
   color: #F5FAFA;

@@ -5,6 +5,7 @@
 @import "layouts/layout_instrument.scss";
 @import "instrument/fullscreen.scss";
 @import "instrument/audio_message.scss";
+@import "embed/embedded.scss";
 
 body {
     background-color: $dark--lighter;
@@ -24,10 +25,3 @@ a {
         color:black;
     }
 }
-
-// main {
-    
-    // border-radius: 0 1em 1em 0;
-    // border-radius: 1em;
-
-// }
