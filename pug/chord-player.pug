@@ -53,6 +53,15 @@ html(lang='en')
         opacity:0;
       }
 
+      #chord-selection{
+        width:100%; 
+        height:100%; 
+        display: block; 
+        margin:0; 
+        padding:0; 
+        position:absolute;
+      }
+
       .chord-selection__button{
         display: block;
         position:absolute;
@@ -71,6 +80,7 @@ html(lang='en')
           background-color:lightgoldenrodyellow;
           color:black;
       }
+      
   body(onload='SoundIdeas.loader();assign();')
  
     
@@ -79,6 +89,6 @@ html(lang='en')
       #instrument
         #instrument__underlay
         include chord-player_svg-test
-      #chord-selection(style="width:100%; height:100%; display: block; margin:0; padding:0; position:absolute;")
+      #chord-selection
         include instrument_setup
       include chord-player_script
