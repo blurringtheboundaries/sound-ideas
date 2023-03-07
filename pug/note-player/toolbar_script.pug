@@ -1,0 +1,9 @@
+script.
+    let url = window.location.href.split('/');
+    
+    url = url[url.length-1].split('.')[0];
+    if(url=='') url='index';
+
+    document.querySelector('#select_instrument').value = url;
+    document.body.addEventListener('load',function(){document.querySelector('#toolbar').setAttribute('transform', 'translate(0px, 0px)')}, false);
+    document.querySelector('#toolbar').style.transform = 'translateY(0px)';

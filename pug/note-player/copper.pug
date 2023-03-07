@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="initial-scale=1.0, maximum-scale=1.0, width=device-width")
+        link(rel="stylesheet" href="style.css")
+        title Sound Ideas 
+        script(src="./main.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js")
+            
+    body
+        #instrument
+            #instrument__underlay(style='display:none;')
+            include copper_svg
+        include toolbar
+
+        script(src='sound_ideas.js')
+        script.
+        
+            instrument.setAnimationCSS()
+            let params = new URLSearchParams(window.location.search);
+            if(!params.has('toolbar')){
+                document.querySelector('#toolbar').style.display='none'
+            }

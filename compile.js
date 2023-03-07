@@ -7,7 +7,8 @@ let pugFiles = [
     'chord-player',
     'note-player',
     'fullscreen',
-    'embed-demo'
+    'embed-demo',
+    // 'note-player/copper'
 ]
 
 let pugSourceFolder = './pug';

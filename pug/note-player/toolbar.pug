@@ -1,0 +1,25 @@
+menu#toolbar.allowDefault(role='toolbar')
+    li.toolbar__item(style='display:none;')
+        label(for='select_instrument') Page 
+        select#select_instrument
+            option#index index
+            option#svg svg 
+            option#copper copper 
+    li.toolbar__item
+        label(for='select_root') Root 
+        select#select_root
+    li.toolbar__item
+        label(for='select_scale') Scale 
+        select#select_scale
+    li.toolbar__item
+        label(for='select_octave') Octave 
+        select#select_octave
+    li.toolbar__item
+        label(for='select_preset') Preset 
+        select#select_preset
+        
+include toolbar_script
+
+include presets
+
+include scaleHandler
