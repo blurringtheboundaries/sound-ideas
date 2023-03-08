@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
   </head>
   <body>
+    <div class="audio_message" id="audio_message" aria-hidden="true"></div>
     <div id="instrument">
       <div id="instrument__underlay" style="display:none;"></div><svg id="mainSVG" class="prevent_select" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2016 1512" style="transform:scale(1.2); border:black 2px solid; border-radius:1em;">
 <defs>
@@ -261,7 +262,7 @@
       }
       
       scaleHandler.init();
-    </script>
+    </script><img class="allowDefault instrument__fullscreen" id="fullscreen" src="icons/noun-fullscreen-1345526-FFFFFF.svg" title="fullscreen mode" alt="fullscreen mode">
     <script src="sound_ideas.js"></script>
     <script>
       instrument.setAnimationCSS()
@@ -269,6 +270,8 @@
       if(!params.has('toolbar')){
           document.querySelector('#toolbar').style.display='none'
       }
+      gallery.checkEmbed();
+      document.querySelectorAll('.instrument__fullscreen').forEach(x=>x.addEventListener('click', gallery.toggleFullscreen));
     </script>
   </body>
 </html>
