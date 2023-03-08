@@ -4,7 +4,10 @@ html(lang='en')
   head
     include head
     title Sound Ideas: custom instrument
-  body(onload='SoundIdeas.loader();')
+    include setup_id      
+    
+     
+  body(onload='SoundIdeas.loader(); setupLoad();')
     
     header
       include header
@@ -14,9 +17,10 @@ html(lang='en')
       section
         p This page generates an instrument with a unique link to share with others.
       section#generate__id
-        input#generate__id__uniqueId
+        input#generate__id__url.allowDefault(type="text")
         //- button#generate__id__button Generate
-        button#generate__id__copy Copy
+        button#generate__id__copy copy
+        #generate__id__qr
       
       section#note-player.instrument__embed__container
         
@@ -26,10 +30,4 @@ html(lang='en')
 
     footer
       include footer
-    script.
-      let uniqueId = SoundIdeas.generateUniqueId();
-      document.querySelector('#generate__id__copy').addEventListener('click',(e)=>{
-        e.target.value = 'Copied to clipboard';
-      })
-      document.querySelector('#generate__id__uniqueId').value = uniqueId;
-      
+    

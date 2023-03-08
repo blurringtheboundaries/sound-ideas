@@ -1,0 +1,24 @@
+script.
+    let generator;
+    const setupLoad = () =>{
+        generator = {
+            uniqueId:SoundIdeas.generateRandomId(),
+            url:'https://blurringtheboundaries.github.io/note-player/copper.html?',
+            embed:true,
+            value:'',
+            qrCode:''
+        };
+         document.querySelector('#generate__id__copy').addEventListener('click',(e)=>{
+            document.querySelector('#generate__id__url').select();
+            document.execCommand('copy');
+          e.target.value = 'Copied to clipboard';
+        })
+        //- document.querySelector('#generate__id__uniqueId').value = generator.uniqueId;
+        generator.value = generator.url + 'id=' + generator.uniqueId;
+        console.log(generator.value);
+        document.querySelector('#generate__id__url').value = generator.value;
+        document.querySelector('#generate__id__url').setAttribute('size',generator.value.length);
+    }
+        //- uniqueId = SoundIdeas.generateRandomId();
+        
+    
