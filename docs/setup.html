@@ -16,7 +16,8 @@
               uniqueId:SoundIdeas.generateRandomId(),
               url:'https://blurringtheboundaries.github.io/note-player/copper.html?',
               embed:true,
-              value:''
+              value:'',
+              qrCode:''
           };
            document.querySelector('#generate__id__copy').addEventListener('click',(e)=>{
               document.querySelector('#generate__id__url').select();
@@ -28,6 +29,8 @@
           console.log(generator.value);
           document.querySelector('#generate__id__url').value = generator.value;
           document.querySelector('#generate__id__url').setAttribute('size',generator.value.length);
+      
+          
       }
           //- uniqueId = SoundIdeas.generateRandomId();
           
@@ -81,9 +84,18 @@
       <section>
         <p>This page generates an instrument with a unique link to share with others.</p>
       </section>
+      <section id="instrument__custom">
+        <ul>
+          <li>midi</li>
+          <li>scale </li>
+          <li>octave</li>
+          <li>preset</li>
+        </ul>
+      </section>
       <section id="generate__id">
         <input class="allowDefault" id="generate__id__url" type="text">
         <button id="generate__id__copy">copy</button>
+        <div id="generate__id__qr"></div>
       </section>
       <section class="instrument__embed__container" id="note-player">
         <iframe class="embedded" src="note-player/copper.html?embed" allow="fullscreen"></iframe>
