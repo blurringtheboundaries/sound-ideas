@@ -267,6 +267,7 @@
     <script>
       instrument.setAnimationCSS()
       let params = new URLSearchParams(window.location.search);
+      console.log('🗂toolbar',params.get('toolbar')=='true')
       if(!params.get('toolbar')=='true'){
           document.querySelector('#toolbar').style.display='none'
       }
