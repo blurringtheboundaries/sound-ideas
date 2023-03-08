@@ -4,6 +4,7 @@ import { ScreenInstrument, CM } from './instrument.js';
 import { toggleFullscreen } from './toggleFullScreen.js';
 
 import { generateRandomId } from './generateRandomId.js';
+import { generateQRCode } from './generateQRCode.js';
 
 const params = new URLSearchParams(window.location.search);
 
@@ -41,5 +42,6 @@ export {
     params,
     checkEmbed,
     toggleFullscreen,
-    generateRandomId
+    generateRandomId,
+    generateQRCode
 }
