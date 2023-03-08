@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+
+  head
+    include head
+    title Sound Ideas: custom instrument
+  body(onload='SoundIdeas.loader();')
+    
+    header
+      include header
+    
+    main
+      h2.instrument__title Custom Instrument 
+      section
+        p This page generates an instrument with a unique link to share with others.
+      section#generate__id
+        input#generate__id__uniqueId
+        //- button#generate__id__button Generate
+        button#generate__id__copy Copy
+      
+      section#note-player.instrument__embed__container
+        
+        iframe.embedded(src="note-player/copper.html?embed" allow="fullscreen")
+        //- p Embedded instruments are still in development for mobile devices. In case of problems accessing the instrument above, please use this link: 
+        //-   a(href="note-player/copper.html") note player
+
+    footer
+      include footer
+    script.
+      let uniqueId = SoundIdeas.generateUniqueId();
+      document.querySelector('#generate__id__copy').addEventListener('click',(e)=>{
+        e.target.value = 'Copied to clipboard';
+      })
+      document.querySelector('#generate__id__uniqueId').value = uniqueId;
+      
