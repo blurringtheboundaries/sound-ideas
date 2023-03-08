@@ -270,6 +270,13 @@
       if(!params.has('toolbar')){
           document.querySelector('#toolbar').style.display='none'
       }
+      let synthParamsToCheck = ['root', 'scale', 'octave', 'preset'];
+        synthParamsToCheck.forEach(x=>{
+            if(params.has(x)){
+                document.querySelector(`#select_${x}`).value = params.get(x);
+                document.querySelector(`#select_${x}`).dispatchEvent(new Event('input'));
+            }
+        })
       gallery.checkEmbed();
       document.querySelectorAll('.instrument__fullscreen').forEach(x=>x.addEventListener('click', gallery.toggleFullscreen));
     </script>

@@ -26,9 +26,19 @@
               embed:true,
               value:'',
               qrCode:'',
+              settings:{
+                  root:'C',
+                  scale:'major',
+                  octave:'4',
+                  preset:'default'
+              },
               update(){
-                  this.value = this.url + 'id=' + this.uniqueId;
-                  console.log(generator.value);
+                  let paramString = '';
+                  for(let key in this.settings){
+                      paramString += key + '=' + this.settings[key] + '&';
+                  }
+                  this.value = this.url + 'id=' + this.uniqueId + '&' + paramString;
+                  
                   document.querySelector('#generate__id__url').value = this.value;
                   document.querySelector('#generate__id__url').setAttribute('size',this.value.length);
                   document.querySelector('#generate__id__qr').innerHTML = '';
@@ -42,12 +52,29 @@
               document.execCommand('copy');
             e.target.value = 'Copied to clipboard';
           })
+          document.querySelector('#select_root').addEventListener('change',(e)=>{
+              generator.settings.root = e.target.value;
+              generator.update();
+          })
+          document.querySelector('#select_scale').addEventListener('change',(e)=>{
+              generator.settings.scale = e.target.value;
+              generator.update();
+          })
+          document.querySelector('#select_octave').addEventListener('change',(e)=>{
+              generator.settings.octave = e.target.value;
+              generator.update();
+          })
+          document.querySelector('#select_preset').addEventListener('change',(e)=>{
+              generator.settings.preset = e.target.value;
+              generator.update();
+          })
       
       
           SoundIdeas.scaleHandler
               .populate_select_root()
               .populate_select_scale()
-              .populate_select_octave()
+              .populate_select_octave();
+              
           generator.update();
           
       }
@@ -73,6 +100,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+      }
+      #toolbar{
+        display: flex;
+        flex-direction: row;
+        //- justify-content: space-between;
         align-items: center;
       }
       
@@ -150,7 +183,15 @@
           </li>
           <li class="toolbar__item">
             <label for="select_preset">Preset </label>
-            <select id="select_preset"></select>
+            <select id="select_preset">
+              <option>plink </option>
+              <option>soft </option>
+              <option>plunk</option>
+            </select>
+          </li>
+          <li class="toolbar__item">
+            <label for="display_toolbar">Display toolbar</label>
+            <input id="display_toolbar" type="checkbox">
           </li>
         </menu>
       </section>

@@ -26,6 +26,12 @@ html(lang='en')
         justify-content: space-between;
         align-items: center;
       }
+      #toolbar{
+        display: flex;
+        flex-direction: row;
+        //- justify-content: space-between;
+        align-items: center;
+      }
      
   body(onload='SoundIdeas.loader(); setupLoad();')
     
@@ -56,12 +62,17 @@ html(lang='en')
           li.toolbar__item
               label(for='select_preset') Preset 
               select#select_preset
+                option plink 
+                option soft 
+                option plunk
+          li.toolbar__item
+              label(for='display_toolbar') Display toolbar
+              input#display_toolbar(type='checkbox')
       section#addresses
         #generate__id
           h3 Instrument address
           p Copy this address or save the QR code on the right to share your instrument with others.
           input#generate__id__url.allowDefault(type="text")
-          //- button#generate__id__button Generate
           button#generate__id__copy copy
           
         #generate__id__qr

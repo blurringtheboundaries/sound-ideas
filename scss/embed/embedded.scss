@@ -5,3 +5,14 @@
   max-height:80vw;
   border:black 2px solid;
 }
+
+.toolbar__item{
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 0.5em;
+  list-style-type: none;
+  color: $light--lighter;
+  background-color:$dark;
+  
+}

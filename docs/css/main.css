@@ -399,6 +399,16 @@ body.embed {
   border: black 2px solid;
 }
 
+.toolbar__item {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 0.5em;
+  list-style-type: none;
+  color: #F5FAFA;
+  background-color: #111F34;
+}
+
 body {
   background-color: #084A70;
   color: #F5FAFA;
