@@ -5,5 +5,5 @@
  */
 
 export const generateRandomId = function(length=6){
-    return Math.random().toString(100).slice(2+length)
+    return Math.random().toString(36).slice(1+length)
 };
