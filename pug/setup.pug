@@ -5,7 +5,27 @@ html(lang='en')
     include head
     title Sound Ideas: custom instrument
     include setup_id      
-    
+    style.
+      #generate__id__qr{
+        width: 100px;
+        height:100px;
+        border:1px solid black;
+      }
+      .qr__svg{
+        width: 100%;
+        height: 100%;
+      }
+      .id__qr__png{
+        width: 100%;
+        height: 100%;
+        display:inline-block;
+      }
+      #addresses{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
      
   body(onload='SoundIdeas.loader(); setupLoad();')
     
@@ -22,11 +42,15 @@ html(lang='en')
           li scale 
           li octave
           li preset
-      section#generate__id
-        input#generate__id__url.allowDefault(type="text")
-        //- button#generate__id__button Generate
-        button#generate__id__copy copy
+      section#addresses
+        #generate__id
+          h3 Instrument address
+          input#generate__id__url.allowDefault(type="text")
+          //- button#generate__id__button Generate
+          button#generate__id__copy copy
+          
         #generate__id__qr
+          //- p test
       
       section#note-player.instrument__embed__container
         

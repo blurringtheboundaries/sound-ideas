@@ -11,30 +11,66 @@
     <title>Sound Ideas: custom instrument</title>
     <script>
       let generator;
+      const generateQRCodeFromApi = (url, id, color) => {
+          let qrCode = document.createElement('img');
+          let qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
+          qrCode.setAttribute('src', qrCodeUrl);
+          qrCode.setAttribute('alt', url);
+          qrCode.setAttribute('class', 'id__qr__png');
+          return qrCode;
+      }
       const setupLoad = () =>{
           generator = {
               uniqueId:SoundIdeas.generateRandomId(),
               url:'https://blurringtheboundaries.github.io/note-player/copper.html?',
               embed:true,
               value:'',
-              qrCode:''
+              qrCode:'',
+              update(){
+                  this.value = this.url + 'id=' + this.uniqueId;
+                  console.log(generator.value);
+                  document.querySelector('#generate__id__url').value = this.value;
+                  document.querySelector('#generate__id__url').setAttribute('size',this.value.length);
+                  document.querySelector('#generate__id__qr').innerHTML = '';
+                  document.querySelector('#generate__id__qr').appendChild(generateQRCodeFromApi(this.value, 'qr', 'white'));
+                  console.log(this.value);
+                  document.querySelector('iframe').setAttribute('src',this.value);
+              }
           };
            document.querySelector('#generate__id__copy').addEventListener('click',(e)=>{
               document.querySelector('#generate__id__url').select();
               document.execCommand('copy');
             e.target.value = 'Copied to clipboard';
           })
-          //- document.querySelector('#generate__id__uniqueId').value = generator.uniqueId;
-          generator.value = generator.url + 'id=' + generator.uniqueId;
-          console.log(generator.value);
-          document.querySelector('#generate__id__url').value = generator.value;
-          document.querySelector('#generate__id__url').setAttribute('size',generator.value.length);
-      
+          generator.update();
           
       }
           //- uniqueId = SoundIdeas.generateRandomId();
           
     </script>
+    <style>
+      #generate__id__qr{
+        width: 100px;
+        height:100px;
+        border:1px solid black;
+      }
+      .qr__svg{
+        width: 100%;
+        height: 100%;
+      }
+      .id__qr__png{
+        width: 100%;
+        height: 100%;
+        display:inline-block;
+      }
+      #addresses{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+    </style>
   </head>
   <body onload="SoundIdeas.loader(); setupLoad();">
     <header><a class="allowDefault" href="https://blurringtheboundaries.github.io/sound-ideas/"><svg id="banner__logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1154.33 317.11" id="header_logo" alt="Sound Ideas" aria-level="1" role="heading">
@@ -92,9 +128,12 @@
           <li>preset</li>
         </ul>
       </section>
-      <section id="generate__id">
-        <input class="allowDefault" id="generate__id__url" type="text">
-        <button id="generate__id__copy">copy</button>
+      <section id="addresses">
+        <div id="generate__id">
+          <h3>Instrument address</h3>
+          <input class="allowDefault" id="generate__id__url" type="text">
+          <button id="generate__id__copy">copy</button>
+        </div>
         <div id="generate__id__qr"></div>
       </section>
       <section class="instrument__embed__container" id="note-player">

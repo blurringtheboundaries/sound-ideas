@@ -1,4 +1,4 @@
-export const generateQRCode = (container, url, id='qr')=>{
+export const generateQRCode = (container, url, id='qr', bg='none')=>{
     container
         .innerHTML = new QRCode({
             content: url,
@@ -6,8 +6,8 @@ export const generateQRCode = (container, url, id='qr')=>{
             width: 512,
             height: 512,
             color: "#111F34",
-            background: "none",
+            background: bg,
             typeNumber:10,
             ecl: "Q",
-        }).svg().replace('<svg', `<svg viewbox="0, 0, 512, 512" id="${id}" `);
+        }).svg().replace('<svg', `<svg viewbox="0, 0, 512, 512" id="${id}" class="qr__svg"`);
 }

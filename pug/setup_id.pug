@@ -1,24 +1,37 @@
 script.
     let generator;
+    const generateQRCodeFromApi = (url, id, color) => {
+        let qrCode = document.createElement('img');
+        let qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
+        qrCode.setAttribute('src', qrCodeUrl);
+        qrCode.setAttribute('alt', url);
+        qrCode.setAttribute('class', 'id__qr__png');
+        return qrCode;
+    }
     const setupLoad = () =>{
         generator = {
             uniqueId:SoundIdeas.generateRandomId(),
             url:'https://blurringtheboundaries.github.io/note-player/copper.html?',
             embed:true,
             value:'',
-            qrCode:''
+            qrCode:'',
+            update(){
+                this.value = this.url + 'id=' + this.uniqueId;
+                console.log(generator.value);
+                document.querySelector('#generate__id__url').value = this.value;
+                document.querySelector('#generate__id__url').setAttribute('size',this.value.length);
+                document.querySelector('#generate__id__qr').innerHTML = '';
+                document.querySelector('#generate__id__qr').appendChild(generateQRCodeFromApi(this.value, 'qr', 'white'));
+                console.log(this.value);
+                document.querySelector('iframe').setAttribute('src',this.value);
+            }
         };
          document.querySelector('#generate__id__copy').addEventListener('click',(e)=>{
             document.querySelector('#generate__id__url').select();
             document.execCommand('copy');
           e.target.value = 'Copied to clipboard';
         })
-        //- document.querySelector('#generate__id__uniqueId').value = generator.uniqueId;
-        generator.value = generator.url + 'id=' + generator.uniqueId;
-        console.log(generator.value);
-        document.querySelector('#generate__id__url').value = generator.value;
-        document.querySelector('#generate__id__url').setAttribute('size',generator.value.length);
-
+        generator.update();
         
     }
         //- uniqueId = SoundIdeas.generateRandomId();
