@@ -268,7 +268,7 @@
       instrument.setAnimationCSS()
       let params = new URLSearchParams(window.location.search);
       console.log('🗂toolbar',params.get('toolbar')=='true')
-      if(!params.get('toolbar')=='true'){
+      if(!(params.get('toolbar')=='true')){
         console.log('🗂toolbar should be hidden')
           document.querySelector('#toolbar').style.display='none'
       }
