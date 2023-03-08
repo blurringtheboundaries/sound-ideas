@@ -5,6 +5,7 @@ import { toggleFullscreen } from './toggleFullScreen.js';
 
 import { generateRandomId } from './generateRandomId.js';
 import { generateQRCode } from './generateQRCode.js';
+import { scaleHandler } from './scaleHandler.js';
 
 const params = new URLSearchParams(window.location.search);
 
@@ -43,5 +44,6 @@ export {
     checkEmbed,
     toggleFullscreen,
     generateRandomId,
-    generateQRCode
+    generateQRCode,
+    scaleHandler
 }

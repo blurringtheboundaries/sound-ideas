@@ -31,6 +31,12 @@ script.
             document.execCommand('copy');
           e.target.value = 'Copied to clipboard';
         })
+
+
+        SoundIdeas.scaleHandler
+            .populate_select_root()
+            .populate_select_scale()
+            .populate_select_octave()
         generator.update();
         
     }

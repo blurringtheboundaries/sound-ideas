@@ -42,6 +42,12 @@
               document.execCommand('copy');
             e.target.value = 'Copied to clipboard';
           })
+      
+      
+          SoundIdeas.scaleHandler
+              .populate_select_root()
+              .populate_select_scale()
+              .populate_select_octave()
           generator.update();
           
       }
@@ -121,12 +127,32 @@
         <p>This page generates an instrument with a unique link to share with others.</p>
       </section>
       <section id="instrument__custom">
-        <ul>
-          <li>midi</li>
-          <li>scale </li>
-          <li>octave</li>
-          <li>preset</li>
-        </ul>
+        <menu class="allowDefault" id="toolbar" role="toolbar">
+          <li class="toolbar__item" style="display:none;">
+            <label for="select_instrument">Page </label>
+            <select id="select_instrument">
+              <option id="index">index</option>
+              <option id="svg">svg </option>
+              <option id="copper">copper </option>
+            </select>
+          </li>
+          <li class="toolbar__item">
+            <label for="select_root">Root </label>
+            <select id="select_root"></select>
+          </li>
+          <li class="toolbar__item">
+            <label for="select_scale">Scale </label>
+            <select id="select_scale"></select>
+          </li>
+          <li class="toolbar__item">
+            <label for="select_octave">Octave </label>
+            <select id="select_octave"></select>
+          </li>
+          <li class="toolbar__item">
+            <label for="select_preset">Preset </label>
+            <select id="select_preset"></select>
+          </li>
+        </menu>
       </section>
       <section id="addresses">
         <div id="generate__id">

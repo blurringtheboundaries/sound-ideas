@@ -37,11 +37,25 @@ html(lang='en')
       section
         p This page generates an instrument with a unique link to share with others.
       section#instrument__custom
-        ul
-          li midi
-          li scale 
-          li octave
-          li preset
+        menu#toolbar.allowDefault(role='toolbar')
+          li.toolbar__item(style='display:none;')
+              label(for='select_instrument') Page 
+              select#select_instrument
+                  option#index index
+                  option#svg svg 
+                  option#copper copper 
+          li.toolbar__item
+              label(for='select_root') Root 
+              select#select_root
+          li.toolbar__item
+              label(for='select_scale') Scale 
+              select#select_scale
+          li.toolbar__item
+              label(for='select_octave') Octave 
+              select#select_octave
+          li.toolbar__item
+              label(for='select_preset') Preset 
+              select#select_preset
       section#addresses
         #generate__id
           h3 Instrument address
