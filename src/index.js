@@ -3,8 +3,7 @@ import { createLinkSVG } from './links.js';
 import { ScreenInstrument, CM } from './instrument.js';
 import { toggleFullscreen } from './toggleFullScreen.js';
 
-import helloWorld from './testFolder/hello.js';
-import gb from './testFolder/goodbye.js';
+import { generateRandomId } from './generateRandomId.js';
 
 const params = new URLSearchParams(window.location.search);
 
@@ -15,7 +14,6 @@ const checkEmbed = ()=>{
             ).forEach(x=>x.classList.add('embed'));
     }
 }
-
 
 window.ScreenInstrument = ScreenInstrument;
 
@@ -43,6 +41,5 @@ export {
     params,
     checkEmbed,
     toggleFullscreen,
-    helloWorld,
-    gb
+    generateRandomId
 }
