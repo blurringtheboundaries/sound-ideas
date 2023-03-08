@@ -274,7 +274,7 @@
         synthParamsToCheck.forEach(x=>{
             if(params.has(x)){
                 document.querySelector(`#select_${x}`).value = params.get(x);
-                document.querySelector(`#select_${x}`).dispatchEvent(new Event('input'));
+                // document.querySelector(`#select_${x}`).dispatchEvent(new Event('input'));
             }
         })
       gallery.checkEmbed();
