@@ -30,7 +30,8 @@
                   root:'C',
                   scale:'major',
                   octave:'4',
-                  preset:'default'
+                  preset:'default', 
+                  toolbar:false
               },
               update(){
                   let paramString = '';
@@ -68,7 +69,11 @@
               generator.settings.preset = e.target.value;
               generator.update();
           })
-      
+          document.querySelector('#display_toolbar').addEventListener('change',(e)=>{
+              generator.settings.toolbar = e.target.checked;
+              generator.update();
+          })
+          }
       
           SoundIdeas.scaleHandler
               .populate_select_root()

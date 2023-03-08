@@ -267,7 +267,7 @@
     <script>
       instrument.setAnimationCSS()
       let params = new URLSearchParams(window.location.search);
-      if(!params.has('toolbar')){
+      if(!params.get('toolbar')=='true'){
           document.querySelector('#toolbar').style.display='none'
       }
       let synthParamsToCheck = ['root', 'scale', 'octave', 'preset'];
