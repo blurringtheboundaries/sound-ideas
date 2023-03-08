@@ -15,5 +15,5 @@ export const toggleFullscreen = ()=>{
         }
     }
     // redundant? the iframe should resize itself
-    window.onresize();
+    if(window.onresize)window.onresize();
 }    
