@@ -43,9 +43,11 @@
                   document.querySelector('#generate__id__url').value = this.value;
                   document.querySelector('#generate__id__url').setAttribute('size',this.value.length);
                   document.querySelector('#generate__id__qr').innerHTML = '';
-                  document.querySelector('#generate__id__qr').appendChild(generateQRCodeFromApi(this.value, 'qr', 'white'));
+                  let newQR = generateQRCodeFromApi(this.value, 'qr', 'white');
+                  document.querySelector('#generate__id__qr').appendChild(newQR);
                   console.log(this.value);
                   document.querySelector('iframe').setAttribute('src',this.value);
+                  
               }
           };
            document.querySelector('#generate__id__copy').addEventListener('click',(e)=>{
