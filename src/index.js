@@ -47,3 +47,7 @@ export {
     generateQRCode,
     scaleHandler
 }
+
+Object.assign(window,{
+    generateQRCode
+})
