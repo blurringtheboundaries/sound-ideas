@@ -14,6 +14,6 @@ export const toggleFullscreen = ()=>{
             window.history.back();
         }
     }
-    // redundant? the iframe should resize itself
+    // is this redundant? the iframe should resize itself
     if(window.onresize)window.onresize();
 }    

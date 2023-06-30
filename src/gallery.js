@@ -36,11 +36,11 @@ const initGallery = ()=>{
     }
 
     document.body.addEventListener('click', e=>{
-        document.querySelectorAll('.qr').forEach(x=>{
-            x.classList.remove('blurred');
-            x.classList.remove('hover');
-            x.querySelector('img.logo').classList.remove('selected');   
-            x.querySelector('img.thumbnail').classList.remove('selected');
+        document.querySelectorAll('.qr').forEach(qrElement=>{
+            qrElement.classList.remove('blurred');
+            qrElement.classList.remove('hover');
+            qrElement.querySelector('img.logo').classList.remove('selected');   
+            qrElement.querySelector('img.thumbnail').classList.remove('selected');
         })
     })
 
@@ -54,15 +54,15 @@ const initGallery = ()=>{
         })
     })
     
-    document.querySelectorAll('.qr').forEach(x=>{
-        x.classList.remove('blurred');
-        x.addEventListener('mouseenter', (e)=>{
-            x.classList.remove('hover');
-            x.querySelector('img.logo').classList.add('selected');
-            x.querySelector('img.thumbnail').classList.add('selected');
+    document.querySelectorAll('.qr').forEach(qrElement=>{
+        qrElement.classList.remove('blurred');
+        qrElement.addEventListener('mouseenter', (e)=>{
+            qrElement.classList.remove('hover');
+            qrElement.querySelector('img.logo').classList.add('selected');
+            qrElement.querySelector('img.thumbnail').classList.add('selected');
             
             document.querySelectorAll('.qr').forEach(y=>{
-                if (y !== x){
+                if (y !== qrElement){
                     y.classList.add('blurred');
                     
                 }
@@ -70,12 +70,12 @@ const initGallery = ()=>{
         })
     
         
-        x.addEventListener('mouseleave', (e)=>{
-            x.querySelector('img.logo').classList.remove('selected');
-            x.querySelector('img.thumbnail').classList.remove('selected');
+        qrElement.addEventListener('mouseleave', (e)=>{
+            qrElement.querySelector('img.logo').classList.remove('selected');
+            qrElement.querySelector('img.thumbnail').classList.remove('selected');
             
             document.querySelectorAll('.qr').forEach(y=>{
-                if (y !== x){
+                if (y !== qrElement){
                     y.classList.remove('blurred');
                 }
             })
@@ -84,7 +84,6 @@ const initGallery = ()=>{
     })
 
     document.querySelectorAll('#options__icon-type').forEach(x=>{
-
         x.value =  localStorage.getItem('icon-type') || 'Icons';
         const value = document.querySelector('#options__icon-type').value === 'Icons';
         document.querySelectorAll('.qr').forEach(y=>{
@@ -107,8 +106,6 @@ const initGallery = ()=>{
             }).svg().replace('<svg', `<svg viewbox="0, 0, 512, 512" id="qr__${name}" `);
             document.querySelector(`#qr__${name}`).classList.add('qr__svg');
             console.log(document.querySelector(`#qr__${name}`));
-            // if parent element is <a> then add href from url
-            console.log('✅',x.parentElement);
             if (x.parentElement.tagName === 'A'){
                 x.parentElement.setAttribute('href', url);    
             }

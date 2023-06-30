@@ -13,7 +13,7 @@ export function createLinkSVG(
     links = document.querySelectorAll("a.link")) {
     
     links.forEach((link) => {
-        // add an icon to the end of the link -- no alt text because the link element is sufficient
+        // add an icon to the end of the link -- no alt text here, because the text in the link element is sufficient
         link.insertAdjacentHTML("beforeend", `<object data="${svgUrl}" class="${svgClass}" style="width:1em; height:1em;" aria-hidden="true">`);
         let color = getComputedStyle(link).getPropertyValue('color');
         link.querySelector("object").addEventListener("load", (e) => {

@@ -1,8 +1,8 @@
 # Sound Ideas
 
-A set of digital instruments and collaborative music-making tools for the web.
+A collection of digital instruments and collaborative music-making tools for the web.
 
-Developed in collaboration with [National accessArts Centre](https://accessarts.ca/) as part of their Digital Now project, through online collaboration and a series of workshops (2021-2023).
+This resource was developed in collaboration with [National accessArts Centre](https://accessarts.ca/) as part of their Digital Now project, through online collaboration and a series of workshops (2021-2023).
 
 ## Notes on licensing and accessibility
 
@@ -10,17 +10,21 @@ Developed in collaboration with [National accessArts Centre](https://accessarts.
 
 Instead, as much as possible, we have developed the back-end code as a set of open-source libraries/modules to be published on NPM.
 
-This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  Some instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.  Our preference is to employ human testers and collaborators with lived experience ;)
+This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  Some instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.
 
 If you encounter any barriers while using any of the pages, please let us know and we will do our best to fix them.
 
 If you would like to use (or contribute to) any of the code here, or simply have any questions, get in touch!
 
 ### Icons
-Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated by the noun prefix in the relevant filenames.  We have incorporated these through a paid license, but they may also be licensed through the original artists under a Creative Commons license.  Please check the Noun Project site for details.  
+Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated by the noun prefix in the relevant filenames.  
+
+We have incorporated these through a paid license, but they may also be licensed through the original artists under a Creative Commons license.  Please check the Noun Project site for details.  
 
 ### Sound files
-Some sound files in the instrument demos have been used from [Freesound](https://freesound.org/) as indicated by the freesound prefix in the relevant filenames.  Relevant attributions and licenses will be uploaded alongside the files.
+Some sound files in the instrument demos have been used from [Freesound](https://freesound.org/) as indicated by the freesound prefix in the relevant filenames.  
+
+Relevant attributions and licenses will be uploaded alongside the files.
 
 ## Acknowledgements
 
