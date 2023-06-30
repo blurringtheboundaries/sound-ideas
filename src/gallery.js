@@ -25,12 +25,15 @@ const displayThumbnails = (e)=>{
     })
 }
 
+/**
+ * Initialise gallery page
+ */
+
 const initGallery = ()=>{
     if(getPageName() === 'gallery' || getPageName() === 'index' || getPageName() === '' ){
-        // probably don't need multitouchMapper here
+        // probably don't need multitouchMapper here...let's disable it for now
         if(typeof multitouchMapper != 'undefined') multitouchMapper.unlisten();
     }
-    
 
     document.body.addEventListener('click', e=>{
         document.querySelectorAll('.qr').forEach(x=>{
@@ -122,4 +125,4 @@ const gallery = {
     pages: pages
 }
 
-export {gallery};
+export { gallery };

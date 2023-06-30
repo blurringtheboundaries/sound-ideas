@@ -1,3 +1,11 @@
+/**
+ * 
+ * @param {HTMLElement} container 
+ * @param {String} url 
+ * @param {String} id 
+ * @param {String} bg 
+ */
+
 export const generateQRCode = (container, url, id='qr', bg='none')=>{
     container
         .innerHTML = new QRCode({

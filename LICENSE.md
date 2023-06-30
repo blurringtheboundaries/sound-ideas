@@ -1,6 +1,6 @@
 Copyright 2023 Blurring the Boundaries Arts (expect where otherwise stated). All rights reserved.
 
-Please consult individual licensing for any fonts or icons used.
+Please consult individual licensing for any fonts and/or icons used.
 
 This repository contains artistic works with software components.  Please do not distribute or modify the contents withour prior permission.
 
