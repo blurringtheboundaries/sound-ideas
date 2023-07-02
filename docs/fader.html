@@ -3,10 +3,10 @@
   <title>Fader test page</title>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="./fader/style.css"/>
   <!-- tone-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
-  <script src="./main.js"></script>
+  <script src="./fader/main.js"></script>
 </head>
 <body onload="init()">
   <div id="result"></div>
@@ -129,7 +129,7 @@
   }
 </script>
 <script>
-  const socketMapper = new SocketMapper();
+  // this version has the socket code removed -- see the sound-ideas-instrument repo for the full version
   let broadcast = false;
   const midiMapper = new MidiMapper();
   const faderHeight = 600;
@@ -137,7 +137,9 @@
   const sines = [];
   const numberOfSines = 12;
   
-  for(let i=0;i<numbeOfSines;i++){
+  // sines set to bass tones
+  
+  for(let i=0;i<numberOfSines;i++){
       let frequency = ((i+4)*4)+50;
       sines.push(new Tone.Oscillator(frequency).toDestination());
   }
@@ -166,23 +168,6 @@
       })
   }
   
-  socketMapper.socket.on('midi',(e)=>{
-      if(e.path!=socketMapper.path) return;
-      if(e.type=='cc'){
-          // ! avoid feedback over the network; do not call processFader here!
-  
-          let [channel, index, value] = e.message;
-  
-          setFaderElements({
-              svgElement: document.querySelector(`#thumb_${index}`),
-              inputElement: document.querySelectorAll('input')[index],
-              value: value,
-              y: getY(value, faderHeight, thumbHeight)
-          })
-  
-      }   
-  })
-  
   function setFaderElements(data = {}, animationTime = 0.1){
       let { svgElement, inputElement, value, y } = data;
       let delta = Math.abs(value - parseFloat(inputElement.getAttribute('value')));
@@ -207,7 +192,6 @@
   function processFader(cc, value){
           Tone.start();
           sines[cc].volume.rampTo(Tone.gainToDb(value/255), 0.1);
-          if(broadcast) socketMapper.out.cc(1, cc, value);
   }
   
   const calculateFaderValue = (element, e, obj) => {
