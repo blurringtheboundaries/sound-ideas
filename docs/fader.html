@@ -136,11 +136,13 @@
   const thumbHeight = 50;
   const sines = [];
   const numberOfSines = 12;
+  //- const register = 'bass'
+  let register = 'mid';
   
   // sines set to bass tones
   
   for(let i=0;i<numberOfSines;i++){
-      let frequency = ((i+4)*4)+50;
+      let frequency = register == 'bass' ? ((i+4)*4)+50 : Tone.Frequency(i + 60, 'midi').toFrequency();
       sines.push(new Tone.Oscillator(frequency).toDestination());
   }
   
@@ -191,7 +193,8 @@
   
   function processFader(cc, value){
           Tone.start();
-          sines[cc].volume.rampTo(Tone.gainToDb(value/255), 0.1);
+          // arbitrary volume scaling for quick demo
+          sines[cc].volume.rampTo(Tone.gainToDb(value/1024), 0.1);
   }
   
   const calculateFaderValue = (element, e, obj) => {
