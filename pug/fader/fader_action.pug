@@ -9,7 +9,8 @@ script.
     //- const register = 'bass'
     let register = 'mid';
     
-    // sines set to bass tones
+    // sines set to bass tones / mid tones depending on register
+    // we could use the chord player code here ...
 
     for(let i=0;i<numberOfSines;i++){
         let frequency = register == 'bass' ? ((i+4)*4)+50 : Tone.Frequency(i + 60, 'midi').toFrequency();
