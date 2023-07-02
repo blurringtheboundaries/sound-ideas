@@ -1,0 +1,131 @@
+script.
+    const socketMapper = new SocketMapper();
+    let broadcast = false;
+    const midiMapper = new MidiMapper();
+    const faderHeight = 600;
+    const thumbHeight = 50;
+    const sines = [];
+    const numberOfSines = 12;
+    
+    for(let i=0;i<numbeOfSines;i++){
+        let frequency = ((i+4)*4)+50;
+        sines.push(new Tone.Oscillator(frequency).toDestination());
+    }
+    
+    sines.forEach((vibe)=>{
+        vibe.volume.value = -Infinity;
+        vibe.start();
+    })
+    
+
+    function init(){
+        // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respetively)
+        document.querySelectorAll('input').forEach((input,i) => {
+            let index = 59 - i
+            // todo: need to recognise a range of cc numbers (like a key range in keyboard-mapper)
+            midiMapper.assign(i, 'cc', index, (value)=>{
+                 setFaderElements({
+                    svgElement: document.querySelector(`#thumb_${i}`),
+                    inputElement: document.querySelectorAll('input')[i],
+                    value: value,
+                    y: getY(value, faderHeight, thumbHeight)
+                })
+                processFader(i, value)
+            })
+            midiMapper.listen();
+        })
+    }
+
+    socketMapper.socket.on('midi',(e)=>{
+        if(e.path!=socketMapper.path) return;
+        if(e.type=='cc'){
+            // ! avoid feedback over the network; do not call processFader here!
+
+            let [channel, index, value] = e.message;
+
+            setFaderElements({
+                svgElement: document.querySelector(`#thumb_${index}`),
+                inputElement: document.querySelectorAll('input')[index],
+                value: value,
+                y: getY(value, faderHeight, thumbHeight)
+            })
+
+        }   
+    })
+
+    function setFaderElements(data = {}, animationTime = 0.1){
+        let { svgElement, inputElement, value, y } = data;
+        let delta = Math.abs(value - parseFloat(inputElement.getAttribute('value')));
+        svgElement.style.transition = `y ${delta > 10 ? animationTime : 0}s ease-in-out`;
+        svgElement.setAttribute('y',y);
+        inputElement.setAttribute('value',value);
+    }
+
+
+    function getIndex(id){
+        return id.split('_')[1];
+    }
+
+    function getThumbId(element){
+        return element.id.replace('fader','thumb');
+    }
+
+    function getY(value, faderHeight, thumbHeight){
+        return faderHeight - (value / 127 * faderHeight) - (thumbHeight / 2);
+    }
+
+    function processFader(cc, value){
+            Tone.start();
+            sines[cc].volume.rampTo(Tone.gainToDb(value/255), 0.1);
+            if(broadcast) socketMapper.out.cc(1, cc, value);
+    }
+
+    const calculateFaderValue = (element, e, obj) => {
+        const value = Math.round(obj.relative.y / element.getBoundingClientRect().height * 127);
+        return value < 4 ? 0 : value > 124 ? 127 : value;
+    }
+
+    const updateFader = (element, e, obj, animationTime = 0.1) => {
+        // todo: replace querySelectorAll with a map of elements
+        let value = calculateFaderValue(element, e, obj);
+        let index = getIndex(element.id);
+        let faderElement = document.querySelectorAll('input')[getIndex(element.id)];
+        let thumbId = getThumbId(element);
+
+        setFaderElements({
+            svgElement: document.querySelector(`#${thumbId}`),
+            inputElement: document.querySelectorAll('input')[index],
+            value: value,
+            y: getY(value, faderHeight, thumbHeight),
+            animationTime: animationTime
+        })
+
+        processFader(index, value)
+    }
+
+    // unassigned: end, leave...
+    multitouchMapper
+        .setDefaultAction(()=>{console.log('default')})
+        .addStyles()
+        .setAction('.svg-fader',{
+            start: updateFader,
+            enter: updateFader, 
+            move: updateFader
+        })
+
+    document.querySelectorAll('input').forEach((input,i)=>{
+        // todo: add an "onfocus" listener for visual confirmation of keyboard access
+        // this could also occur on mouseover / touchstart
+        let y = getY(input.value, faderHeight, thumbHeight);
+        document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+
+        input.addEventListener('input',(e)=>{
+            let y = getY(e.target.value, faderHeight, thumbHeight);
+            document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+        })
+
+        input.addEventListener('input', (e) => {
+            processFader(getIndex(e.target.id), e.target.value);  
+        })
+
+    })

@@ -13,7 +13,7 @@ body(onload='init()')
 
     svg#slider-bg(viewbox='0 0 1200 600' width='100%' height='100%' style='position:absolute; top:0px; left:0px;')
         defs
-            include fader_gradient
+            include fader/fader_gradient
             style.
                 .svg-fader{
                     cursor:ns-resize;
@@ -42,5 +42,5 @@ body(onload='init()')
         include fader_faders.pug
     canvas#cover.touch_pickup_ignore.prevent-select
 
-include slider_gen_script
-include slider_script_vibration
+include fader/fader_gen
+include fader_action

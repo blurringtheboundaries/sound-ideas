@@ -1,0 +1,40 @@
+script.
+    let container = document.querySelector('#slider-container');
+    let rectArray = Array.from(document.querySelectorAll('#slider-bg .svg-fader')).map((rect)=>{return rect.getBoundingClientRect()});
+    const sliderCount = 12;
+    for(let i=0;i<sliderCount;i++){
+        let slider=document.createElement('input');
+        slider.className = 'slider';
+        slider.setAttribute('type','range');
+        slider.style.webkitAppearance = 'slider-vertical';
+        slider.style.width='10px';
+        
+        slider.setAttribute('orient','vertical');
+        slider.setAttribute('min','0');
+        slider.setAttribute('max','127');
+        slider.setAttribute('value','0');
+        //- slider.style.gridRow = i+1;
+        slider.style.gridColumn = i+1;
+        slider.style.position='absolute';
+        slider.style.top=rectArray[i].top+'px';
+        slider.style.left=rectArray[i].left+'px';
+        slider.style.top=rectArray[i].top+'px';
+        slider.style.right=rectArray[i].right+'px';
+        slider.style.bottom=rectArray[i].bottom+'px';
+        slider.style.height=rectArray[i].height+'px';
+        //- slider.style.width=rectArray[i].width+'px';
+        container.appendChild(slider);
+    }
+
+    window.onresize = function(){
+        document.querySelectorAll('input').forEach((slider,i)=>{
+            let rectArray = Array.from(document.querySelectorAll('#slider-bg rect')).map((rect)=>{return rect.getBoundingClientRect()});
+            slider.style.position='absolute';
+            slider.style.top=rectArray[i].top+'px';
+            slider.style.left=rectArray[i].left+'px';
+            slider.style.top=rectArray[i].top+'px';
+            slider.style.right=rectArray[i].right+'px';
+            slider.style.bottom=rectArray[i].bottom+'px';
+            slider.style.height=rectArray[i].height+'px';
+        })
+    }
