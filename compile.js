@@ -9,7 +9,8 @@ let pugFiles = [
     'fullscreen',
     'embed-demo',
     'embed-copper',
-    'setup'
+    'setup',
+    'fader'
     // 'note-player/copper'
 ]
 
