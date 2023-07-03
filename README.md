@@ -25,6 +25,7 @@ Please see the [wiki](https://github.com/blurringtheboundaries/sound-ideas/wiki)
 - [x] Faders
 - [ ] Chord sequencer (with MIDI export)
 - [ ] Drum machine (with MIDI export)
+- [ ] Mixer / crossfader
 
 ## Notes on licensing and accessibility
 
