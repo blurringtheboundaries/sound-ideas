@@ -2,11 +2,20 @@
 
 A collection of digital instruments and collaborative music-making tools for the web.
 
-This resource was developed in collaboration with [National accessArts Centre](https://accessarts.ca/) as part of their Digital Now project, through online collaboration and a series of workshops (2021-2023).
+This resource was developed in collaboration with [National accessArts Centre](https://accessarts.ca/) as part of their Digital Now project ([accessartsmusic.ca](https://accessartsmusic.ca/)), through online collaboration and a series of workshops (2021-2023).
 
 # Development notes
 
 Many of the instruments included started life during workshops with [National accessArts Centre](https://accessarts.ca/) and [Blurring the Boundaries Arts](https://blurringtheboundaries.org/), using web socket connections to allow multiple users to collaborate in real time.  For the time being, we have removed the web socket connections and replaced them with a single user interface. 
+
+Each instrument represents a template for use by artists at the NaAC and beyond.
+
+We have included embeddable versions of the instruments to be used within other websites (e.g. the NaAC website, Wordpress), and a gallery page to showcase the individual instruments.
+
+We've used pug templates to generate the HTML, and a combination of vanilla JS and jQuery for the front-end functionality.
+The JS relies heavily on libraries developed by Charles Matthews during the project and during our CAMIN research.  For an overview, go to [https://www.npmjs.com/~matthewscharles](https://www.npmjs.com/~matthewscharles).
+
+Please see the [wiki](https://github.com/blurringtheboundaries/sound-ideas/wiki) for more information.
 
 ## Pages in development
 - [x] [Home](https://blurringtheboundaries.github.io/sound-ideas/)
@@ -23,11 +32,15 @@ Many of the instruments included started life during workshops with [National ac
 
 Instead, as much as possible, we have developed the back-end code as a set of open-source libraries/modules to be published on NPM.
 
-This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  Some instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.
+This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  Some instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.  Our preference is to work directly with testers with lived experience!
 
-If you encounter any barriers while using any of the pages, please let us know and we will do our best to fix them.
+If you encounter any barriers while using any of the pages, please let us know and we will do our best to fix them.  If possible, please use the [issues page](https://github.com/blurringtheboundaries/sound-ideas/issues).
 
 If you would like to use (or contribute to) any of the code here, or simply have any questions, get in touch!
+
+### Accessibility of the Github pages site
+- To increase font size, please use your browser's zoom function.  
+- We are looking into a high contrast option for the site.  
 
 ### Icons
 Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated by the noun prefix in the relevant filenames.  
