@@ -20,8 +20,8 @@ html
         .title
             
             h1(style="display:flex;vertical-align:middle;")
-                img(src='../svg/noun-acoustic-guitar-1602005-676767.svg' style="width:2rem;height:2rem;" alt="Acoustic guitar")
-                span Chord Player v. 0.1
+                
+                span Chord Sequencer v. 0.2
             p#playButtons.buttonBar
                 button#playB.uiButton play
                 button#download.uiButton download loop 
@@ -65,48 +65,39 @@ html
                     p
                         button#setChord set to current chord
         .buttonBar
-        h2 Strings
-            #strings.strings
-                button#string_1.stringButton 1
-                button#string_2.stringButton 2
-                button#string_3.stringButton 3
-                button#string_4.stringButton 4
-                button#string_5.stringButton 5
-                button#string_6.stringButton 6
+
         #footer.footer
             #instructions 
-            h2 Instructions
-            h3 Playing the sequencer 
-            p Tap on the coloured squares to turn notes on and off.  Press the play button to hear the sequence.
-            p Use the row of boxes under the sequencer to set the sequence.  You can choose four different chords to put into order.  The sequence is eight bars long.
-            h3 Playing the guitar
-            p Play the guitar strings by tapping or the strings or pressing the A D S F G H keys.
-            p Choose a chord by pressing the 1 - 4 number keys.
-            p Choose different chords with the drop-down chord menus. To store a chord to a number, hold down the shift key while pressing the number of your choice.
-            details 
-                summary <b>Options</b>
-                h3 Chord selection display style
-                select#selectionStyle
-                    option numbers
-                    option abcd
-                    option faces
-                h3 Link for this page
-                input#generatedURL(style='width:100%;')
+                h2 Instructions
+                h3 Playing the sequencer 
+                p Tap on the coloured squares to turn notes on and off.  Press the play button to hear the sequence.
+                p Use the row of boxes under the sequencer to set the sequence.  You can choose four different chords to put into order.  The sequence is eight bars long.
+                h3 Playing the guitar
+                p Play the guitar strings by tapping or the strings or pressing the A D S F G H keys.
+                p Choose a chord by pressing the 1 - 4 number keys.
+                p Choose different chords with the drop-down chord menus. To store a chord to a number, hold down the shift key while pressing the number of your choice.
+                details 
+                    summary <b>Options</b>
+                    h3 Chord selection display style
+                    select#selectionStyle
+                        option numbers
+                        option abcd
+                        option faces
+                    h3 Link for this page
+                    input#generatedURL(style='width:100%;')
             
             p. 
-                Charles Matthews 2022 for Blurring the Boundaries / NaAC Ensemble. 
+                Charles Matthews 2022,2023 for Blurring the Boundaries / NaAC Ensemble. 
             p.
                 Guitar samples by <a href=https://freesound.org/people/Kyster/packs/7397/>Kyster</a>, provided with the <a href=https://creativecommons.org/licenses/by/3.0/>Creative Commons Attribution 3.0 license</a>.  The sounds have been edited for timing.
             p. 
                 Chord library from <a href='https://github.com/tombatossals/chords-db'>chords-db</a>.
-            p.
-                Shout out to John Kelly for the original guitar concept: <a href=https://www.drakemusic.org/technology/instruments-projects/the-kellycaster/>find out about the Kellycaster at this link</a>!
             
-        //- #display
     include chord-sequencer/status
 script.
     $(function(){
         $('#playB').on('click',function(){
+            // this should use an aria role/checked attribute..
             let toggle = this.innerHTML.includes('play');
             console.log('toggle:',toggle)
             this.innerHTML = toggle ? 'stop' : 'play'
@@ -114,8 +105,8 @@ script.
         })
 
         $('#download').on('click',function(){
-                exportSequence();
-                downloadBlob(file, 'loop.mid', 'application/octet-stream');          
+            exportSequence();
+            downloadBlob(file, 'loop.mid', 'application/octet-stream');          
         })
 
         $('#randomize').on('click',function(){
