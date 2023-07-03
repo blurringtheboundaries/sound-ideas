@@ -35,6 +35,7 @@ Please see the [wiki](https://github.com/blurringtheboundaries/sound-ideas/wiki)
 - [x] Note player (will feature artwork by NaAC artists)
 - [x] Chord player
 - [x] Faders
+- [x] [Instrument customisation page](https://blurringtheboundaries.github.io/sound-ideas/setup.html)
 - [ ] Chord sequencer (with MIDI export)
 - [ ] Drum machine (with MIDI export)
 - [ ] Mixer / crossfader
@@ -52,8 +53,6 @@ Instead, as much as possible, we have developed the back-end code as a set of op
 This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  We recognise that instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.  Our preference is to work directly with testers with lived experience!
 
 If you encounter any barriers while using any of the pages, please let us know and we will do our best to fix them.  If possible, please use the [issues page](https://github.com/blurringtheboundaries/sound-ideas/issues).
-
-If you would like to use (or contribute to) any of the code here, or simply have any questions, get in touch!
 
 ### Accessibility of the main "Github pages" site
 - To increase font size, please use your browser's zoom function.  

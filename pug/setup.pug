@@ -41,7 +41,8 @@ html(lang='en')
     main
       h2.instrument__title Custom Instrument 
       section
-        p This page generates an instrument with a unique link to share with others.
+        p This page generates an instrument with a unique link to share with others.  This is intended as a replacement for preset panels in situations where an artist might wish to focus entirely on the instrument itself, or to generate an instrument to accompany a specific piece.
+        p Although the instrument can be previewed within the page below, it is recommended to use the generated link or QR code to play for any extended period of time.
       section#instrument__custom
         menu#toolbar.allowDefault(role='toolbar')
           li.toolbar__item(style='display:none;')
@@ -76,7 +77,6 @@ html(lang='en')
           button#generate__id__copy copy
           
         #generate__id__qr
-          //- p test
       h2 Instrument preview
       section#note-player.instrument__embed__container        
         iframe.embedded(src="note-player/copper.html?embed" allow="fullscreen")
