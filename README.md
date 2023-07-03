@@ -15,7 +15,11 @@ Depending on your needs, you may wish to start with the gallery, or with the wik
 
 ## QR Codes
 
-Through our experience in mixed in-person/long-distance workshops, we found it useful to have a way to quickly share links to the instruments -- sharing links via the Zoom chat was not always accessible to everyone.  We have included QR codes for each instrument in the gallery, and a demonstration of how these can be generated automatically is available on the [custom instrument page](https://blurringtheboundaries.github.io/sound-ideas/setup.html).  
+Through our experience in mixed in-person/long-distance workshops, we found it useful to have a way to quickly share links to the instruments -- sharing links via the Zoom chat was not always accessible to everyone, typing the links wasn't really an option, and while we had some success with a central link that was updated by the workshop leader during a session, ultimately we settled upon QR codes.
+
+We have included QR codes for each instrument in the gallery which can also be downloaded and printed. A demonstration of how these can be generated automatically is available on the [custom instrument page](https://blurringtheboundaries.github.io/sound-ideas/setup.html).  
+
+On the gallery page, the user can switch between the QR Codes and icons/thumbnails using a drop-down menu at the top of the page.
 
 # Development notes
 
