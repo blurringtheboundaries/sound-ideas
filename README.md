@@ -4,6 +4,15 @@ A collection of digital instruments and collaborative music-making tools for the
 
 This resource was developed in collaboration with [National accessArts Centre](https://accessarts.ca/) as part of their Digital Now project ([accessartsmusic.ca](https://accessartsmusic.ca/)), through online collaboration and a series of workshops (2021-2023).
 
+## How to navigate this repository
+
+This is something of an experiment for us, presenting three layers of content:
+- a front-facing gallery of instruments and tools
+- a GitHub repo (this one) containing the code for the instruments and links for the relative libraries/modules
+- a wiki containing notes on the development process and links to relevant resources
+
+Depending on your needs, you may wish to start with the gallery, or with the wiki.  The gallery is a good place to start if you are interested in the instruments themselves, and the wiki is a good place to start if you are primarily interested in the code and/or the development process (for example, if you have found this through a related research project).  Either way, we recommend playing with the instruments themselves first to get a feel for how they work.
+
 # Development notes
 
 Many of the instruments included started life during workshops with [National accessArts Centre](https://accessarts.ca/) and [Blurring the Boundaries Arts](https://blurringtheboundaries.org/), using web socket connections to allow multiple users to collaborate in real time.  For the time being, we have removed the web socket connections and replaced them with a single user interface. 
@@ -30,6 +39,7 @@ Please see the [wiki](https://github.com/blurringtheboundaries/sound-ideas/wiki)
 - [ ] Drum machine (with MIDI export)
 - [ ] Mixer / crossfader
 - [ ] Sound painting
+- [ ] Interactive music video
 
 ## Notes on licensing and accessibility
 
@@ -43,7 +53,7 @@ If you encounter any barriers while using any of the pages, please let us know a
 
 If you would like to use (or contribute to) any of the code here, or simply have any questions, get in touch!
 
-### Accessibility of the Github pages site
+### Accessibility of the main "Github pages" site
 - To increase font size, please use your browser's zoom function.  
 - We are looking into a high contrast option for the site.  
 
