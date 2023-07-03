@@ -111,8 +111,8 @@
       }
       #toolbar{
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
-        //- justify-content: space-between;
         align-items: center;
       }
       
@@ -207,14 +207,15 @@
         <div id="generate__id">
           <h3>Instrument address</h3>
           <p>Copy this address or save the QR code on the right to share your instrument with others.</p>
-          <div id="generate__id__container">
-            <textarea class="allowDefault" style="width:100%;" id="generate__id__url"></textarea>
-            <button style="width:100%;" id="generate__id__copy">copy</button>
+          <div id="generate__id__container" style="margin:0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <textarea class="allowDefault" style="width:80%;" id="generate__id__url"></textarea>
+            <button style="width:80%;" id="generate__id__copy">copy</button>
           </div>
         </div>
-        <div id="generate__id__qr" style="min-width:100px;"></div>
+        <div id="generate__id__qr__container" style="min-width:150px; min-height:150px;">
+          <div id="generate__id__qr" style="min-width:150px;min-height:150px;"></div>
+        </div>
       </section>
-      <h2>Instrument preview</h2>
       <section class="instrument__embed__container" id="note-player">       
         <iframe class="embedded" src="note-player/copper.html?embed" allow="fullscreen"></iframe>
       </section>
