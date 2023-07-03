@@ -26,14 +26,13 @@ html
                 button#playB.uiButton play
                 button#download.uiButton download loop 
             #sequence-container
-            include sequence.pug
+            include chord-sequencer/sequence
             
             p#shiftButtons.buttonBar 
                 button#shift-left.uiButton ⬅️ shift left
                 button#randomize.uiButton ⁉️ randomize ⁉️
                 button#shift-right.uiButton shift right ➡️
                 
-            //- h2 Chord sequencer
             p#chord_sequence.buttonBar
                 
                 each bar in [1,2,3,4,5,6,7,8]
@@ -93,7 +92,6 @@ html
                     option faces
                 h3 Link for this page
                 input#generatedURL(style='width:100%;')
-                //- button#copyLink copy link
             
             p. 
                 Charles Matthews 2022 for Blurring the Boundaries / NaAC Ensemble. 
@@ -103,9 +101,9 @@ html
                 Chord library from <a href='https://github.com/tombatossals/chords-db'>chords-db</a>.
             p.
                 Shout out to John Kelly for the original guitar concept: <a href=https://www.drakemusic.org/technology/instruments-projects/the-kellycaster/>find out about the Kellycaster at this link</a>!
-            //- include colourTest.pug
+            
         //- #display
-    include status.pug
+    include chord-sequencer/status
 script.
     $(function(){
         $('#playB').on('click',function(){
@@ -127,16 +125,20 @@ script.
         $('#shift-left').on('click',function(){
             sequenceRotate('left');
         }) 
+
         $('#shift-right').on('click',function(){
             sequenceRotate('right');          
         })
+
         $('#selectionStyle').on('input',function(){
             setChordNumbers(this.value);
             updateLink();
         })
+
         $('#copyLink').on('input',function(){
             copyLink();
         })
+
         $('#setChord').on('click',function(){
             selectChord(getCurrentChord(), true)
         })
@@ -145,5 +147,6 @@ script.
             document.querySelector('#selectionStyle').value = params.get('numberStyle');
             setChordNumbers(params.get('numberStyle'));
         }
+
         updateLink();
     })
