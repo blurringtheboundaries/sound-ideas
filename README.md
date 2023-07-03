@@ -13,6 +13,10 @@ This is something of an experiment for us, presenting three layers of content:
 
 Depending on your needs, you may wish to start with the gallery, or with the wiki.  The gallery is a good place to start if you are interested in the instruments themselves, and the wiki is a good place to start if you are primarily interested in the code and/or the development process (for example, if you have found this through a related research project).  Either way, we recommend playing with the instruments themselves first to get a feel for how they work.
 
+## QR Codes
+
+Through our experience in mixed in-person/long-distance workshops, we found it useful to have a way to quickly share links to the instruments -- sharing links via the Zoom chat was not always accessible to everyone.  We have included QR codes for each instrument in the gallery, and a demonstration of how these can be generated automatically is available on the [custom instrument page](https://blurringtheboundaries.github.io/sound-ideas/setup.html).  
+
 # Development notes
 
 Many of the instruments included started life during workshops with [National accessArts Centre](https://accessarts.ca/) and [Blurring the Boundaries Arts](https://blurringtheboundaries.org/), using web socket connections to allow multiple users to collaborate in real time.  For the time being, we have removed the web socket connections and replaced them with a single user interface. 
