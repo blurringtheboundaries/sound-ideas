@@ -207,10 +207,12 @@
         <div id="generate__id">
           <h3>Instrument address</h3>
           <p>Copy this address or save the QR code on the right to share your instrument with others.</p>
-          <input class="allowDefault" id="generate__id__url" type="text">
-          <button id="generate__id__copy">copy</button>
+          <div id="generate__id__container">
+            <textarea class="allowDefault" style="width:100%;" id="generate__id__url"></textarea>
+            <button style="width:100%;" id="generate__id__copy">copy</button>
+          </div>
         </div>
-        <div id="generate__id__qr"></div>
+        <div id="generate__id__qr" style="min-width:100px;"></div>
       </section>
       <h2>Instrument preview</h2>
       <section class="instrument__embed__container" id="note-player">       

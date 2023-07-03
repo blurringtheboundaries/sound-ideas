@@ -73,10 +73,11 @@ html(lang='en')
         #generate__id
           h3 Instrument address
           p Copy this address or save the QR code on the right to share your instrument with others.
-          input#generate__id__url.allowDefault(type="text")
-          button#generate__id__copy copy
+          div#generate__id__container
+            textarea(style="width:100%;")#generate__id__url.allowDefault
+            button(style="width:100%;")#generate__id__copy copy
           
-        #generate__id__qr
+        #generate__id__qr(style="min-width:100px;")
       h2 Instrument preview
       section#note-player.instrument__embed__container        
         iframe.embedded(src="note-player/copper.html?embed" allow="fullscreen")
