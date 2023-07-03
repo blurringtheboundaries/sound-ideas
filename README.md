@@ -24,7 +24,7 @@ Please see the [wiki](https://github.com/blurringtheboundaries/sound-ideas/wiki)
 - [x] Chord player
 - [x] Faders
 - [ ] Chord sequencer (with MIDI export)
-- [ ] Drum machine
+- [ ] Drum machine (with MIDI export)
 
 ## Notes on licensing and accessibility
 
