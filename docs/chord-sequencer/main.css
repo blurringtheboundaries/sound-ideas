@@ -1,0 +1,120 @@
+@keyframes spin1 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin2 {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes idle {}
+@keyframes highlight {}
+.spinner {
+  animation: spin2 4s linear infinite;
+}
+
+body {
+  background-color: beige;
+  font-family: Arial;
+}
+
+.highlighted {
+  background-color: red;
+}
+
+select {
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+button {
+  border: 1px solid black;
+  background-color: lightgray;
+  transition: transform 0.1s;
+}
+button:active {
+  /* background-color: #3e8e41;
+  box-shadow: 0 5px #666; */
+  transform: translateY(2px);
+}
+
+.uiButton {
+  min-width: 10rem;
+  font-size: 1.5rem;
+}
+
+.chordButton {
+  padding: 1rem;
+  font-size: 2rem;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  transition: background-color 0.2s ease-out;
+}
+
+.stringButton {
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 4rem;
+  height: 8rem;
+  text-align: center;
+  transition: background-color 0.2s ease-out;
+}
+
+#sequencer {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#sequence-container {
+  text-align: center;
+  display: inline-block;
+}
+
+#chord_sequence {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chord_sequence_bar {
+  display: block;
+}
+
+.chord_button_block {
+  display: inline-block;
+}
+
+.buttonBar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.5em;
+  border-style: double;
+  padding: 0.5em;
+  border-width: 1px;
+  background-color: #e9f5dc;
+}
+
+#sequence-container {
+  display: inline-flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  margin: 0.5em;
+}
+
+.chordSelectionBar {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.5em;
+  border-style: double;
+  padding: 0.5em;
+  border-width: 1px;
+  background-color: #e9f5dc;
+}
