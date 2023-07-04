@@ -40,17 +40,21 @@ Please see the [wiki](https://github.com/blurringtheboundaries/sound-ideas/wiki)
 ## Pages in development
 - [x] [Home](https://blurringtheboundaries.github.io/sound-ideas/)
 - [x] [Gallery](https://blurringtheboundaries.github.io/sound-ideas/gallery.html)
-- [x] Note player (will feature artwork by NaAC artists)
+- [x] Note player (with custom overlays, will feature artwork by NaAC artists)
 - [x] Chord player
 - [x] Faders
 - [x] [Instrument customisation page](https://blurringtheboundaries.github.io/sound-ideas/setup.html)
-- [ ] Chord sequencer (with MIDI export)
+- [x] Chord sequencer (with MIDI export) -- WIP
 - [ ] Drum machine (with MIDI export)
 - [ ] Mixer / crossfader
 - [ ] Sound painting
-- [ ] Interactive music video
+- [ ] Interactive music video (based on YouTube clip)
 
 In addition to screen-based instruments, we are also using custom boards (mostly Arduino-based) to facilitate physical interaction and alternative outputs including DMX.  These are not currently included in this repository, but we are happy to share details on request.
+
+## Networkable pages
+
+Future pages should include a random ID so that users can invite others to join.
 
 ## Notes on licensing and accessibility
 
@@ -58,7 +62,7 @@ In addition to screen-based instruments, we are also using custom boards (mostly
 
 Instead, as much as possible, we have developed the back-end code as a set of open-source libraries/modules, available in some shape or form on [NPM](https://www.npmjs.com/~matthewscharles).
 
-This is still a work in progress, and at present we are using the repository for testing and communicating with our collaborators.  We recognise that instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.  Our preference is to work directly with testers with lived experience!
+This is still a work in progress. At present we are using the repository for testing and communicating with our collaborators.  We recognise that instruments may have limited functionality or accessibility issues during testing, and may fail automated accessibility checkers in part due to our custom touch screen interfaces.  Our preference is to work directly with testers with lived experience!
 
 If you encounter any barriers while using any of the pages, please let us know and we will do our best to fix them.  If possible, please use the [issues page](https://github.com/blurringtheboundaries/sound-ideas/issues).
 
@@ -69,17 +73,18 @@ If you encounter any barriers while using any of the pages, please let us know a
 ### Icons
 Some icons have been used from [Noun Project](https://thenounproject.com/) as indicated by the noun prefix in the relevant filenames.  
 
-We have incorporated these through a paid license, but they may also be licensed through the original artists under a Creative Commons license.  Please check the Noun Project site for details.  
+We have incorporated these through a paid license, but they may also be licensed through the original artists under a Creative Commons license.  
+Please check the Noun Project site for details.  
 
 ### Sound files
-Some sound files in the instrument demos have been used from [Freesound](https://freesound.org/) as indicated by the freesound prefix in the relevant filenames.  
+Some sound files within the instrument demos have been used from [Freesound](https://freesound.org/), as indicated by the freesound prefix in the relevant filenames.  
 
 Relevant attributions and licenses will be uploaded alongside the files.
 
 - Guitar samples by <a href=https://freesound.org/people/Kyster/packs/7397/>Kyster</a>, provided with the <a href=https://creativecommons.org/licenses/by/3.0/>Creative Commons Attribution 3.0 license</a>.  The sounds have been edited for timing.
 
 ### Additional libraries
-Chords used in the chord sequencer example (guitar.json) from [chords-db](https://www.npmjs.com/package/@tombatossals/chords-db)
+Example guitar chords used in the chord sequencer demo are taken from [chords-db](https://www.npmjs.com/package/@tombatossals/chords-db) (guitar.json).
 
 ## Acknowledgements
 

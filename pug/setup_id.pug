@@ -1,5 +1,7 @@
 script.
+
     let generator;
+    
     const generateQRCodeFromApi = (url, id, color) => {
         let qrCode = document.createElement('img');
         let qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
@@ -8,6 +10,7 @@ script.
         qrCode.setAttribute('class', 'id__qr__png');
         return qrCode;
     }
+
     const setupLoad = () =>{
         generator = {
             uniqueId:SoundIdeas.generateRandomId(),

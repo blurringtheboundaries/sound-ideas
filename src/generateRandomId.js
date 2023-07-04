@@ -1,5 +1,5 @@
 /**
- * Generate a random ID of a given length
+ * Generate a random ID of a given length, to be used for collaborative instrument demo pages
  * @param {number} length 
  * @returns {string}
  */
