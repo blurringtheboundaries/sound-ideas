@@ -7,7 +7,6 @@
 
 var params = new URLSearchParams(window.location.search);
 var offset = 0.01;
-var count = 0;
 
 var settings = {
     feedback: true,
@@ -38,14 +37,12 @@ Guitar.prototype = {
 Guitar.prototype.constructor = Guitar;
 
 Guitar.prototype.mute = function () {
-    var _this = this;
-
     var selection = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.openStrings;
 
     selection.forEach(function (x, i) {
         var thisNote = _this.position(0)[i];
         // if(thisNote!=-1)this.strings[i].triggerRelease(cm.mtof(x+chorder.position(0)[i]))
-        if (thisNote != -1) _this.strings[i].releaseAll();
+        if (thisNote != -1) this.strings[i].releaseAll();
     });
 
     return this;
@@ -75,12 +72,10 @@ Guitar.prototype.position = function (pos) {
 
 
 Guitar.prototype.update = function () {
-    var _this = this;
-
     this.root = $('#root').val().replace('♯', 'sharp').replace('♭', 'flat');
     this.type = $('#type').val();
     this.chord = c.chords[this.root].filter(function (x) {
-        return x.suffix == _this.type;
+        return x.suffix == this.type;
     })[0];
     $('#display').text('');
     this.position(0).forEach(function (note, i) {
@@ -93,6 +88,7 @@ Guitar.prototype.update = function () {
 
 /**
  * colours
+ * todo: consider using the library created with joel, at least as an option
  */
 var colours = {
     C: '#ff0300',
@@ -114,7 +110,6 @@ var colours = {
 var openStrings = [40, 45, 50, 55, 59, 64];
 var keystrokes = ['A', 'S', 'D', 'F', 'G', 'H'];
 
-
 var samples = {
     guitar: 'samples/117710__kyster__c.wav',
     E1: 'samples/117714__kyster__e.wav',
@@ -133,20 +128,6 @@ var samples = {
 var display = void 0,
     grid = void 0;
 var count = -1;
-function getLink() {
-    var searchString = window.location.search;
-    var output = searchString == '' ? window.location.href + '?' + params.toString() : window.location.href.replace(searchString, '?' + params.toString());
-    return output;
-}
-
-function copyLink() {
-    navigator.clipboard.writeText(getLink());
-}
-
-function updateLink() {
-    document.querySelector('#generatedURL').value = getLink();
-}
-
 
 var chorder = new Guitar();
 
