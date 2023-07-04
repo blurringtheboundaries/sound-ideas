@@ -468,17 +468,12 @@ function getSequence() {
 // 🏵️ sequence export ends 🏵️ 
 // --------------------------------------
 
-
-
-
-
 var sequencerGrid = [];
 
 var sequence = [];
 for (var i = 0; i < 8; i++) {
     sequence.push([false, false, false, false, false, false]);
 }
-
 
 function playButton() {
     // nb use aria
@@ -487,7 +482,6 @@ function playButton() {
     $('#playB').text(start ? '⏹️ stop' : '▶️ play');
     Tone.Transport[start ? 'start' : 'stop']();
 }
-
 
 function selectBar(subCount) {
     [1, 2, 3, 4, 5, 6, 7, 8].forEach(function (x) {
@@ -512,7 +506,6 @@ function sequenceRandom() {
 
 function sequenceRotate() {
     var direction = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'right';
-
     sequence = cm.rot(sequence, direction == 'right' ? -1 : 1);
 }
 
@@ -526,7 +519,6 @@ function setGrid() {
             sequencerGrid[row][col].dataset.row = row;
             sequencerGrid[row][col].dataset.col = col;
             sequencerGrid[row][col].oninput = function () {
-                //- console.log(this.dataset.col, this.dataset.row, this.checked)
                 sequence[col][row] = this.checked;
             };
         };
@@ -546,7 +538,6 @@ function setSequence() {
         count++;
         if (count % 8 == 0 && settings.sequenceChords) {
             var subCount = count / 8 % 8 + 1;
-
             selectBar(subCount);
         }
 
@@ -556,9 +547,6 @@ function setSequence() {
         });
     }, '8n');
 }
-
-setSequence();
-
 
 function Display() {
     this.width = this.cells * this.rows;
@@ -750,6 +738,7 @@ function touchStarted() {
         touchTime = millis();
         if (!touchReleased) return;
         touchReleased = false;
+        
         var _ref = [int(mouseX / display.width * 8), int(mouseY / display.height * 6)],
             x = _ref[0],
             y = _ref[1];
@@ -771,7 +760,6 @@ function touchStarted() {
 }
 
 function touchEnded() {
-    
     touchReleased = true;
 }
 
@@ -781,7 +769,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 function windowResized() {
     resizeCanvas(display.width, display.height);
-    [0, 1, 2, 3, 4, 5, 6, 7].forEach(function (count) {});
+    [0, 1, 2, 3, 4, 5, 6, 7].forEach(function (count) {
+        // did this have a purpose, once?
+    });
 
     document.querySelectorAll('.gridBox').forEach(function (element) {
         var _element$id$split$sli = element.id.split('_').slice(1).map(function (item) {
@@ -790,9 +780,11 @@ function windowResized() {
             _element$id$split$sli2 = _slicedToArray(_element$id$split$sli, 2),
             y = _element$id$split$sli2[0],
             x = _element$id$split$sli2[1];
-
+        // todo: use classes
         element.setAttribute('position', 'absolute');
         element.setAttribute('display', 'block');
         
     });
 }
+
+setSequence();

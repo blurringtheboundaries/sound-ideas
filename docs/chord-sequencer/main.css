@@ -70,8 +70,16 @@ button:active {
 }
 
 #sequence-container {
-  text-align: center;
-  display: inline-block;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#defaultCanvas0{
+  border: solid black 2px;
+  display:block;
+  margin:auto;
 }
 
 #chord_sequence {
