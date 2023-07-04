@@ -76,6 +76,8 @@ Some sound files in the instrument demos have been used from [Freesound](https:/
 
 Relevant attributions and licenses will be uploaded alongside the files.
 
+- Guitar samples by <a href=https://freesound.org/people/Kyster/packs/7397/>Kyster</a>, provided with the <a href=https://creativecommons.org/licenses/by/3.0/>Creative Commons Attribution 3.0 license</a>.  The sounds have been edited for timing.
+
 ## Acknowledgements
 
 We are grateful to acknowledge the support of [Canada Council for the Arts / Conseil des arts du Canada](https://canadacouncil.ca/) in the dvelopment of this project.
