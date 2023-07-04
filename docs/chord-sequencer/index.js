@@ -6,7 +6,7 @@ function Guitar() {
     for (var i = 0; i < 6; i++) {
         this.strings.push(new Tone.Sampler({
             urls: samples.nylon,
-            baseUrl: "../samples/nylon-guitar/"
+            baseUrl: "samples/nylon-guitar/"
         }).toDestination());
     }
 }
@@ -118,9 +118,9 @@ var keystrokes = ['A', 'S', 'D', 'F', 'G', 'H'];
 'use strict';
 
 var samples = {
-    guitar: '../samples/117710__kyster__c.wav',
-    E1: '../samples/117714__kyster__e.wav',
-    E3: '../samples/117706__kyster__3-oct-e.wav',
+    guitar: 'samples/117710__kyster__c.wav',
+    E1: 'samples/117714__kyster__e.wav',
+    E3: 'samples/117706__kyster__3-oct-e.wav',
     nylon: {
         E2: 'E2-btb-117677__kyster__e-open-string.wav',
         A2: 'A2-btb-117673__kyster__a-open-string.wav',
