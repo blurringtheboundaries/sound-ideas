@@ -10,9 +10,11 @@ let pugFiles = [
     'embed-demo',
     'embed-copper',
     'setup',
-    'fader'
-    // 'note-player/copper'
+    'fader',
+    'chord-sequencer'
 ]
+
+// 'note-player/copper'
 
 let pugSourceFolder = './pug';
 let pugOutputFolder = './docs'

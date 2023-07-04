@@ -13,11 +13,14 @@ html
         script(src="../external/p5.js")
         script(src="../external/shortcuts.js")
         script(src='../js/index.js')
+        style.
+            body{
+                width:95%;
+            }
     body
     main.container
         .title
-            h1(style="display:flex;vertical-align:middle;")
-                span Chord Sequencer v. 0.2
+            h1 Chord Sequencer v. 0.2
             p#playButtons.buttonBar
                 button#playB.uiButton play
                 button#download.uiButton download midi loop 

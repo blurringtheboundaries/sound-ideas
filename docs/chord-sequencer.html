@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chord sequencer</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./chord-sequencer/main.css">
+    <script src="../external/cm-functions1_0_0.js"></script>
+    <script src="../external/Tone.js"></script>
+    <script src="../external/jquery-3.6.0.js"></script>
+    <script src="../external/tonal.min.js"></script>
+    <script src="../external/Midi.js"></script>
+    <script src="../external/buffer.js"></script>
+    <script src="../external/p5.js"></script>
+    <script src="../external/shortcuts.js"></script>
+    <script src="../js/index.js"></script>
+    <style>
+      body{
+          width:95%;
+      }
+    </style>
+  </head>
+  <body></body>
+  <main class="container">
+    <div class="title">
+      <h1>Chord Sequencer v. 0.2</h1>
+      <p class="buttonBar" id="playButtons">
+        <button class="uiButton" id="playB">play</button>
+        <button class="uiButton" id="download">download midi loop </button>
+      </p>
+      <div id="sequence-container"></div>
+      <div id="sequencer"> 
+        <div style="display:inline;">
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_0" aria-label="note 1">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_1" aria-label="note 1">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_2" aria-label="note 1">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_3" aria-label="note 1">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_4" aria-label="note 1">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_5" aria-label="note 1">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_6" aria-label="note 1">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_0_7" aria-label="note 1">
+          </div><br>
+        </div>
+        <div style="display:inline;">
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_0" aria-label="note 2">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_1" aria-label="note 2">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_2" aria-label="note 2">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_3" aria-label="note 2">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_4" aria-label="note 2">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_5" aria-label="note 2">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_6" aria-label="note 2">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_1_7" aria-label="note 2">
+          </div><br>
+        </div>
+        <div style="display:inline;">
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_0" aria-label="note 3">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_1" aria-label="note 3">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_2" aria-label="note 3">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_3" aria-label="note 3">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_4" aria-label="note 3">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_5" aria-label="note 3">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_6" aria-label="note 3">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_2_7" aria-label="note 3">
+          </div><br>
+        </div>
+        <div style="display:inline;">
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_0" aria-label="note 4">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_1" aria-label="note 4">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_2" aria-label="note 4">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_3" aria-label="note 4">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_4" aria-label="note 4">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_5" aria-label="note 4">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_6" aria-label="note 4">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_3_7" aria-label="note 4">
+          </div><br>
+        </div>
+        <div style="display:inline;">
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_0" aria-label="note 5">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_1" aria-label="note 5">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_2" aria-label="note 5">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_3" aria-label="note 5">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_4" aria-label="note 5">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_5" aria-label="note 5">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_6" aria-label="note 5">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_4_7" aria-label="note 5">
+          </div><br>
+        </div>
+        <div style="display:inline;">
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_0" aria-label="note 6">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_1" aria-label="note 6">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_2" aria-label="note 6">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_3" aria-label="note 6">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_4" aria-label="note 6">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_5" aria-label="note 6">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_6" aria-label="note 6">
+          </div>
+          <div style="display:inline-block;">
+            <input class="gridBox" type="checkbox" id="check_5_7" aria-label="note 6">
+          </div><br>
+        </div>
+      </div>
+      <div id="sequencer_boxes">
+        <details class="sequenceBeat" id="gridBox_beat_0" aria-label="beat 1" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(0,0,0,1);opacity:0;">
+          <summary id="beat_0"></summary>
+        </details>
+        <details class="sequenceBeat" id="gridBox_beat_1" aria-label="beat 2" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(10,0,0,1);opacity:0;">
+          <summary id="beat_1"></summary>
+        </details>
+        <details class="sequenceBeat" id="gridBox_beat_2" aria-label="beat 3" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(20,0,0,1);opacity:0;">
+          <summary id="beat_2"></summary>
+        </details>
+        <details class="sequenceBeat" id="gridBox_beat_3" aria-label="beat 4" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(30,0,0,1);opacity:0;">
+          <summary id="beat_3"></summary>
+        </details>
+        <details class="sequenceBeat" id="gridBox_beat_4" aria-label="beat 5" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(40,0,0,1);opacity:0;">
+          <summary id="beat_4"></summary>
+        </details>
+        <details class="sequenceBeat" id="gridBox_beat_5" aria-label="beat 6" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(50,0,0,1);opacity:0;">
+          <summary id="beat_5"></summary>
+        </details>
+        <details class="sequenceBeat" id="gridBox_beat_6" aria-label="beat 7" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(60,0,0,1);opacity:0;">
+          <summary id="beat_6"></summary>
+        </details>
+        <details class="sequenceBeat" id="gridBox_beat_7" aria-label="beat 8" role="group" style="display:block;position:absolute;width:100%;height:100%;background-color:rgba(70,0,0,1);opacity:0;">
+          <summary id="beat_7"></summary>
+        </details>
+      </div>
+      <script>
+        document.querySelectorAll('.sequenceBeat').forEach(x=>{
+            document.body.prepend(x);
+            x.innerHTML = x.id.replace('_', ' ')
+        });
+        document.querySelectorAll('.gridBox').forEach((element=>{
+            
+            let [y,x] = element.id.split('_').slice(1).map(item=>parseInt(item))
+            
+            document.getElementById(`gridBox_beat_${x}`).appendChild(element);
+            document.getElementById(`gridBox_beat_${x}`).style.visibility='hidden';
+            
+        }));
+      </script>
+      <p class="buttonBar" id="shiftButtons"> 
+        <button class="uiButton" id="shift-left">⬅️ shift left</button>
+        <button class="uiButton" id="randomize">⁉️ randomize ⁉️</button>
+        <button class="uiButton" id="shift-right">shift right ➡️</button>
+      </p>
+      <p class="buttonBar" id="chord_sequence"> 
+        <select class="chord_sequence_bar" id="chord_sequence_1">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+        <select class="chord_sequence_bar" id="chord_sequence_2">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+        <select class="chord_sequence_bar" id="chord_sequence_3">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+        <select class="chord_sequence_bar" id="chord_sequence_4">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+        <select class="chord_sequence_bar" id="chord_sequence_5">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+        <select class="chord_sequence_bar" id="chord_sequence_6">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+        <select class="chord_sequence_bar" id="chord_sequence_7">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+        <select class="chord_sequence_bar" id="chord_sequence_8">
+          <option class="chordOption" data-value="1">1</option>
+          <option class="chordOption" data-value="2">2</option>
+          <option class="chordOption" data-value="3">3</option>
+          <option class="chordOption" data-value="4">4</option>
+        </select>
+      </p>
+    </div>
+    <div class="chordSelectionBar">
+      <div class="chord-selection">
+        <h2>Chord selection
+          <div id="song">
+            <div class="chord_button_block">
+              <button class="chordButton" id="button_1" data-value="1">1</button>
+              <div data-value="1">chord          </div>
+            </div>
+            <div class="chord_button_block">
+              <button class="chordButton" id="button_2" data-value="2">2</button>
+              <div data-value="2">chord</div>
+            </div>
+            <div class="chord_button_block">
+              <button class="chordButton" id="button_3" data-value="3">3</button>
+              <div data-value="3">chord</div>
+            </div>
+            <div class="chord_button_block">
+              <button class="chordButton" id="button_4" data-value="4">4</button>
+              <div data-value="4">chord</div>
+            </div>
+          </div>
+        </h2>
+      </div>
+      <div class="chord-edit">
+        <h2>Chord editor
+          <div id="chords"> 
+            <select id="root"></select>
+            <select id="type"></select>
+          </div>
+          <p>
+            <button id="setChord">set to current chord</button>
+          </p>
+        </h2>
+      </div>
+    </div>
+    <div class="buttonBar"></div>
+    <div class="footer" id="footer">
+      <div id="instructions"> 
+        <h2>Instructions</h2>
+        <h3>Playing the sequencer </h3>
+        <p>Tap on the coloured squares to turn notes on and off.  Press the play button to hear the sequence.</p>
+        <p>Use the row of boxes under the sequencer to set the sequence.  You can choose four different chords to put into order.  The sequence is eight bars long.</p>
+        <h3>Playing the guitar</h3>
+        <p>Choose different chords with the drop-down chord menus. To store a chord to a number, hold down the shift key while pressing the number of your choice.</p>
+        <details> 
+          <summary><b>Options</b></summary>
+          <h3>Chord selection display style</h3>
+          <select id="selectionStyle">
+            <option>numbers</option>
+            <option>abcd</option>
+            <option>faces</option>
+          </select>
+        </details>
+      </div>
+      <details>
+        <summary><b>Credits</b></summary>
+        <p>Charles Matthews 2022,2023 for Blurring the Boundaries / NaAC Ensemble. </p>
+        <p>Guitar samples by <a href=https://freesound.org/people/Kyster/packs/7397/>Kyster</a>, provided with the <a href=https://creativecommons.org/licenses/by/3.0/>Creative Commons Attribution 3.0 license</a>.  The sounds have been edited for timing.</p>
+        <p>
+          Chord library from <a href='https://github.com/tombatossals/chords-db'>chords-db</a>.
+          
+        </p>
+      </details>
+    </div>
+  </main>
+  <div tab-index="-1" role="status" label="Latest status update" style="display:block;position:absolute;opacity:0;top:-100;left:-100;">
+    <p id="status_updates"></p>
+  </div>
+</html>
+<script>
+  $(function(){
+      $('#playB').on('click',function(){
+          // this should use an aria role/checked attribute..
+          let toggle = this.innerHTML.includes('play');
+          console.log('toggle:',toggle)
+          this.innerHTML = toggle ? 'stop' : 'play'
+          playButton(toggle);       
+      })
+  
+      $('#download').on('click',function(){
+          exportSequence();
+          downloadBlob(file, 'loop.mid', 'application/octet-stream');          
+      })
+  
+      $('#randomize').on('click',function(){
+          sequenceRandom();
+      })       
+  
+      $('#shift-left').on('click',function(){
+          sequenceRotate('left');
+      }) 
+  
+      $('#shift-right').on('click',function(){
+          sequenceRotate('right');          
+      })
+  
+      $('#selectionStyle').on('input',function(){
+          setChordNumbers(this.value);
+          updateLink();
+      })
+  
+      $('#copyLink').on('input',function(){
+          copyLink();
+      })
+  
+      $('#setChord').on('click',function(){
+          selectChord(getCurrentChord(), true)
+      })
+      
+      if(params.has('numberStyle')) {
+          document.querySelector('#selectionStyle').value = params.get('numberStyle');
+          setChordNumbers(params.get('numberStyle'));
+      }
+  
+      updateLink();
+  })
+</script>
