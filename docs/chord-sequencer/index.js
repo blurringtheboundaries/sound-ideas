@@ -89,10 +89,9 @@ Guitar.prototype.update = function () {
     return this;
 };
 
-
 /**
  * colours
- * todo: consider using the library created with joel, at least as an option
+ * todo: consider using the library created with Joel, at least as an option
  */
 var colours = {
     C: '#ff0300',
@@ -109,7 +108,6 @@ var colours = {
     'A#': '#6d00ff',
     B: '#f600ff'
 };
-
 
 var openStrings = [40, 45, 50, 55, 59, 64];
 var keystrokes = ['A', 'S', 'D', 'F', 'G', 'H'];
@@ -128,13 +126,11 @@ var samples = {
     }
 };
 
-
 var display = void 0,
     grid = void 0;
 var count = -1;
 
 var chorder = new Guitar();
-
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -142,6 +138,7 @@ var songstrokes = [1, 2, 3, 4];
 var song = ['C major', 'F major', 'G major', 'A minor'];
 
 var shiftKey = false;
+// used by json reader
 var c = {};
 
 /**
@@ -224,8 +221,7 @@ function setMenus(rootMenu) {
     });
 
     setTypes('C');
-    rootMenu.on('input', function () {
-        // setTypes($(this).val());        
+    rootMenu.on('input', function () {    
         setTypes(this.value);
         chorder.update();
     });
@@ -245,12 +241,10 @@ function setTypes(root) {
 
 function setButtons() {
     document.querySelectorAll('.chordButton').forEach(function (x) {
-        // console.log(x.id)
         x.setAttribute('data-number', parseInt(x.id.replace('button_', '')));
         x.setAttribute('role', 'switch');
         x.setAttribute('aria-checked', false);
         x.addEventListener('click', function () {
-            // console.log(this.dataset.number)
             selectChord(this.dataset.number, shiftKey);
         });
     });
@@ -258,10 +252,8 @@ function setButtons() {
 
 function setStringButtons() {
     document.querySelectorAll('.stringButton').forEach(function (x) {
-        // console.log(x.id)
         x.setAttribute('data-number', parseInt(x.id.replace('string_', '') - 1));
         x.addEventListener('click', function () {
-            // console.log(this.dataset.number)
             selectString(this.dataset.number, true);
             chorder.pluck(this.dataset.number);
         });
@@ -336,6 +328,7 @@ window.addEventListener('keyup', function (e) {
     keyboard.shiftKey = e.getModifierState('Shift');
 });
 
+// alternative chord labelling requested during initial NaAC meeting
 
 var menuDictionary = {
     numbers: {
@@ -357,6 +350,7 @@ var menuDictionary = {
         '4': 'D'
     }
 };
+
 var numberClasses = ['.chordButton', '.chordOption'];
 
 function setChordNumbers(entry) {
@@ -382,11 +376,8 @@ function exportSequence() {
             sequencerGrid.forEach(function (row, i) {
                 row.forEach(function (col, j) {
                     var note = openStrings[i] + chorder.position(0)[i];
-                    // console.log(col.checked)
                     if (col.checked && chorder.position(0)[i] >= 0) {
-                        // console.log('bar:',bar, 'j/4:', j/4, 'bar+(j/4):', bar+(j/4))
                         track.addNote({ midi: note, time: bar * 2 + j / 4, duration: 0.25 });
-                        // console.log(note,j/4)
                     }
                 });
             });
@@ -683,7 +674,6 @@ function draw() {
     drawGrid();
 }
 
-
 function drawGrid() {
     if (!chorder.ready) return false;
     sequence.forEach(function (col, x) {
@@ -738,7 +728,7 @@ function touchStarted() {
         touchTime = millis();
         if (!touchReleased) return;
         touchReleased = false;
-        
+
         var _ref = [int(mouseX / display.width * 8), int(mouseY / display.height * 6)],
             x = _ref[0],
             y = _ref[1];
