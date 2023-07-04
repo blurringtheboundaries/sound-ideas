@@ -27,8 +27,8 @@
       <div class="title">
         <h1>Chord Sequencer v. 0.2</h1>
         <p class="buttonBar" id="playButtons">
-          <button class="uiButton" id="playB">play</button>
-          <button class="uiButton" id="download">download midi loop </button>
+          <button class="uiButton" id="playB">▶️ play</button>
+          <button class="uiButton" id="download">download midi loop 💾</button>
         </p>
         <div id="sequence-container"></div>
         <div id="sequencer"> 
@@ -231,7 +231,7 @@
         </script>
         <p class="buttonBar" id="shiftButtons"> 
           <button class="uiButton" id="shift-left">⬅️ shift left</button>
-          <button class="uiButton" id="randomize">⁉️ randomize ⁉️</button>
+          <button class="uiButton" id="randomize">⁉️ random ⁉️</button>
           <button class="uiButton" id="shift-right">shift right ➡️</button>
         </p>
         <p class="buttonBar" id="chord_sequence"> 
@@ -354,8 +354,6 @@
       $('#playB').on('click',function(){
           // this should use an aria role/checked attribute..
           let toggle = this.innerHTML.includes('play');
-          console.log('toggle:',toggle)
-          this.innerHTML = toggle ? 'stop' : 'play'
           playButton(toggle);       
       })
   

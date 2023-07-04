@@ -484,7 +484,7 @@ function playButton() {
     // nb use aria
     var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     if (Tone.now() <= 0.1) Tone.start();
-    $('#playB').text(start ? 'stop' : 'play');
+    $('#playB').text(start ? '⏹️ stop' : '▶️ play');
     Tone.Transport[start ? 'start' : 'stop']();
 }
 

@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./sound-ideas-main.js" type="module"></script>
-    <link rel="stylesheet" href="./css/main.css">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./sound-ideas-main.js" type="module"></script>
     <title>Sound Ideas: custom instrument</title>
     <script>
       let generator;
+      
       const generateQRCodeFromApi = (url, id, color) => {
           let qrCode = document.createElement('img');
           let qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
@@ -19,6 +20,7 @@
           qrCode.setAttribute('class', 'id__qr__png');
           return qrCode;
       }
+      
       const setupLoad = () =>{
           generator = {
               uniqueId:SoundIdeas.generateRandomId(),

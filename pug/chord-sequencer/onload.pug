@@ -3,8 +3,6 @@ script.
         $('#playB').on('click',function(){
             // this should use an aria role/checked attribute..
             let toggle = this.innerHTML.includes('play');
-            console.log('toggle:',toggle)
-            this.innerHTML = toggle ? 'stop' : 'play'
             playButton(toggle);       
         })
 

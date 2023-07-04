@@ -6,3 +6,5 @@ Notes from development sessions with NaAC artists, 2022.
 - more space (around, within the grid)
 - make numbers bigger
 - separate out chord player and chord sequencer
+
+NaAC faciltators/artists also requested preset rhythms/sequences for the chords.
