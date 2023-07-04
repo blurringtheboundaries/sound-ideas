@@ -1,5 +1,5 @@
 // monolith from a previous sketch...removing unnecessary elements
-'use strict';
+// 'use strict';
 
 // --------------------------------------
 // 🔴 main code begins 🔴 
@@ -15,8 +15,9 @@ var settings = {
 };
 
 function Guitar() {
+    var _this = this;
     for (var i = 0; i < 6; i++) {
-        this.strings.push(new Tone.Sampler({
+        _this.strings.push(new Tone.Sampler({
             urls: samples.nylon,
             baseUrl: "samples/nylon-guitar/"
         }).toDestination());
@@ -37,6 +38,7 @@ Guitar.prototype = {
 Guitar.prototype.constructor = Guitar;
 
 Guitar.prototype.mute = function () {
+    var _this = this;
     var selection = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.openStrings;
 
     selection.forEach(function (x, i) {
@@ -72,10 +74,12 @@ Guitar.prototype.position = function (pos) {
 
 
 Guitar.prototype.update = function () {
+    var _this = this;
+    
     this.root = $('#root').val().replace('♯', 'sharp').replace('♭', 'flat');
     this.type = $('#type').val();
     this.chord = c.chords[this.root].filter(function (x) {
-        return x.suffix == this.type;
+        return x.suffix == _this.type;
     })[0];
     $('#display').text('');
     this.position(0).forEach(function (note, i) {

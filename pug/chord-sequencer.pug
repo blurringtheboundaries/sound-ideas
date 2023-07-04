@@ -18,75 +18,75 @@ html
                 width:95%;
             }
     body
-    main.container
-        .title
-            h1 Chord Sequencer v. 0.2
-            p#playButtons.buttonBar
-                button#playB.uiButton play
-                button#download.uiButton download midi loop 
-            #sequence-container
-            include chord-sequencer/sequence
-            p#shiftButtons.buttonBar 
-                button#shift-left.uiButton ⬅️ shift left
-                button#randomize.uiButton ⁉️ randomize ⁉️
-                button#shift-right.uiButton shift right ➡️
-                
-            p#chord_sequence.buttonBar  
-                each bar in [1,2,3,4,5,6,7,8]
-                    select.chord_sequence_bar(id=`chord_sequence_${bar}`)
-                        each ch in [1,2,3,4]
-                            option.chordOption(data-value=ch)= ch
-        .chordSelectionBar
-            .chord-selection
-                h2 Chord selection
-                    #song
-                        .chord_button_block
-                            button#button_1.chordButton(data-value='1') 1
-                            div#chord_display_1.chord_button__display(data-value='1') chord          
-                        .chord_button_block
-                            button#button_2.chordButton(data-value='2') 2
-                            div#chord_display_2.chord_button__display(data-value='2') chord
-                        .chord_button_block
-                            button#button_3.chordButton(data-value='3') 3
-                            div#chord_display_3.chord_button__display(data-value='3') chord
-                        .chord_button_block
-                            button#button_4.chordButton(data-value='4') 4
-                            div#chord_display_4.chord_button__display(data-value='4') chord
+        main.container
+            .title
+                h1 Chord Sequencer v. 0.2
+                p#playButtons.buttonBar
+                    button#playB.uiButton play
+                    button#download.uiButton download midi loop 
+                #sequence-container
+                include chord-sequencer/sequence
+                p#shiftButtons.buttonBar 
+                    button#shift-left.uiButton ⬅️ shift left
+                    button#randomize.uiButton ⁉️ randomize ⁉️
+                    button#shift-right.uiButton shift right ➡️
+                    
+                p#chord_sequence.buttonBar  
+                    each bar in [1,2,3,4,5,6,7,8]
+                        select.chord_sequence_bar(id=`chord_sequence_${bar}`)
+                            each ch in [1,2,3,4]
+                                option.chordOption(data-value=ch)= ch
+            .chordSelectionBar
+                .chord-selection
+                    h2 Chord selection
+                        #song
+                            .chord_button_block
+                                button#button_1.chordButton(data-value='1') 1
+                                div#chord_display_1.chord_button__display(data-value='1') chord          
+                            .chord_button_block
+                                button#button_2.chordButton(data-value='2') 2
+                                div#chord_display_2.chord_button__display(data-value='2') chord
+                            .chord_button_block
+                                button#button_3.chordButton(data-value='3') 3
+                                div#chord_display_3.chord_button__display(data-value='3') chord
+                            .chord_button_block
+                                button#button_4.chordButton(data-value='4') 4
+                                div#chord_display_4.chord_button__display(data-value='4') chord
 
-            .chord-edit
-                h2 Chord editor
-                    #chords 
-                        select#root
-                        select#type
-                    p
-                        button#setChord set to current chord
+                .chord-edit
+                    h2 Chord editor
+                        #chords 
+                            select#root
+                            select#type
+                        p
+                            button#setChord set to current chord
 
-        #footer.footer
-            #instructions 
-                h2 Instructions
+            #footer.footer
+                #instructions 
+                    h2 Instructions
 
-                h3 Playing the sequencer 
+                    h3 Playing the sequencer 
 
-                p Tap on the coloured squares to turn notes on and off.  Press the play button to hear your sequence.
-                p Use the row of boxes under the sequencer to set the sequence.  You can choose four different chords to put into order.  The sequence is eight bars long.
-                
-                details 
+                    p Tap on the coloured squares to turn notes on and off.  Press the play button to hear your sequence.
+                    p Use the row of boxes under the sequencer to set the sequence.  You can choose four different chords to put into order.  The sequence is eight bars long.
+                    
+                    details 
+                        summary
+                            b Options
+                        h3 Chord selection display style
+                        select#selectionStyle
+                            option numbers
+                            option abcd
+                            option faces
+                details
                     summary
-                        b Options
-                    h3 Chord selection display style
-                    select#selectionStyle
-                        option numbers
-                        option abcd
-                        option faces
-            details
-                summary
-                    b Credits
-                p. 
-                    Charles Matthews 2022,2023 for Blurring the Boundaries / NaAC Ensemble. 
-                p.
-                    Guitar samples by <a href=https://freesound.org/people/Kyster/packs/7397/>Kyster</a>, provided with the <a href=https://creativecommons.org/licenses/by/3.0/>Creative Commons Attribution 3.0 license</a>.  The sounds have been edited for timing.
-                p. 
-                    Chord library from <a href='https://github.com/tombatossals/chords-db'>chords-db</a>.
-            
+                        b Credits
+                    p. 
+                        Charles Matthews 2023 for Blurring the Boundaries / NaAC Ensemble. 
+                    p.
+                        Guitar samples by <a href=https://freesound.org/people/Kyster/packs/7397/>Kyster</a>, provided with the <a href=https://creativecommons.org/licenses/by/3.0/>Creative Commons Attribution 3.0 license</a>.  The sounds have been edited for timing.
+                    p. 
+                        Chord library from <a href='https://github.com/tombatossals/chords-db'>chords-db</a>.
+    // todo: check status-vo module, would this be added automatically?
     include chord-sequencer/status
 include chord-sequencer/onload
