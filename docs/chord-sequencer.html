@@ -17,10 +17,13 @@
       body{
           width:95%;
       }
+      body{
+          overflow-x:hidden;
+      }
     </style>
   </head>
   <body>
-    <main class="container">
+    <main>
       <div class="title">
         <h1>Chord Sequencer v. 0.2</h1>
         <p class="buttonBar" id="playButtons">
@@ -282,6 +285,20 @@
           </select>
         </p>
       </div>
+      <div id="instructions"> 
+        <h2>Instructions</h2>
+        <p>Tap on the coloured squares to turn notes on and off.  Press the play button to hear your sequence.</p>
+        <p>Use the row of boxes under the sequencer to set the sequence.  You can choose four different chords to put into order.  The sequence is eight bars long.</p>
+        <details> 
+          <summary><b>Options</b></summary>
+          <h3>Chord selection display style</h3>
+          <select id="selectionStyle">
+            <option>numbers</option>
+            <option>abcd</option>
+            <option>faces</option>
+          </select>
+        </details>
+      </div>
       <div class="chordSelectionBar">
         <div class="chord-selection">
           <h2>Chord selection
@@ -318,21 +335,6 @@
         </div>
       </div>
       <div class="footer" id="footer">
-        <div id="instructions"> 
-          <h2>Instructions</h2>
-          <h3>Playing the sequencer </h3>
-          <p>Tap on the coloured squares to turn notes on and off.  Press the play button to hear your sequence.</p>
-          <p>Use the row of boxes under the sequencer to set the sequence.  You can choose four different chords to put into order.  The sequence is eight bars long.</p>
-          <details> 
-            <summary><b>Options</b></summary>
-            <h3>Chord selection display style</h3>
-            <select id="selectionStyle">
-              <option>numbers</option>
-              <option>abcd</option>
-              <option>faces</option>
-            </select>
-          </details>
-        </div>
         <details>
           <summary><b>Credits</b></summary>
           <p>Charles Matthews 2023 for Blurring the Boundaries / NaAC Ensemble. </p>
