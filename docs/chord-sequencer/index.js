@@ -1,6 +1,128 @@
 // monolith from a previous sketch...
-
 'use strict';
+
+
+// --------------------------------------
+// generic code from the workshop days...
+// --------------------------------------
+
+// nb when I started work on my own libraries, I was taking inspiration from processing etc. where functions would be redefined by the user. 
+// now I'm having to work back from that!
+
+var params = new URLSearchParams(window.location.search);
+
+//MIDI object
+
+var params = params || new URLSearchParams(window.location.search);
+var broadcast = params.get('broadcast') == 'off' ? false : true;
+function midiSend(m) {
+  var ramp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+  if (!broadcast) return;
+  socket.emit('midi', { message: m, ramp: 0 });
+}
+
+function noteOn(pitch, velocity) {
+  statusVO(pitch);
+  // console.log(pitch, velocity)
+}
+
+function noteOff(pitch) {
+  console.log(pitch);
+}
+
+var midiInput = {
+  cc: function cc(x) {
+    console.log(x);
+  }
+};
+
+//MIDI
+navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
+
+function onMIDISuccess(midiAccess) {
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = midiAccess.inputs.values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var input = _step.value;
+
+      input.onmidimessage = getMIDIMessage;
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  console.log('accessed', input);
+}
+
+function onMIDIFailure() {
+  console.log('No MIDI device available');
+}
+
+var offset = 0.01;
+var count = 0;
+
+function getMIDIMessage(message) {
+  console.log(message);
+  var command = message.data[0];
+  var index = message.data[1];
+  var value = message.data.length > 2 ? message.data[2] : 0; // a velocity value might not be included with a noteOff command
+  if (command >= 176 && command <= 176 + 15) {
+    console.log('ctrl');
+    midiInput.cc(command, index, value);
+  } else {
+    switch (command) {
+      case 178:
+        {
+          console.log('cc', index, value);
+        }
+      case 144:
+        {
+          console.log('noteon:', index, 'velocity:', value);
+          if (value > 0) {
+            noteOn(index, value);
+          } else {
+            noteOff(index);
+          }
+          break;
+        }
+      case 128:
+        {
+          noteOff(index);
+          console.log('noteoff:', index, 'velocity:', value);
+          break;
+        }
+    }
+  }
+}
+
+
+/**
+ * Speak a status update over voiceover. Requires an element with the id status_updates with role status.
+ * @param {string} msg 
+ */
+
+function statusVO(msg) {
+  document.getElementById('status_updates').innerHTML = msg;
+}
+
+// --------------------------------------
+// 🔴 main code begins 🔴 
+// --------------------------------------
 
 function Guitar() {
     for (var i = 0; i < 6; i++) {
@@ -59,7 +181,7 @@ Guitar.prototype.position = function (pos) {
 
     return this.chord.positions[pos].frets;
 };
-'use strict';
+
 
 Guitar.prototype.update = function () {
     var _this = this;
@@ -76,7 +198,7 @@ Guitar.prototype.update = function () {
     this.ready = true;
     return this;
 };
-'use strict';
+
 
 /**
  * colours
@@ -96,11 +218,11 @@ var colours = {
     'A#': '#6d00ff',
     B: '#f600ff'
 };
-'use strict';
+
 
 var openStrings = [40, 45, 50, 55, 59, 64];
 var keystrokes = ['A', 'S', 'D', 'F', 'G', 'H'];
-'use strict';
+
 
 var samples = {
     guitar: 'samples/117710__kyster__c.wav',
@@ -115,7 +237,7 @@ var samples = {
         E4: 'E4-btb-117679__kyster__e-open-string.wav'
     }
 };
-'use strict';
+
 
 var display = void 0,
     grid = void 0;
@@ -136,7 +258,7 @@ function updateLink() {
 
 
 var chorder = new Guitar();
-'use strict';
+
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -145,15 +267,6 @@ var song = ['C major', 'F major', 'G major', 'A minor'];
 
 var shiftKey = false;
 var c = {};
-
-// for(let i=0;i<6;i++){
-//     chorder.strings.push(
-//         new Tone.Sampler({
-//             urls:samples.nylon,
-//             baseUrl:"../samples/nylon-guitar/"
-//         }).toDestination()
-//     )
-// }
 
 /**
  * Check the document for items with matching aria-checked
@@ -174,7 +287,6 @@ function selectChord(number) {
     var shift = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
     // index numbers start from 1
-    // console.log('selectchord: shift key', shift, shiftKey)
     document.querySelectorAll('.chordButton').forEach(function (x, i) {
         var selectedId = parseInt(x.id.replace('button_', ''));
         if (selectedId == number) {
@@ -296,7 +408,7 @@ fetch("chord-sequencer/guitar.json").then(function (response) {
 
 // note: for muted strings (temporary)
 // chorder.strings.forEach((x,i)=>{x.triggerAttackRelease('C2',0.06)})
-'use strict';
+
 
 var keyboard = {
     shiftKey: false,
@@ -310,7 +422,7 @@ var keyboard = {
         }
     }
 };
-'use strict';
+
 
 window.addEventListener('keydown', function (e, stripped) {
 
@@ -341,12 +453,12 @@ window.addEventListener('keydown', function (e, stripped) {
 
     return true;
 });
-'use strict';
+
 
 window.addEventListener('keyup', function (e) {
     keyboard.shiftKey = e.getModifierState('Shift');
 });
-'use strict';
+
 
 var menuDictionary = {
     numbers: {
@@ -380,6 +492,9 @@ function setChordNumbers(entry) {
     params.set('numberStyle', entry);
 }
 
+// --------------------------------------
+// 🏵️ sequence export begins 🏵️ 
+// --------------------------------------
 
 function exportSequence() {
     track.notes = [];
@@ -421,26 +536,10 @@ function exportSequence() {
 
     file = new buffer.Buffer(midi.toArray());
 }
-'use strict';
+
 
 var midi = new Midi();
 var track = midi.addTrack();
-
-//- track.addNote({
-//-     midi : 60,
-//-     time : 0,
-//-     duration: 0.2
-//- })
-//- .addNote({
-//-     name : 'C5',
-//-     time : 0.3,
-//-     duration: 0.1
-//- })
-//- .addCC({
-//-     number : 64,
-//-     value : 127,
-//-     time : 0.2
-//- })
 
 var file;
 
@@ -472,116 +571,9 @@ downloadURL = function downloadURL(data, fileName) {
     a.click();
     a.remove();
 };
-'use strict';
 
-//MIDI object
 
-var params = params || new URLSearchParams(window.location.search);
-var broadcast = params.get('broadcast') == 'off' ? false : true;
-function midiSend(m) {
-  var ramp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
-  if (!broadcast) return;
-  socket.emit('midi', { message: m, ramp: 0 });
-}
-
-function noteOn(pitch, velocity) {
-  statusVO(pitch);
-  // console.log(pitch, velocity)
-}
-
-function noteOff(pitch) {
-  console.log(pitch);
-}
-
-var midiInput = {
-  cc: function cc(x) {
-    console.log(x);
-  }
-};
-
-//MIDI
-navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
-
-function onMIDISuccess(midiAccess) {
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
-
-  try {
-    for (var _iterator = midiAccess.inputs.values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var input = _step.value;
-
-      input.onmidimessage = getMIDIMessage;
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
-  }
-
-  console.log('accessed', input);
-}
-
-function onMIDIFailure() {
-  console.log('No MIDI device available');
-}
-
-var offset = 0.01;
-var count = 0;
-
-function getMIDIMessage(message) {
-  console.log(message);
-  var command = message.data[0];
-  var index = message.data[1];
-  var value = message.data.length > 2 ? message.data[2] : 0; // a velocity value might not be included with a noteOff command
-  if (command >= 176 && command <= 176 + 15) {
-    console.log('ctrl');
-    midiInput.cc(command, index, value);
-  } else {
-    switch (command) {
-      case 178:
-        {
-          console.log('cc', index, value);
-        }
-      case 144:
-        {
-          console.log('noteon:', index, 'velocity:', value);
-          if (value > 0) {
-            noteOn(index, value);
-          } else {
-            noteOff(index);
-          }
-          break;
-        }
-      case 128:
-        {
-          noteOff(index);
-          console.log('noteoff:', index, 'velocity:', value);
-          break;
-        }
-    }
-  }
-}
-'use strict';
-
-/**
- * Speak a status update over voiceover. Requires an element with the id status_updates with role status.
- * @param {string} msg 
- */
-
-function statusVO(msg) {
-  document.getElementById('status_updates').innerHTML = msg;
-}
 
 //TODO: Create a function to add a status update element to the document...
 
@@ -595,8 +587,11 @@ function getSequence() {
     return outputArray;
 }
 
+// --------------------------------------
+// 🏵️ sequence export ends 🏵️ 
+// --------------------------------------
 
-var params = new URLSearchParams(window.location.search);
+
 
 var settings = {
     feedback: true,
@@ -610,7 +605,7 @@ var sequence = [];
 for (var i = 0; i < 8; i++) {
     sequence.push([false, false, false, false, false, false]);
 }
-'use strict';
+
 
 function playButton() {
     var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
@@ -621,17 +616,19 @@ function playButton() {
     $('#playB').text(start ? 'stop' : 'play');
     Tone.Transport[start ? 'start' : 'stop']();
 }
-'use strict';
+
 
 function selectBar(subCount) {
     [1, 2, 3, 4, 5, 6, 7, 8].forEach(function (x) {
-        // console.log('sub count matches?', x == subCount)
         document.getElementById('chord_sequence_' + x).style.backgroundColor = subCount == x ? 'red' : 'lightgray';
         var value = parseInt(document.getElementById('chord_sequence_' + subCount).selectedIndex);
         selectChord(value + 1);
     });
 }
 
+// --------------------------------------
+// 🏵️ sequence functions 🏵️ 
+// --------------------------------------
 
 function sequenceRandom() {
     sequence.forEach(function (x) {
@@ -640,7 +637,7 @@ function sequenceRandom() {
         });
     });
 }
-'use strict';
+
 
 function sequenceRotate() {
     var direction = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'right';
@@ -672,7 +669,7 @@ function setGrid() {
         _loop(row);
     }
 }
-'use strict';
+
 
 function setSequence() {
     Tone.Transport.scheduleRepeat(function (time) {
@@ -717,7 +714,7 @@ Display.prototype = {
 };
 
 Display.prototype.constructor = Display;
-'use strict';
+
 
 function Grid(rows, cols) {
     var cellFill = void 0,
@@ -802,7 +799,7 @@ Grid.prototype.update = function () {
         });
     });
 };
-'use strict';
+
 
 function setup() {
     display = new Display();
@@ -813,7 +810,7 @@ function setup() {
     canvas.setAttribute('aria-hidden', true);
     windowResized();
 }
-'use strict';
+
 
 function draw() {
     background('darkgray');
@@ -822,7 +819,7 @@ function draw() {
     rect(count % 8 * display.cells, 0, display.cells, height);
     drawGrid();
 }
-'use strict';
+
 
 function drawGrid() {
     if (!chorder.ready) return false;
@@ -866,7 +863,7 @@ function drawGrid() {
         });
     });
 }
-'use strict';
+
 
 var touchReleased = true;
 var touchTime = 0;
@@ -906,7 +903,7 @@ function touchEnded() {
     console.log('ended');
     touchReleased = true;
 }
-'use strict';
+
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 

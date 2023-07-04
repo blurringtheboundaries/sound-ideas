@@ -42,16 +42,16 @@ html
                     #song
                         .chord_button_block
                             button#button_1.chordButton(data-value='1') 1
-                            div(data-value='1') chord          
+                            div#chord_display_1.chord_button__display(data-value='1') chord          
                         .chord_button_block
                             button#button_2.chordButton(data-value='2') 2
-                            div(data-value='2') chord
+                            div#chord_display_2.chord_button__display(data-value='2') chord
                         .chord_button_block
                             button#button_3.chordButton(data-value='3') 3
-                            div(data-value='3') chord
+                            div#chord_display_3.chord_button__display(data-value='3') chord
                         .chord_button_block
                             button#button_4.chordButton(data-value='4') 4
-                            div(data-value='4') chord
+                            div#chord_display_4.chord_button__display(data-value='4') chord
 
             .chord-edit
                 h2 Chord editor
@@ -60,7 +60,6 @@ html
                         select#type
                     p
                         button#setChord set to current chord
-        .buttonBar
 
         #footer.footer
             #instructions 
