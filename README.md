@@ -84,5 +84,7 @@ Special thanks to [Joanne Cox](https://cello.joannesonia.live/) whose project [D
 
 This project draws upon some code libraries developed during sessions for [CAMIN (Canadian Accessible Musical Instruments Network)](https://camin.network/), with thanks to our screen reader and music technology consultants Jason Dasent (Voiceover) and Joël Dazé (JAWS).
 
+The chord player builds on ideas developed by [John Kelly](https://www.rockinpaddy.com/) for the Kellycaster.
+
 We are also grateful to projects that have started development in parallel to this one, including Joel Dazé's Pitch-Colour Assembly, and Elinor Rowlands' Biodivergent Sites and Sounds. As open source endeavours, we have been able to share benefits across projects, and we look forward to continuing this process.
 
