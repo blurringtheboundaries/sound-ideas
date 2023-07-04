@@ -1,128 +1,19 @@
-// monolith from a previous sketch...
+// monolith from a previous sketch...removing unnecessary elements
 'use strict';
-
-
-// --------------------------------------
-// generic code from the workshop days...
-// --------------------------------------
-
-// nb when I started work on my own libraries, I was taking inspiration from processing etc. where functions would be redefined by the user. 
-// now I'm having to work back from that!
-
-var params = new URLSearchParams(window.location.search);
-
-//MIDI object
-
-var params = params || new URLSearchParams(window.location.search);
-var broadcast = params.get('broadcast') == 'off' ? false : true;
-function midiSend(m) {
-  var ramp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
-  if (!broadcast) return;
-  socket.emit('midi', { message: m, ramp: 0 });
-}
-
-function noteOn(pitch, velocity) {
-  statusVO(pitch);
-  // console.log(pitch, velocity)
-}
-
-function noteOff(pitch) {
-  console.log(pitch);
-}
-
-var midiInput = {
-  cc: function cc(x) {
-    console.log(x);
-  }
-};
-
-//MIDI
-navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
-
-function onMIDISuccess(midiAccess) {
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
-
-  try {
-    for (var _iterator = midiAccess.inputs.values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var input = _step.value;
-
-      input.onmidimessage = getMIDIMessage;
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
-  }
-
-  console.log('accessed', input);
-}
-
-function onMIDIFailure() {
-  console.log('No MIDI device available');
-}
-
-var offset = 0.01;
-var count = 0;
-
-function getMIDIMessage(message) {
-  console.log(message);
-  var command = message.data[0];
-  var index = message.data[1];
-  var value = message.data.length > 2 ? message.data[2] : 0; // a velocity value might not be included with a noteOff command
-  if (command >= 176 && command <= 176 + 15) {
-    console.log('ctrl');
-    midiInput.cc(command, index, value);
-  } else {
-    switch (command) {
-      case 178:
-        {
-          console.log('cc', index, value);
-        }
-      case 144:
-        {
-          console.log('noteon:', index, 'velocity:', value);
-          if (value > 0) {
-            noteOn(index, value);
-          } else {
-            noteOff(index);
-          }
-          break;
-        }
-      case 128:
-        {
-          noteOff(index);
-          console.log('noteoff:', index, 'velocity:', value);
-          break;
-        }
-    }
-  }
-}
-
-
-/**
- * Speak a status update over voiceover. Requires an element with the id status_updates with role status.
- * @param {string} msg 
- */
-
-function statusVO(msg) {
-  document.getElementById('status_updates').innerHTML = msg;
-}
 
 // --------------------------------------
 // 🔴 main code begins 🔴 
 // --------------------------------------
+
+var params = new URLSearchParams(window.location.search);
+var offset = 0.01;
+var count = 0;
+
+var settings = {
+    feedback: true,
+    mute: false,
+    sequenceChords: true
+};
 
 function Guitar() {
     for (var i = 0; i < 6; i++) {
@@ -409,6 +300,7 @@ fetch("chord-sequencer/guitar.json").then(function (response) {
 // note: for muted strings (temporary)
 // chorder.strings.forEach((x,i)=>{x.triggerAttackRelease('C2',0.06)})
 
+// todo: use keyboard-mapper
 
 var keyboard = {
     shiftKey: false,
@@ -593,11 +485,7 @@ function getSequence() {
 
 
 
-var settings = {
-    feedback: true,
-    mute: false,
-    sequenceChords: true
-};
+
 
 var sequencerGrid = [];
 
@@ -608,11 +496,9 @@ for (var i = 0; i < 8; i++) {
 
 
 function playButton() {
+    // nb use aria
     var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-    // console.log(Tone.now())
     if (Tone.now() <= 0.1) Tone.start();
-    // console.log('start:', start ? 'start' : 'stop');
     $('#playB').text(start ? 'stop' : 'play');
     Tone.Transport[start ? 'start' : 'stop']();
 }
@@ -670,7 +556,6 @@ function setGrid() {
     }
 }
 
-
 function setSequence() {
     Tone.Transport.scheduleRepeat(function (time) {
         count++;
@@ -715,10 +600,7 @@ Display.prototype = {
 
 Display.prototype.constructor = Display;
 
-
 function Grid(rows, cols) {
-    var cellFill = void 0,
-        cellColor = void 0;
     for (var row = 0; row < rows; row++) {
         this.cells[row] = [];
         for (var col = 0; col < cols; col++) {
@@ -737,10 +619,11 @@ Grid.prototype = {
 Grid.prototype.constructor = Grid;
 
 Grid.prototype.square = function (x, y) {
-    rect(x * display.cells + display.margin / 2, // x
-    y * display.cells + display.margin / 2, // y
-    display.cells - display.margin, // width
-    display.cells - display.margin // height
+    rect(
+        x * display.cells + display.margin / 2, // x
+        y * display.cells + display.margin / 2, // y
+        display.cells - display.margin, // width
+        display.cells - display.margin // height
     );
 };
 
@@ -750,6 +633,7 @@ Grid.prototype.cellFilled = function (x, y) {
 
     cellFill = sequence[x][y] ? 1 : 0.1;
     cellColor = color('black');
+
     // set stroke
     cellColor.setAlpha(100);
     strokeWeight(sequence[x][y] ? 10 : 3);
@@ -800,6 +684,9 @@ Grid.prototype.update = function () {
     });
 };
 
+/**
+ * p5
+ */
 
 function setup() {
     display = new Display();
@@ -811,6 +698,9 @@ function setup() {
     windowResized();
 }
 
+/**
+ * p5
+ */
 
 function draw() {
     background('darkgray');
@@ -864,16 +754,12 @@ function drawGrid() {
     });
 }
 
-
 var touchReleased = true;
 var touchTime = 0;
 
 function touchStarted() {
-    console.log('started');
-    console.log(millis() - touchTime);
-
-    // console.log(mouseX,mouseY)
-    //- console.log(mouseX,mouseY, grid.filter(x=>mouseX > x[0] && mouseX < x[0]+50 && mouseY > x[1] && mouseY < x[1] + 50))
+    // todo: use multitouch-mapper
+    // console.log(millis() - touchTime);
     if (mouseX >= 0 && mouseX <= display.width && mouseY >= 0 && mouseY <= display.height) {
         if (millis() - touchTime < 100) return false;
         touchTime = millis();
@@ -900,10 +786,11 @@ function touchStarted() {
 }
 
 function touchEnded() {
-    console.log('ended');
+    
     touchReleased = true;
 }
 
+// this appears to be a p5 function, not sure how this got here...?!
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -912,7 +799,6 @@ function windowResized() {
     [0, 1, 2, 3, 4, 5, 6, 7].forEach(function (count) {});
 
     document.querySelectorAll('.gridBox').forEach(function (element) {
-        // console.log('p5 setup',element.id)
         var _element$id$split$sli = element.id.split('_').slice(1).map(function (item) {
             return parseInt(item);
         }),
@@ -922,13 +808,6 @@ function windowResized() {
 
         element.setAttribute('position', 'absolute');
         element.setAttribute('display', 'block');
-        // element.style.display='block';
-        // element.setAttribute('top',Math.random()*window.innerHeight);
-        // element.setAttribute('left',Math.random()*window.innerHeight);
-        // element.style.left=Math.random()*window.innerWidth;
-
-        //- console.log(y)
-        // document.getElementById(`gridBox_beat_${x}`).appendChild(element);
-        // document.getElementById(`gridBox_beat_${x}`).appendChild(document.createElement('br'));
+        
     });
 }
