@@ -13,7 +13,7 @@ function Guitar() {
 
 Guitar.prototype = {
     previewTone: new Tone.Synth().toDestination(),
-    blank: new Tone.Player('../samples/blank.wav').toDestination(),
+    blank: new Tone.Player('samples/blank.wav').toDestination(),
     openStrings: [40, 45, 50, 55, 59, 64],
     strings: [],
     root: '',
@@ -23,21 +23,6 @@ Guitar.prototype = {
 };
 
 Guitar.prototype.constructor = Guitar;
-
-// Object.defineProperty(Guitar.prototype,"strings",{
-//    set(){
-//         for(let i=0;i<6;i++){
-//             chorder.strings.push(
-//                 new Tone.Sampler({
-//                     urls:samples.nylon,
-//                     baseUrl:"../samples/nylon-guitar/"
-//                 }).toMaster()
-//             )
-//         }
-//     }
-
-// })
-"use strict";
 
 Guitar.prototype.mute = function () {
     var _this = this;
@@ -52,7 +37,7 @@ Guitar.prototype.mute = function () {
 
     return this;
 };
-"use strict";
+
 
 Guitar.prototype.pluck = function (i) {
     var velocity = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
@@ -68,7 +53,7 @@ Guitar.prototype.pluck = function (i) {
     }
     return this;
 };
-"use strict";
+
 
 Guitar.prototype.position = function (pos) {
 
@@ -148,7 +133,7 @@ function copyLink() {
 function updateLink() {
     document.querySelector('#generatedURL').value = getLink();
 }
-"use strict";
+
 
 var chorder = new Guitar();
 'use strict';
@@ -295,7 +280,7 @@ function setStringButtons() {
     });
 }
 
-fetch("../chords-db-master/lib/guitar.json").then(function (response) {
+fetch("chord-sequencer/guitar.json").then(function (response) {
     return response.json();
 }).then(function (jsondata) {
     c = jsondata;
@@ -394,7 +379,7 @@ function setChordNumbers(entry) {
     });
     params.set('numberStyle', entry);
 }
-"use strict";
+
 
 function exportSequence() {
     track.notes = [];
@@ -599,7 +584,7 @@ function statusVO(msg) {
 }
 
 //TODO: Create a function to add a status update element to the document...
-"use strict";
+
 
 function getSequence() {
     var outputArray = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -609,7 +594,7 @@ function getSequence() {
     });
     return outputArray;
 }
-"use strict";
+
 
 var params = new URLSearchParams(window.location.search);
 
@@ -646,7 +631,7 @@ function selectBar(subCount) {
         selectChord(value + 1);
     });
 }
-"use strict";
+
 
 function sequenceRandom() {
     sequence.forEach(function (x) {
@@ -662,7 +647,7 @@ function sequenceRotate() {
 
     sequence = cm.rot(sequence, direction == 'right' ? -1 : 1);
 }
-"use strict";
+
 
 function setGrid() {
     var _loop = function _loop(row) {
@@ -706,7 +691,7 @@ function setSequence() {
 }
 
 setSequence();
-"use strict";
+
 
 function Display() {
     this.width = this.cells * this.rows;
