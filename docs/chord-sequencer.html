@@ -232,7 +232,7 @@
         <p class="buttonBar" id="shiftButtons"> 
           <button class="uiButton" id="shift-left">⬅️ shift left</button>
           <button class="uiButton" id="randomize">⁉️ random ⁉️</button>
-          <button class="uiButton" id="shift-right">shift right ➡️</button>
+          <button class="uiButton" id="shift-right">shift right ➡️  </button>
         </p>
         <p class="buttonBar" id="chord_sequence"> 
           <select class="chord_sequence_bar" id="chord_sequence_1">
@@ -391,7 +391,10 @@
           document.querySelector('#selectionStyle').value = params.get('numberStyle');
           setChordNumbers(params.get('numberStyle'));
       }
-  
+      document.querySelectorAll('.chord_button__display').forEach((x,i)=>{
+          x.innerHTML = song[i];
+          x.style.fontSize='1rem'
+      })
       //- updateLink();
   })
 </script>

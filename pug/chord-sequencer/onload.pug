@@ -40,6 +40,9 @@ script.
             document.querySelector('#selectionStyle').value = params.get('numberStyle');
             setChordNumbers(params.get('numberStyle'));
         }
-
+        document.querySelectorAll('.chord_button__display').forEach((x,i)=>{
+            x.innerHTML = song[i];
+            x.style.fontSize='1rem'
+        })
         //- updateLink();
     })
