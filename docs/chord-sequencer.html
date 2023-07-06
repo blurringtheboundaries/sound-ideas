@@ -352,7 +352,7 @@
 <script>
   $(function(){
       $('#playB').on('click',function(){
-          // this should use an aria role/checked attribute..
+          // should this use an aria role/checked attribute..?
           let toggle = this.innerHTML.includes('play');
           playButton(toggle);       
       })
@@ -376,11 +376,6 @@
   
       $('#selectionStyle').on('input',function(){
           setChordNumbers(this.value);
-          //- updateLink();
-      })
-  
-      $('#copyLink').on('input',function(){
-          copyLink();
       })
   
       $('#setChord').on('click',function(){
@@ -391,10 +386,11 @@
           document.querySelector('#selectionStyle').value = params.get('numberStyle');
           setChordNumbers(params.get('numberStyle'));
       }
+  
       document.querySelectorAll('.chord_button__display').forEach((x,i)=>{
           x.innerHTML = song[i];
-          x.style.fontSize='1rem'
+          x.style.fontSize='1rem';
       })
-      //- updateLink();
+      
   })
 </script>
