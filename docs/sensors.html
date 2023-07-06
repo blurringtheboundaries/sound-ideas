@@ -264,6 +264,213 @@
   
   })
 </script>
+<menu class="allowDefault" id="toolbar" role="toolbar">
+  <li class="toolbar__item" style="display:none;">
+    <label for="select_instrument">Page </label>
+    <select id="select_instrument">
+      <option id="index">index</option>
+      <option id="svg">svg </option>
+      <option id="copper">copper </option>
+    </select>
+  </li>
+  <li class="toolbar__item" id="toolbar__root">
+    <label for="select_root">Root </label>
+    <select id="select_root"></select>
+  </li>
+  <li class="toolbar__item" id="toolbar__scale">
+    <label for="select_scale">Scale </label>
+    <select id="select_scale"></select>
+  </li>
+  <li class="toolbar__item" id="toolbar__octave">
+    <label for="select_octave">Octave </label>
+    <select id="select_octave"></select>
+  </li>
+  <li class="toolbar__item" id="toolbar__preset">
+    <label for="select_preset">Preset </label>
+    <select id="select_preset"></select>
+  </li>
+</menu>
+<script>
+  let url = window.location.href.split('/');
+  
+  url = url[url.length-1].split('.')[0];
+  if(url=='') url='index';
+  
+  document.querySelector('#select_instrument').value = url;
+  document.body.addEventListener('load',function(){
+      document.querySelector('#toolbar').setAttribute('transform', 'translate(0px, 0px)')
+  }, false);
+  
+  document.querySelector('#toolbar').style.transform = 'translateY(0px)';
+</script>
+<script>
+  document.querySelector('#select_instrument').addEventListener('input',function(){
+      window.location.href = `${this.value}.html`
+  })
+  
+  let synthPresets = {
+      plink:{
+          filter:{
+              type:'highpass',
+              frequency:100
+          },
+          synth:{
+              oscillator:{
+                  type:'sine4',
+                  volume:-3
+              },
+              envelope:{
+                  attack:0.01,
+                  decay:0.2,
+                  release:0.1
+              }
+          }
+      },
+      soft:{
+          filter:{
+              type:'lowpass',
+              frequency:10000
+          },
+          synth:{
+              oscillator:{
+                  type:'sine2', 
+                  volume:-6,
+                  detune:Math.random()-0.5
+              },
+              envelope:{
+                  attack:1,
+                  release:4
+              }
+          }
+          
+      },
+      plunk:{
+          filter:{
+              type:'lowpass',
+              frequency:2000
+          },
+          synth:{
+              oscillator:{
+                  type:'sawtooth3',
+                  volume:-24
+              },
+              envelope:{
+                  attack:0.01,
+                  decay:0.4,
+                  release:2
+              }
+          }
+      },
+  }
+  
+  Object.keys(synthPresets).forEach(x=>{
+      document.querySelector('#select_preset').appendChild(cm.create('option',{
+          innerHTML:x 
+      }))  
+  })
+  
+  document.querySelector('#select_preset').addEventListener('input',function(){
+      instrument.setParameters(synthPresets[this.value]);
+      
+  })
+</script>
+<script>
+  const scaleHandler = {
+      current:{
+          root:'C',
+          scale:'major',
+          octave:4,
+          range:2
+      },
+      inputs:{
+          root:document.querySelector('#select_root'),
+          scale:document.querySelector('#select_scale'),
+          octave:document.querySelector('#select_octave')
+      },
+      defaults:{
+          notes:['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'],
+          //- scales:['major','minor','blues'],
+          scales:Scale.names(),
+          octaves:[2, 3, 4, 5, 6, 7]
+      },
+      notes:[],
+      cssSelector:'.screenNote',
+      callback:function(){
+          instrument.setNotes(this.notes);
+      },
+      populate_select_octave(start=1, input_octave = this.inputs.octave){
+         input_octave.innerHTML=''
+          this.defaults.octaves.forEach(octaveValue=>{
+              let element = document.createElement('option')
+              element.innerHTML = octaveValue;
+              input_octave.appendChild(element);
+          })
+          input_octave.value = this.current.octave;
+          return this;
+      },
+      populate_select_root(start='C', input_root = this.inputs.root){
+          input_root.innerHTML=''
+          this.defaults.notes.forEach(noteValue=>{
+              let element = document.createElement('option')
+              element.innerHTML = noteValue;
+              input_root.appendChild(element);
+          })
+          input_root.value = this.current.root;
+          return this;
+      },
+      populate_select_scale(root=this.current.root, input_scale = this.inputs.scale){
+          input_scale.innerHTML='';
+          
+          this.defaults.scales.forEach(scaleValue=>{
+              let element = document.createElement('option')
+              element.innerHTML = scaleValue;
+              input_scale.appendChild(element);
+          })
+          input_scale.value = this.current.scale;
+          return this;
+      },
+      setScale(options={}){
+          Object.assign(this.current,options);
+          this.update();
+      return this;
+      },
+      setOctave(options={}){
+          Object.assign(this.current,options);
+          this.update();
+          return this;
+      },
+      update(){
+          let {root, scale, octave, range} = this.current;
+          this.notes =[]
+          for(let i=0;i<range;i++){
+              this.notes = this.notes.concat(Scale.get(`${root}${parseInt(octave)+i} ${scale}`).notes);
+          }
+          
+          this.callback();
+      },
+      addListeners(){
+          this.inputs.root.addEventListener('input',function(){
+                  scaleHandler.root = this.value;
+                  scaleHandler.populate_select_scale();
+                  scaleHandler.setScale({root:this.value})
+          }),
+          this.inputs.scale.addEventListener('input',function(){
+              scaleHandler.setScale({scale:this.value})
+          })
+          this.inputs.octave.addEventListener('input',function(){
+              scaleHandler.setOctave({octave:this.value})
+          })
+      },
+      init(){
+          this.populate_select_root();
+          this.populate_select_scale();
+          this.populate_select_octave();
+          this.addListeners();
+      }
+  }
+  
+  scaleHandler.init();
+</script>
 <script>
   // this page is based on the fader demo but should be oriented towards quick sensor testing for the fixed mappings of boards we have been using...
   let params = new URLSearchParams(window.location.search);
@@ -277,4 +484,19 @@
           break; 
       }
   }
+  
+  // it's been a while since I used the screen instrument class, so I'm just going to emulate it for this demo
+  let instrument = {
+      setNotes(notes){
+          // well, that was easy!
+          notes.forEach((noteName,i)=>{
+              if(sines[i]){
+                  sines[i].frequency.rampTo(noteName, 1);
+              }
+          })
+      }
+  }
+  
+  // we'll need to remove presets for now, too
+  document.querySelectorAll('#toolbar__preset').forEach(x=>x.remove())
 </script>

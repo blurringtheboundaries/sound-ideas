@@ -5,5 +5,8 @@ script.
     if(url=='') url='index';
 
     document.querySelector('#select_instrument').value = url;
-    document.body.addEventListener('load',function(){document.querySelector('#toolbar').setAttribute('transform', 'translate(0px, 0px)')}, false);
+    document.body.addEventListener('load',function(){
+        document.querySelector('#toolbar').setAttribute('transform', 'translate(0px, 0px)')
+    }, false);
+    
     document.querySelector('#toolbar').style.transform = 'translateY(0px)';
