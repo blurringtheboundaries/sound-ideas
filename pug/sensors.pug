@@ -38,6 +38,16 @@ script.
                     document.querySelectorAll('.svg-text')[i].style.display='none';
                     document.querySelectorAll('.svg-fader__track')[i].style.display='none';
                     document.querySelectorAll('.svg-fader')[i].style.display='none';
+                    midiMapper.assign(15, 'cc', i-8, (value)=>{
+                        Tone.start();
+                        setFaderElements({
+                            svgElement: document.querySelector(`#thumb_${i-8}`),
+                            inputElement: document.querySelectorAll('input')[i-8],
+                            value: value,
+                            y: getY(value, faderHeight, thumbHeight)
+                        })
+                        processFader(i, value)
+                    })
                 }
             break; 
             case 'btb6':
@@ -49,7 +59,7 @@ script.
                     document.querySelectorAll('.svg-fader__track')[i].style.display='none';
                     document.querySelectorAll('.svg-fader')[i].style.display='none';
                     
-                      midiMapper.assign(15, 'cc', i-6, (value)=>{
+                    midiMapper.assign(15, 'cc', i-6, (value)=>{
                         Tone.start();
                         setFaderElements({
                             svgElement: document.querySelector(`#thumb_${i-6}`),
