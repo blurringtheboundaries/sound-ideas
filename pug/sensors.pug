@@ -1,0 +1,60 @@
+head
+    title Sensor test page
+    meta(charset="UTF-8")
+    meta(name="viewport", content="initial-scale=1.0, maximum-scale=1.0, width=device-width")
+    link(rel="stylesheet" href="./fader/style.css")
+    // tone
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js")
+    script(src="./fader/main.js")
+        
+body(onload='init()')
+    #result
+    #slider-container 
+
+    svg#slider-bg(viewbox='0 0 1200 600' width='100%' height='100%' style='position:absolute; top:0px; left:0px;')
+        defs
+            include fader/fader_gradient
+            style.
+                .svg-fader{
+                    cursor:ns-resize;
+                    stroke:rgba(200,200,200,0.5);
+                    stroke-width:2;
+                }
+                .svg-fader--odd{
+                    fill: url(#grad-0);
+                }
+                .svg-fader--even{   
+                    fill: url(#grad-1);
+                    opacity:0.1;
+                }
+                .svg-fader__track{
+                    fill:black;
+                    stroke:rgba(0,0,0,0.2);
+                    stroke-width:20;
+                }
+                .svg-thumb{
+                    fill:rgba(255,255,255,1);
+                    stroke:rgba(0,0,0,0.5);
+                    stroke-width:3;
+                    transition:y 0s ease;
+                }
+
+        include fader/fader_faders.pug
+    canvas#cover.touch_pickup_ignore.prevent-select
+
+include fader/fader_gen
+include fader/fader_action
+script.
+    // this page is based on the fader demo but should be oriented towards quick sensor testing for the fixed mappings of boards we have been using...
+    let params = new URLSearchParams(window.location.search);
+    if(params.has('board')){
+        switch(params.get('board')){
+            case 'tb':
+                console.log('touch board')
+            break;
+            case 'btb':
+                console.log('btb board')
+            break; 
+        }
+    }
+    

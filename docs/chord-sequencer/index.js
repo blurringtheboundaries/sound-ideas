@@ -195,6 +195,7 @@ function setChords(str) {
         _str$split2 = _slicedToArray(_str$split, 2),
         root = _str$split2[0],
         type = _str$split2[1];
+        console.log('_str$split2',_str$split2);
 
     $('#root').val(root);
     $('#type').val(type);
