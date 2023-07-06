@@ -43,7 +43,7 @@
             fill:rgba(255,255,255,1);
             stroke:rgba(0,0,0,0.5);
             stroke-width:3;
-            transition:y 0s ease;
+            transition:y 0s ease, fill 1s ease;
         }
         .svg-text{
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -188,7 +188,7 @@
   function setFaderElements(data = {}, animationTime = 0.1){
       let { svgElement, inputElement, value, y } = data;
       let delta = Math.abs(value - parseFloat(inputElement.getAttribute('value')));
-      svgElement.style.transition = `y ${delta > 10 ? animationTime : 0}s ease-in-out`;
+      svgElement.style.transition = `y ${delta > 10 ? animationTime : 0}s ease-in-out, fill 1s ease`;
       svgElement.setAttribute('y',y);
       inputElement.setAttribute('value',value);
   }

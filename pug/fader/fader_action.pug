@@ -44,7 +44,7 @@ script.
     function setFaderElements(data = {}, animationTime = 0.1){
         let { svgElement, inputElement, value, y } = data;
         let delta = Math.abs(value - parseFloat(inputElement.getAttribute('value')));
-        svgElement.style.transition = `y ${delta > 10 ? animationTime : 0}s ease-in-out`;
+        svgElement.style.transition = `y ${delta > 10 ? animationTime : 0}s ease-in-out, fill 1s ease`;
         svgElement.setAttribute('y',y);
         inputElement.setAttribute('value',value);
     }

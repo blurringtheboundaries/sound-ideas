@@ -23,6 +23,7 @@ include fader/fader_gen
 include fader/fader_action
 include note-player/toolbar
 script.
+
     // this page is based on the fader demo but should be oriented towards quick sensor testing for the fixed mappings of boards we have been using...
     let params = new URLSearchParams(window.location.search);
     if(params.has('board')){
@@ -75,11 +76,30 @@ script.
         }
     }
 
+    // incorporating Joel Dazé's colour system for testing; please see https://github.com/blurringtheboundaries/colours
+    const JD_COLOURS = 
+        [
+            '#ff9933',
+            '#ffcc99',
+            '#f85af8',
+            '#c3fcc8',
+            '#0cffff',
+            '#ffff03',
+            '#e0b5a2',
+            '#ff0101',
+            '#c37596',
+            '#cc66ff',
+            '#33cc33',
+            '#0783dc'
+        ]
+
     // it's been a while since I used the screen instrument class, so I'm just going to emulate it for this demo
     let instrument = {
         setNotes(notes){
             // well, that was easy!
+            
             notes.forEach((noteName,i)=>{
+                if(document.querySelectorAll('.svg-thumb')[i])document.querySelectorAll('.svg-thumb')[i].style.fill = JD_COLOURS[Tone.Frequency(noteName).toMidi()%12];
                 if(sines[i]){
                     sines[i].frequency.rampTo(noteName, 1);
                 }
@@ -87,6 +107,8 @@ script.
         }
     }
 
-    // we'll need to remove presets for now, too
+    // we'll need to remove the presets for now, too, since these include attack etc. (could be nice to put slew limits on the faders in the future)
+    // we can just hide them
     document.querySelectorAll('#toolbar__preset').forEach(x=>x.remove())
+    
     

@@ -43,7 +43,7 @@
             fill:rgba(255,255,255,1);
             stroke:rgba(0,0,0,0.5);
             stroke-width:3;
-            transition:y 0s ease;
+            transition:y 0s ease, fill 1s ease;
         }
         .svg-text{
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -188,7 +188,7 @@
   function setFaderElements(data = {}, animationTime = 0.1){
       let { svgElement, inputElement, value, y } = data;
       let delta = Math.abs(value - parseFloat(inputElement.getAttribute('value')));
-      svgElement.style.transition = `y ${delta > 10 ? animationTime : 0}s ease-in-out`;
+      svgElement.style.transition = `y ${delta > 10 ? animationTime : 0}s ease-in-out, fill 1s ease`;
       svgElement.setAttribute('y',y);
       inputElement.setAttribute('value',value);
   }
@@ -527,11 +527,30 @@
       }
   }
   
+  // incorporating Joel Dazé's colour system for testing; please see https://github.com/blurringtheboundaries/colours
+  const JD_COLOURS = 
+      [
+          '#ff9933',
+          '#ffcc99',
+          '#f85af8',
+          '#c3fcc8',
+          '#0cffff',
+          '#ffff03',
+          '#e0b5a2',
+          '#ff0101',
+          '#c37596',
+          '#cc66ff',
+          '#33cc33',
+          '#0783dc'
+      ]
+  
   // it's been a while since I used the screen instrument class, so I'm just going to emulate it for this demo
   let instrument = {
       setNotes(notes){
           // well, that was easy!
+          
           notes.forEach((noteName,i)=>{
+              if(document.querySelectorAll('.svg-thumb')[i])document.querySelectorAll('.svg-thumb')[i].style.fill = JD_COLOURS[Tone.Frequency(noteName).toMidi()%12];
               if(sines[i]){
                   sines[i].frequency.rampTo(noteName, 1);
               }
@@ -539,6 +558,7 @@
       }
   }
   
-  // we'll need to remove presets for now, too
+  // we'll need to remove the presets for now, too, since these include attack etc. (could be nice to put slew limits on the faders in the future)
+  // we can just hide them
   document.querySelectorAll('#toolbar__preset').forEach(x=>x.remove())
 </script>
