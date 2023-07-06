@@ -106,10 +106,12 @@ script.
         // this could also occur on mouseover / touchstart
         let y = getY(input.value, faderHeight, thumbHeight);
         document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+        //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
 
         input.addEventListener('input',(e)=>{
             let y = getY(e.target.value, faderHeight, thumbHeight);
             document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+            //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
         })
 
         input.addEventListener('input', (e) => {
