@@ -108,6 +108,8 @@ script.
         document.querySelector(`#thumb_${i}`).setAttribute('y',y);
         //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
 
+        input.setAttribute('aria-label', `fader ${i+1}`)
+
         input.addEventListener('input',(e)=>{
             let y = getY(e.target.value, faderHeight, thumbHeight);
             document.querySelector(`#thumb_${i}`).setAttribute('y',y);
