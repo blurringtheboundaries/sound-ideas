@@ -30,8 +30,37 @@ script.
             case 'tb':
                 console.log('touch board')
             break;
-            case 'btb':
+            case 'btb8':
                 console.log('btb board')
+                // lazy demo
+                for(let i = 8; i<12;i++){
+                    document.querySelectorAll('.svg-thumb')[i].style.display='none';
+                    document.querySelectorAll('.svg-text')[i].style.display='none';
+                    document.querySelectorAll('.svg-fader__track')[i].style.display='none';
+                    document.querySelectorAll('.svg-fader')[i].style.display='none';
+                }
+            break; 
+            case 'btb6':
+                console.log('btb board')
+                // lazy demo
+                for(let i = 6; i<12;i++){
+                    document.querySelectorAll('.svg-thumb')[i].style.display='none';
+                    document.querySelectorAll('.svg-text')[i].style.display='none';
+                    document.querySelectorAll('.svg-fader__track')[i].style.display='none';
+                    document.querySelectorAll('.svg-fader')[i].style.display='none';
+                    
+                      midiMapper.assign(15, 'cc', i-6, (value)=>{
+                        Tone.start();
+                        setFaderElements({
+                            svgElement: document.querySelector(`#thumb_${i-6}`),
+                            inputElement: document.querySelectorAll('input')[i-6],
+                            value: value,
+                            y: getY(value, faderHeight, thumbHeight)
+                        })
+                        processFader(i, value)
+                    })
+                }
+                
             break; 
         }
     }
