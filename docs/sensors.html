@@ -552,7 +552,8 @@
           // well, that was easy!
           
           notes.forEach((noteName,i)=>{
-              if(document.querySelectorAll('.svg-thumb')[i])document.querySelectorAll('.svg-thumb')[i].style.fill = JD_COLOURS[Tone.Frequency(noteName).toMidi()%12];
+              if(document.querySelectorAll('.svg-thumb')[i]) document.querySelectorAll('.svg-thumb')[i].style.fill = JD_COLOURS[Tone.Frequency(noteName).toMidi()%12];
+              if(document.querySelectorAll('input')[i]) document.querySelectorAll('input')[i].setAttribute('aria-label', `fader ${i+1} ${noteName.replace('#', ' sharp ')}`)
               if(sines[i]){
                   sines[i].frequency.rampTo(noteName, 1);
               }
