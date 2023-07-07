@@ -17,9 +17,10 @@ html(lang="en")
 
         script(src='sound_ideas.js')
         script.
-        
-            instrument.setAnimationCSS()
+            instrument.setAnimationCSS();
+
             let params = new URLSearchParams(window.location.search);
+
             if(!params.has('toolbar')){
-                document.querySelector('#toolbar').style.display='none'
+                document.querySelector('#toolbar').style.display='none';
             }

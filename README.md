@@ -44,9 +44,9 @@ Please see the [wiki](https://github.com/blurringtheboundaries/sound-ideas/wiki)
 - [x] Chord player
 - [x] Faders
 - [x] [Instrument customisation page](https://blurringtheboundaries.github.io/sound-ideas/setup.html)
-- [x] Chord sequencer (with MIDI export) -- WIP
+- [x] Chord sequencer (with MIDI export) -- uses a temporary interface
 - [ ] Drum machine (with MIDI export)
-- [ ] Mixer / crossfader
+- [ ] Mixer / crossfader for sound files
 - [ ] Sound painting
 - [ ] Interactive music video (based on YouTube clip)
 

@@ -3,7 +3,6 @@ head
     meta(charset="UTF-8")
     meta(name="viewport", content="initial-scale=1.0, maximum-scale=1.0, width=device-width")
     link(rel="stylesheet" href="./fader/style.css")
-    // tone
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js")
     script(src="./fader/main.js")
         
@@ -11,28 +10,25 @@ body(onload='init()')
     #result
     #slider-container 
 
-    svg#slider-bg(viewbox='0 0 1200 600' width='100%' height='100%' style='position:absolute; top:0px; left:0px;')
+    svg#slider-bg(viewbox='0 0 1200 600' aria-hidden="true" width='100%' height='100%' style='position:absolute; top:0px; left:0px;')
         defs
             include fader/fader_gradient
             include fader/fader_style
-
         include fader/fader_faders.pug
-    canvas#cover.touch_pickup_ignore.prevent-select
+    canvas#cover.touch_pickup_ignore.prevent-select(aria-hidden="true")
 
 include fader/fader_gen
 include fader/fader_action
 include note-player/toolbar
 script.
-
-    // this page is based on the fader demo but should be oriented towards quick sensor testing for the fixed mappings of boards we have been using...
     let params = new URLSearchParams(window.location.search);
     if(params.has('board')){
         switch(params.get('board')){
             case 'tb':
-                console.log('touch board')
+                console.log('touch board');
             break;
             case 'btb8':
-                console.log('btb board')
+                console.log('btb board');
                 // lazy demo
                 for(let i = 8; i<12;i++){
                     document.querySelectorAll('.svg-thumb')[i].style.display='none';
@@ -52,7 +48,7 @@ script.
                 }
             break; 
             case 'btb6':
-                console.log('btb board')
+                console.log('btb board');
                 // lazy demo
                 for(let i = 6; i<12;i++){
                     document.querySelectorAll('.svg-thumb')[i].style.display='none';
@@ -91,12 +87,11 @@ script.
             '#cc66ff',
             '#33cc33',
             '#0783dc'
-        ]
+        ];
 
-    // it's been a while since I used the screen instrument class, so I'm just going to emulate it for this demo
+    // emulating ScreenInstrument class for demo purposes
     let instrument = {
         setNotes(notes){
-            // well, that was easy!
             
             notes.forEach((noteName,i)=>{
                 if(document.querySelectorAll('.svg-thumb')[i]) document.querySelectorAll('.svg-thumb')[i].style.fill = JD_COLOURS[Tone.Frequency(noteName).toMidi()%12];
@@ -108,8 +103,7 @@ script.
         }
     }
 
-    // we'll need to remove the presets for now, too, since these include attack etc. (could be nice to put slew limits on the faders in the future)
-    // we can just hide them
+    // hide the sound preset menu
     document.querySelectorAll('#toolbar__preset').forEach(x=>x.remove())
     
     

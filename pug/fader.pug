@@ -3,21 +3,16 @@ head
     meta(charset="UTF-8")
     meta(name="viewport", content="initial-scale=1.0, maximum-scale=1.0, width=device-width")
     link(rel="stylesheet" href="./fader/style.css")
-    // tone
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js")
     script(src="./fader/main.js")
-        
 body(onload='init()')
     #result
     #slider-container 
-
-    svg#slider-bg(viewbox='0 0 1200 600' width='100%' height='100%' style='position:absolute; top:0px; left:0px;')
+    svg#slider-bg(viewbox='0 0 1200 600' width='100%' height='100%' aria-hidden='true' style='position:absolute; top:0px; left:0px;')
         defs
             include fader/fader_gradient
             include fader/fader_style
-
         include fader/fader_faders.pug
-    canvas#cover.touch_pickup_ignore.prevent-select
-
+    canvas#cover.touch_pickup_ignore.prevent-select(aria-hidden="true")
 include fader/fader_gen
 include fader/fader_action

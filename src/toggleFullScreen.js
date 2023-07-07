@@ -1,3 +1,7 @@
+/**
+ * Full screen mode
+ */
+
 export const toggleFullscreen = ()=>{
     if (document.fullscreenElement) {
         document.exitFullscreen();
