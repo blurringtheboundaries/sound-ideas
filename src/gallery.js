@@ -106,7 +106,7 @@ const initGallery = ()=>{
     })  
 
     Object.entries(pages).forEach(([name, url])=>{
-            
+        // todo: the icon, svg, logo, and thumbnail could all be created dynamically here instead of being hard-coded in the HTML. It'd make future updates much easier.
         document.querySelectorAll(`.qr #svg_${name}`).forEach(x=>{
             x.innerHTML = new QRCode({
                 content: url,
@@ -119,7 +119,7 @@ const initGallery = ()=>{
                 ecl: "Q",
             }).svg().replace('<svg', `<svg viewbox="0, 0, 512, 512" id="qr__${name}" `);
             document.querySelector(`#qr__${name}`).classList.add('qr__svg');
-            console.log(document.querySelector(`#qr__${name}`));
+            // console.log(document.querySelector(`#qr__${name}`));
             if (x.parentElement.tagName === 'A'){
                 x.parentElement.setAttribute('href', url);    
             }
