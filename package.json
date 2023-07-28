@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.22.9",
     "@matthewscharles/cm-toolbox": "^1.1.34",
     "@matthewscharles/multitouch-mapper": "^1.0.1",
-    "@matthewscharles/screen-instrument": "^1.1.2",
+    "@matthewscharles/screen-instrument": "^1.1.3",
     "@tombatossals/chords-db": "^0.5.1",
     "@webpack-cli/generators": "^3.0.7",
     "babel-loader": "^9.1.3",
