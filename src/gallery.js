@@ -124,7 +124,6 @@ const initGallery = ()=>{
                 x.parentElement.setAttribute('href', url);    
             }
         })
-    
     })
     
 }
