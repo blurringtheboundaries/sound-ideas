@@ -1,5 +1,8 @@
 import pkg from 'qrcode-svg';
 import {pages} from './pages.js';
+
+// todo: import the QR Code package from CM toolbox to take advantage of future updates
+
 const QRCode = pkg;
 
 const qrCheck = function(error) {
@@ -9,10 +12,21 @@ const qrCheck = function(error) {
 
 window.QRCode = QRCode;
 
+/**
+ * Display a thumbnail over the QR code
+ * @param {*} element 
+ * @param {*} value 
+ */
+
 function displayThumbnail(element, value){
     element.classList.add('hover');
     element.querySelector('img.thumbnail').classList[value ? 'add' : 'remove']('active');
 }
+
+/**
+ * 
+ * @returns {string} the name of the current page
+ */
 
 const getPageName = ()=>{
     return window.location.href.split('/').at(-1).split('.html')[0]

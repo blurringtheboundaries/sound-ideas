@@ -176,10 +176,12 @@
         document.querySelector('#instrument__chord-player').addEventListener('touchstart',(e)=>{
           e.preventDefault();
         })
+        
         document.querySelector('#instrument__chord-player').addEventListener('touchmove',(e)=>{
           e.preventDefault();
         })
         
+        // default chords
         let buttonNotes = ['C','F','G','Am'];
         document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach((x,i)=>{
           
@@ -209,9 +211,6 @@
           button.style.display='block';
           button.style.position='absolute';
           document.querySelector('#chord-selection').appendChild(button);
-          //- button.addEventListener('click',()=>{
-          //-   console.log('click');
-          //- })
         })
         
         window.onresize = () => {

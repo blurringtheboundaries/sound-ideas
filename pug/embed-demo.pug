@@ -13,16 +13,9 @@ html(lang='en')
       h2.instrument__title Chord Player (embedded version)
       
       section#chord-player.instrument__embed__container
-        
         iframe.embedded(src="chord-player.html?embed" allow="fullscreen")
         p Embedded instruments are still in development for mobile devices. In case of problems accessing the instrument above, please use this link: 
-          a(href="chord-player.html") chord player
-      
-      script.
-        // following script does not appear necessary outside wordpress
-        //- document.addEventListener('keydown',function(){
-        //-     document.querySelector('iframe').contentWindow.focus();
-        //- })
+          a.link(href="chord-player.html") chord player
 
         
     footer
