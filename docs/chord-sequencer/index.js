@@ -50,7 +50,6 @@ Guitar.prototype.mute = function () {
     return this;
 };
 
-
 Guitar.prototype.pluck = function (i) {
     var velocity = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
@@ -66,9 +65,7 @@ Guitar.prototype.pluck = function (i) {
     return this;
 };
 
-
 Guitar.prototype.position = function (pos) {
-
     return this.chord.positions[pos].frets;
 };
 

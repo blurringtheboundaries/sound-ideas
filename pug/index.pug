@@ -10,42 +10,43 @@ html(lang='en')
       h2 Welcome to our demo site
       section
         p
-          | This website will host a collection of open source instruments developed by 
+          | This website hosts a collection of open source instruments developed by 
           a.link(href='https://www.blurringtheboundaries.org/') Blurring the Boundaries Arts
           |  in collaboration with the 
           a.link(href='https://accessarts.ca/') National accessArts Centre
           | .
-        p
-          | This a holding page while we pull together our content from various locations on GitHub. 
         p While you are exploring the website, please use your browser's back button to return to the previous page.
-      h2 Pages
+      h2 Try the instruments
       section
-        h3 To try the instruments
+        .qr.blurred(role="link" title="gallery")
+          a
+            img.icon(src="icons/noun-gallery-1407765.svg" aria-hidden="true")
+            #svg_gallery
+            img.logo(src="icons/noun-gallery-1407765.svg" aria-hidden="true")
+            img.thumbnail.active(src="icons/btb-square2.svg" alt='Blurring the Boundaries logo: a stylised bass clef')
+            .text#gallery__caption Gallery
         ul
           li
-            |  
             a.link(href='gallery.html') Gallery page
             | : Try some early prototypes of the instruments, including QR codes for workshops.
           li
-            | 
             a.link(href='https://github.com/blurringtheboundaries/sound-ideas/issues') Issues forum
             | : For reporting bugs and requesting features (requires a GitHub account).
 
-        h3 To learn about the development
-        ul
-          li
-            |  
-            a.link(href='https://github.com/blurringtheboundaries/sound-ideas') GitHub repository
-            | : View the source code for this website.
-          li
-            | 
-            a.link(href='https://github.com/blurringtheboundaries/sound-ideas/wiki') Project wiki
-            | : Some development notes and plans for the future are available here.
-
+      h2 Learn about the development
+        section
+          ul
+            li
+              a.link(href='https://github.com/blurringtheboundaries/sound-ideas') GitHub repository
+              | : View the source code for this website.
+            li
+              | 
+              a.link(href='https://github.com/blurringtheboundaries/sound-ideas/wiki') Project wiki
+              | : Some development notes and plans for the future are available here.
 
       h2 Accessibility 
       section
-        p Please note: there are no instructions currently available for any instruments! We are working on this.
+        p Please note: there are no instructions available for any instruments at this stage of development!
         p At present, all of the pages on this website have passed Google's Lighthouse checker, and have also been tested with VoiceOver for screen reader access.
         p All pages should work equally well with a keyboard, mobile touchscreen, or mouse.
         p These pages are currently text-heavy and will eventually be supplemented with images and other media.  

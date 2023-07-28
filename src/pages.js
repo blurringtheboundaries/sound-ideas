@@ -1,5 +1,6 @@
 export const pages = {
     // 'chord-player': 'https://blurringtheboundaries.github.io/sound-ideas/chord-player.html',
+    'gallery': 'https://blurringtheboundaries.github.io/sound-ideas/gallery.html',
     'index': 'https://blurringtheboundaries.github.io/sound-ideas/index.html',
     'note-player': 'https://blurringtheboundaries.github.io/sound-ideas/embed-copper.html',
     'chord-player': 'https://blurringtheboundaries.github.io/sound-ideas/embed-demo.html',
