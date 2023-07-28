@@ -16,15 +16,15 @@ html(lang='en')
           a.link(href='https://accessarts.ca/') National accessArts Centre
           | .
         p While you are exploring the website, please use your browser's back button to return to the previous page.
-      h2 Try the instruments
-      section
-        .qr.blurred(role="link" title="gallery")
+      .qr.blurred(role="link" title="gallery")
           a
             img.icon(src="icons/noun-gallery-1407765.svg" aria-hidden="true")
             #svg_gallery
             img.logo(src="icons/noun-gallery-1407765.svg" aria-hidden="true")
             img.thumbnail.active(src="icons/btb-square2.svg" alt='Blurring the Boundaries logo: a stylised bass clef')
             .text#gallery__caption Gallery
+      h2 Try the instruments
+      section
         ul
           li
             a.link(href='gallery.html') Gallery page
@@ -49,13 +49,16 @@ html(lang='en')
         p Please note: there are no instructions available for any instruments at this stage of development!
         p At present, all of the pages on this website have passed Google's Lighthouse checker, and have also been tested with VoiceOver for screen reader access.
         p All pages should work equally well with a keyboard, mobile touchscreen, or mouse.
-        p These pages are currently text-heavy and will eventually be supplemented with images and other media.  
+        
+      h2 Reporting issues
+      section
         p
-          | Please contact us if you experience any access barriers to this website.  If possible, the best way to do this is by posting an issue on our GitHub repository: 
+          | Please contact us if you encounter any bugs and/or access barriers on this website. The best way to do this is by posting an issue on our GitHub repository: 
           a.link(href='https://github.com/blurringtheboundaries/sound-ideas/issues') Sound Ideas Issues
           | .  
         p  See this video for instructions: 
           a.link(href='https://www.youtube.com/watch?v=YaPh7wWVr2k') How to report bugs in GitHub
+       
 
     footer
       include footer
