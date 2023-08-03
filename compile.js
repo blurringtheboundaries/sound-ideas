@@ -12,7 +12,8 @@ let pugFiles = [
     'setup',
     'fader',
     'chord-sequencer', 
-    'sensors'
+    'sensors',
+    'painting'
 ]
 
 // 'note-player/copper'
