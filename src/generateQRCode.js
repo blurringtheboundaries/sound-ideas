@@ -20,4 +20,6 @@ export const generateQRCode = (container, url, id = 'qr', bg = 'none') => {
         })
             .svg()
             .replace('<svg', `<svg viewbox="0, 0, 512, 512" id="${id}" class="qr__svg"`);
+            
+    // console.log('generateQRCode',container)
 }

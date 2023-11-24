@@ -39,6 +39,7 @@
     "qrcode-svg": "^1.1.0",
     "sass": "^1.64.1",
     "status-vo": "^1.0.2",
+    "tippy.js": "^6.3.7",
     "tonal": "^4.14.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"

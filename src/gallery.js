@@ -123,8 +123,13 @@ const initGallery = ()=>{
             if (x.parentElement.tagName === 'A'){
                 x.parentElement.setAttribute('href', url);    
             }
+            // console.log(document.querySelector(`#qr__${name}`));
         })
     })
+    
+}
+
+function getCentralBoxes(){
     
 }
 

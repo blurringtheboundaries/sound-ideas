@@ -7,6 +7,9 @@ import { generateRandomId } from './generateRandomId.js';
 import { generateQRCode } from './generateQRCode.js';
 import { scaleHandler } from './scaleHandler.js';
 
+import tippy from 'tippy.js';
+window.tippy = tippy;
+
 const params = new URLSearchParams(window.location.search);
 
 const checkEmbed = ()=>{
@@ -23,7 +26,9 @@ const loader = ()=>{
    createLinkSVG();
    gallery.init();
    checkEmbed();
-
+   
+//    tippy('#options__icon-type',{content:'Choose to show buttons as thumbnails or QR codes.', placement:'bottom', arrow:true, animation:'fade', theme:'light'})
+   
    document.querySelectorAll('.instrument__fullscreen').forEach(x=>x.addEventListener('click', toggleFullscreen));
    document.querySelectorAll('header,footer').forEach(x=>x.classList.add('allowDefault'));
    document.addEventListener('screen-instrument-message', (e)=> {
