@@ -9,17 +9,22 @@
 
 body {
     background-color: $dark--lighter;
+    
     color: $light--lighter;
     font-family: $font-body-condensed;
 }
 
 p {
-    margin:1em;
+    margin: 1em;
+    margin-right: 2em;
+    letter-spacing: 0.05rem;
+    
 }
 
 a {
     color: black;
     display: inline-block;
+    text-decoration-color: #ccc;
 
     &:visited{
         color:black;

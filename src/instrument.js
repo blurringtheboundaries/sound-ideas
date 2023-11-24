@@ -18,6 +18,9 @@ import { ScreenInstrument } from '@matthewscharles/screen-instrument';
 import CM from '@matthewscharles/cm-toolbox';
 window.cm = CM;
 
+import gsap from "gsap";
+window.gsap = gsap;
+
 import { Tonal, Scale } from 'tonal';
 window.Tonal = Tonal;
 window.Scale = Scale;

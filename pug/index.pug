@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
   head
     include head.pug
-    title Sound Ideas demo site
+    title Sound Ideas instrument gallery
   body(onload='SoundIdeas.loader()')
     header
       include header
@@ -10,35 +10,26 @@ html(lang='en')
       h2 Welcome to our demo site
       section
         p
-          | This website hosts a collection of open source instruments developed by 
-          a.link(href='https://www.blurringtheboundaries.org/') Blurring the Boundaries Arts
-          |  in collaboration with the 
-          a.link(href='https://accessarts.ca/') National accessArts Centre
+          | This website hosts a collection of open source instruments designed to be played with touch, keyboard, and MIDI.  
+        p They were developed through a collaboration between 
+          a.link(href='https://www.blurringtheboundaries.org/') BtB Arts
+          |  and 
+          a.link(href='https://accessarts.ca/') NaAC
           | .
-        p While you are exploring the website, please use your browser's back button to return to the previous page.
-      .qr.blurred(role="link" title="gallery")
-          a
-            img.icon(src="icons/noun-gallery-1407765.svg" aria-hidden="true")
-            #svg_gallery
-            img.logo(src="icons/noun-gallery-1407765.svg" aria-hidden="true")
-            img.thumbnail.active(src="icons/btb-square2.svg" alt='Blurring the Boundaries logo: a stylised bass clef')
-            .text#gallery__caption Gallery
+        p While exploring the website, please use your browser's back button to return to the previous page.
       h2 Try the instruments
       section
-        p Instructions coming soon...
+        //- p Instructions coming soon...
         ul
           li
             a.link(href='gallery.html') Gallery page
-            | : Try some early prototypes of the instruments, including QR codes for workshops.
-          li
-            a.link(href='https://github.com/blurringtheboundaries/sound-ideas/issues') Issues forum
-            | : For reporting bugs and requesting features (requires a GitHub account).
-
+            | : Try some early prototypes of the instruments.
+      include gallery_thumbnail
       h2 Learn about the development
       section
         ul
           li
-            a.link(href='https://github.com/blurringtheboundaries/sound-ideas') GitHub repository
+            a.link(href='https://github.com/blurringtheboundaries/sound-ideas') GitHub repo
             | : View the source code for this website.
           li
             | 
@@ -54,12 +45,12 @@ html(lang='en')
       h2 Reporting issues
       section
         p
-          | Please contact us if you encounter any bugs and/or access barriers on this website. The best way to do this is by posting an issue on our GitHub repository: 
-          a.link(href='https://github.com/blurringtheboundaries/sound-ideas/issues') Sound Ideas Issues
-          | .  
-        p  See this video for instructions: 
+          | Please contact us if you encounter any bugs and/or access barriers on this website. 
+        p The best way to do this is by posting an issue on GitHub: 
+          a.link(href='https://github.com/blurringtheboundaries/sound-ideas/issues') Sound Ideas Issues  
+          |  (video: 
           a.link(href='https://www.youtube.com/watch?v=YaPh7wWVr2k') How to report bugs in GitHub
-       
+          | ).
 
     footer
       include footer
