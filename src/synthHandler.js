@@ -53,16 +53,21 @@ export const synthHandler = {
             }
         },
     }
-    }
-        
+}
 
-    Object.keys(synthPresets).forEach(x=>{
-        document.querySelector('#select_preset').appendChild(cm.create('option',{
-            innerHTML:x 
-        }))  
-    })
+if(!localStorage.getItem('synthPresets')){
+    localStorage.setItem('synthPresets',JSON.stringify(synthHandler.presets))
+} else {
+    synthHandler.presets = JSON.parse(localStorage.getItem('synthPresets'));
+}
 
-    document.querySelector('#select_preset').addEventListener('input',function(){
-        instrument.setParameters(synthPresets[this.value]);
-        
-    })
+Object.keys(synthPresets).forEach(x=>{
+    document.querySelector('#select_preset').appendChild(cm.create('option',{
+        innerHTML:x 
+    }))  
+})
+
+document.querySelector('#select_preset').addEventListener('input',function(){
+    instrument.setParameters(synthPresets[this.value]);
+    
+})
