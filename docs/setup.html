@@ -97,46 +97,6 @@
           //- uniqueId = SoundIdeas.generateRandomId();
           
     </script>
-    <style>
-      #generate__id__qr{
-        width: 100px;
-        height:100px;
-        border:2px solid black;
-      }
-      
-      .qr__svg{
-        width: 100%;
-        height: 100%;
-      }
-      
-      .id__qr__png{
-        width: 100%;
-        height: 100%;
-        display:inline-block;
-      }
-      
-      #addresses{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-      
-      #toolbar{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-items: center;
-      }
-      
-      textarea.generate__id__url{
-        width: 80%;
-        height: 100px;
-        resize: none;
-        margin-bottom: 1em;
-      }
-      
-    </style>
   </head>
   <body onload="SoundIdeas.loader(); setupLoad();">
     <header><a class="allowDefault" href="https://blurringtheboundaries.github.io/sound-ideas/"><svg id="banner__logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1154.33 317.11" id="header_logo" alt="Sound Ideas" aria-level="1" role="heading">
@@ -189,7 +149,7 @@
         <p>A preview of the instrument is embedded below. Use the generated link or QR code once it is ready to share.</p>
       </section>
       <section id="instrument__custom">
-        <menu class="allowDefault" id="toolbar" role="toolbar">
+        <menu class="allowDefault setup" id="toolbar" role="toolbar">
           <li class="toolbar__item" style="display:none;">
             <label for="select_instrument">Page </label>
             <select id="select_instrument">
