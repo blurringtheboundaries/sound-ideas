@@ -8,28 +8,39 @@ html(lang='en')
       #generate__id__qr{
         width: 100px;
         height:100px;
-        border:1px solid black;
+        border:2px solid black;
       }
+      
       .qr__svg{
         width: 100%;
         height: 100%;
       }
+      
       .id__qr__png{
         width: 100%;
         height: 100%;
         display:inline-block;
       }
+      
       #addresses{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
       }
+      
       #toolbar{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         align-items: center;
+      }
+      
+      textarea.generate__id__url{
+        width: 80%;
+        height: 100px;
+        resize: none;
+        margin-bottom: 1em;
       }
      
   body(onload='SoundIdeas.loader(); setupLoad();')
@@ -40,8 +51,9 @@ html(lang='en')
     main
       h2.instrument__title Custom Instrument 
       section
-        p This page generates an instrument with a unique link to share with others.  This is intended as a replacement for preset panels in situations where an artist might wish to focus entirely on the instrument itself, or to generate an instrument to accompany a specific piece.
-        p Although the instrument can be previewed within the page below, it is recommended to use the generated link or QR code to play for any extended period of time.
+        p Use this page to generate an on-screen instrument, with a unique link and QR code to share with others.  
+        p This setup page is intended as a replacement for preset panels in situations where an artist might wish to focus entirely on the instrument itself (for example, in a music workshop setting). It could also be used to generate an instrument to accompany a specific piece.
+        p A preview of the instrument is embedded below. Use the generated link or QR code once it is ready to share.
       section#instrument__custom
         menu#toolbar.allowDefault(role='toolbar')
           li.toolbar__item(style='display:none;')
@@ -73,8 +85,8 @@ html(lang='en')
           h3 Instrument address
           p Copy this address or save the QR code on the right to share your instrument with others.
           #generate__id__container(style="margin:0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center;")
-            textarea(style="width:80%;")#generate__id__url.allowDefault
-            button(style="width:80%;")#generate__id__copy copy
+            textarea.generate__id__url#generate__id__url.allowDefault
+            button#generate__id__copy copy
         #generate__id__qr__container(style="min-width:150px; min-height:150px;")
           #generate__id__qr(style="min-width:150px;min-height:150px;")
       section#note-player.instrument__embed__container        

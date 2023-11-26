@@ -27,10 +27,16 @@ script.
             },
             update(){
                 let paramString = '';
+                
                 for(let key in this.settings){
                     paramString += key + '=' + this.settings[key] + '&';
                 }
+                
                 this.value = this.url + 'id=' + this.uniqueId + '&' + paramString;
+                
+                if(this.value[this.value.length-1] === '&'){
+                    this.value = this.value.slice(0,-1);
+                };
                 
                 document.querySelector('#generate__id__url').value = this.value;
                 document.querySelector('#generate__id__url').setAttribute('size',this.value.length);
