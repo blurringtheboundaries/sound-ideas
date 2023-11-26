@@ -169,7 +169,8 @@ footer.embed {
 .qr * {
   cursor: pointer;
 }
-.qr img, .qr .qr__svg {
+.qr img,
+.qr .qr__svg {
   width: 95%;
   height: 95%;
   display: block;
@@ -286,6 +287,7 @@ footer.embed {
 }
 
 textarea.generate__id__url {
+  margin-left: 0.2em;
   width: 80%;
   height: 100px;
   margin-bottom: 1em;

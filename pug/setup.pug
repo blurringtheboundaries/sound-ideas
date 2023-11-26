@@ -12,10 +12,12 @@ html(lang='en')
     
     main
       h2.instrument__title Custom Instrument 
+      
       section
         p Use this page to generate an on-screen instrument, with a unique link and QR code to share with others.  
         p This setup page is intended as a replacement for preset panels in situations where an artist might wish to focus entirely on the instrument itself (for example, in a music workshop setting). It could also be used to generate an instrument to accompany a specific piece.
         p A preview of the instrument is embedded below. Use the generated link or QR code once it is ready to share.
+     
       section#instrument__custom
         menu#toolbar.allowDefault.setup(role='toolbar')
           li.toolbar__item(style='display:none;')
@@ -42,6 +44,7 @@ html(lang='en')
           li.toolbar__item
               label(for='display_toolbar') Display toolbar
               input#display_toolbar(type='checkbox')
+     
       section#addresses
         #generate__id
           h3 Instrument address
@@ -51,9 +54,9 @@ html(lang='en')
             button#generate__id__copy copy
         #generate__id__qr__container(style="min-width:150px; min-height:150px;")
           #generate__id__qr(style="min-width:150px;min-height:150px;")
+     
       section#note-player.instrument__embed__container        
         iframe.embedded(src="note-player/copper.html?embed" allow="fullscreen")
-
 
     footer
       include footer
