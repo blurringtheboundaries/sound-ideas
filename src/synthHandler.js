@@ -61,13 +61,17 @@ if(!localStorage.getItem('synthPresets')){
     synthHandler.presets = JSON.parse(localStorage.getItem('synthPresets'));
 }
 
-Object.keys(synthPresets).forEach(x=>{
-    document.querySelector('#select_preset').appendChild(cm.create('option',{
-        innerHTML:x 
-    }))  
-})
+let synthPresets = synthHandler.presets;
 
-document.querySelector('#select_preset').addEventListener('input',function(){
-    instrument.setParameters(synthPresets[this.value]);
+if (document.querySelector('#select_preset')){
+    Object.keys(synthPresets).forEach(x=>{
+        document.querySelector('#select_preset').appendChild(cm.create('option',{
+            innerHTML:x 
+        }))  
+    })
     
-})
+    document.querySelector('#select_preset').addEventListener('input',function(){
+        instrument.setParameters(synthPresets[this.value]);
+    })
+};
+

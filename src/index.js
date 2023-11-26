@@ -7,6 +7,8 @@ import { generateRandomId } from './generateRandomId.js';
 import { generateQRCode } from './generateQRCode.js';
 import { scaleHandler } from './scaleHandler.js';
 
+import { synthHandler } from './synthHandler.js';
+
 import tippy from 'tippy.js';
 window.tippy = tippy;
 
@@ -49,7 +51,8 @@ export {
     toggleFullscreen,
     generateRandomId,
     generateQRCode,
-    scaleHandler
+    scaleHandler,
+    synthHandler
 }
 
 Object.assign(window,{
