@@ -5,6 +5,30 @@ import {pages} from './pages.js';
 
 const QRCode = pkg;
 
+
+function styleQR(){
+    let width = document.querySelectorAll('#qr__gallery rect:not(:first-child)')[0].width.baseVal.value;
+    let firstX = document.querySelectorAll('#qr__gallery rect:not(:first-child)')[0].x.baseVal.value;
+    let firstRow = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)')).filter(x=>x.x.baseVal.value == firstX)
+    // let xValues = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)')).map(x=>x.x.baseVal.value);
+    let yValues = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)')).map(x=>x.y.baseVal.value);
+    // console.log(Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)')))
+    // console.log(yValues)
+    let allRects = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)'));
+    let rows = [], count = 0;
+    for(let i=0;i<firstRow.length;i++){
+        let currentRow = [];
+        for(let j=0;j<firstRow.length;j++){
+            currentRow.push(allRects[j + (i*firstRow.length)])
+        }
+        rows.push(currentRow)
+        count++;
+    }
+    console.log(rows)
+    
+}
+
+
 const qrCheck = function(error) {
     if (error) throw error;
     console.log('File created.');
