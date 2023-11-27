@@ -9,6 +9,7 @@ const QRCode = pkg;
 function styleQR(){
     let width = document.querySelectorAll('#qr__gallery rect:not(:first-child)')[0].width.baseVal.value;
     let firstX = document.querySelectorAll('#qr__gallery rect:not(:first-child)')[0].x.baseVal.value;
+    let firstY = document.querySelectorAll('#qr__gallery rect:not(:first-child)')[0].x.baseVal.value;
     let firstRow = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)')).filter(x=>x.x.baseVal.value == firstX)
     // let xValues = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)')).map(x=>x.x.baseVal.value);
     let yValues = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)')).map(x=>x.y.baseVal.value);
@@ -17,14 +18,12 @@ function styleQR(){
     let allRects = Array.from(document.querySelectorAll('#qr__gallery rect:not(:first-child)'));
     let rows = [], count = 0;
     for(let i=0;i<firstRow.length;i++){
-        let currentRow = [];
-        for(let j=0;j<firstRow.length;j++){
-            currentRow.push(allRects[j + (i*firstRow.length)])
-        }
+        let currentRow = allRects.filter(x=>Math.floor(x.y.baseVal.value + firstY) == Math.floor(width * i));
         rows.push(currentRow)
-        count++;
+
     }
-    console.log(rows)
+    console.log(rows, firstX, firstY)
+    rows.forEach((row,i)=>{row.forEach(x=>{x.style.opacity = Math.random()})})
     
 }
 
