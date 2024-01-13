@@ -1,3 +1,5 @@
+import * as Tone from 'tone';
+
 import { gallery } from './gallery.js';
 import { createLinkSVG } from './links.js';
 import { ScreenInstrument, CM } from './instrument.js';
@@ -16,9 +18,8 @@ const params = new URLSearchParams(window.location.search);
 
 const checkEmbed = ()=>{
     if(params.has('embed')){
-        document.querySelectorAll(
-            'header,footer,.instrument__title,.instrument__fullscreen,body'
-            ).forEach(x=>x.classList.add('embed'));
+        let elements = document.querySelectorAll('header,footer,.instrument__title,.instrument__fullscreen,body');
+        elements.forEach(x=>x.classList.add('embed'));
     }
 }
 
@@ -56,5 +57,6 @@ export {
 }
 
 Object.assign(window,{
-    generateQRCode
+    generateQRCode,
+    Tone
 })

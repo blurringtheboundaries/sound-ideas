@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src="./sound-ideas-main.js" type="module"></script>
     <script src="./entry.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
     <title>Sound Ideas: note player</title>
   </head>
   <body onload="SoundIdeas.loader()"><img class="allowDefault instrument__fullscreen" id="fullscreen" src="icons/noun-fullscreen-1345526-FFFFFF.svg" title="fullscreen mode" alt="fullscreen mode">
@@ -64,6 +65,9 @@
         <div class="partner"><a href="https://canadacouncil.ca/"><img src="logos/CCA_RGB_white_f.png" alt="Canada Council for the Arts"></a></div>
       </div>
     </footer>
-    <script>Tone.start().then(()=>{console.log('started')})</script>
+    <script>
+      Tone.start().then(()=>{console.log('started')})
+      let synth = new Tone.PolySynth().toDestination();
+    </script>
   </body>
 </html>
