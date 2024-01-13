@@ -1,0 +1,204 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sound-ideas - v1.0.0</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Sound-ideas - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>Sound Ideas instruments and web music tools: a collaboration between BtB Arts and NaAC</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/blurringtheboundaries/sound-ideas#readme">Sound-ideas - v1.0.0</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-css"><a href="#undefined-css">css</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="#codes" data-type="css"><a href="#undefined-css-#codes">#codes</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".qr" data-type="css"><a href="#undefined-css-.qr">.qr</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".thumbnail.selected" data-type="css"><a href="#undefined-css-.thumbnail.selected">.thumbnail.selected</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".logo.selected" data-type="css"><a href="#undefined-css-.logo.selected">.logo.selected</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".blurred" data-type="css"><a href="#undefined-css-.blurred">.blurred</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="#generate__id__qr" data-type="css"><a href="#undefined-css-#generate__id__qr">#generate__id__qr</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".id__qr__png" data-type="css"><a href="#undefined-css-.id__qr__png">.id__qr__png</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="#addresses" data-type="css"><a href="#undefined-css-#addresses">#addresses</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="#toolbar.setup" data-type="css"><a href="#undefined-css-#toolbar.setup">#toolbar.setup</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="textarea.generate__id__url" data-type="css"><a href="#undefined-css-textarea.generate__id__url">textarea.generate__id__url</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".instrument__embed__container" data-type="css"><a href="#undefined-css-.instrument__embed__container">.instrument__embed__container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name=".instrument__title" data-type="css"><a href="#undefined-css-.instrument__title">.instrument__title</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="body.embed" data-type="css"><a href="#undefined-css-body.embed">body.embed</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-css"><h2 class="main__heading--secondary"><div class="container">css</div></h2><section class="main__item container item" id="undefined-css-#codes"><h3 class="item__heading"><a class="item__name" href="#css-#codes">#codes</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>#codes {
+  // background-color:$dark--lighter;
+    // color: $light--lighter;
+    font-family: $font-body-condensed;
+    padding-top: 1em;
+    padding: 3em;
+    left: 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2em;
+
+    /* justify-content: space-between;  */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+}</code>" data-collapsed="#codes { ... }"><code>#codes { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>codes gallery</p></div></section><section class="main__item container item" id="undefined-css-.qr"><h3 class="item__heading"><a class="item__name" href="#css-.qr">.qr</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.qr {
+  display: block;
+    width: $qr--size;
+    height: $qr--size;
+    min-width: $qr--size--min;
+    min-height: $qr--size--min;
+    max-width: $qr--size--max;
+    max-height: $qr--size--max;
+    border-radius: 10px;
+    background-color: $light--lighter;
+    position: relative;
+    left: 0;
+    right: 0;
+    // margin: 10px;
+    margin: auto;
+    margin-bottom: 1em;
+    background-color: $light--accent;
+    border: $dark 2px solid;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* add a shadow */
+    // removed for now since I would also need to add a shadow to the caption
+    // box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+    &amp;:active {
+        transform: translate(0px, 0.4em);
+    }
+
+    &amp;:hover {
+        background-color: $light--lighter;
+    }
+
+    &amp;:hover image {
+        background-color: $light--lighter;
+    }
+
+    &amp; * {
+        cursor: pointer;
+    }
+
+    &amp; img,
+    .qr__svg {
+        width: 95%;
+        height: 95%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        transform: translate(0px, -0.4em);
+
+    }
+
+    &amp; img.logo {
+        /* width: 86px; */
+        /* height: 86px; */
+        // width: 45px;
+        // height: 45px;
+        /* border: 4px solid black; */
+        /* border-radius: 10px; */
+
+        width: 20%;
+        height: 20%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        padding: 2px;
+        border: 7px solid $light--accent;
+        background-color: $light--accent;
+
+        transform: translate(0px, -0.4em);
+        transition: all 0.2s ease-in-out;
+
+    }
+
+
+    &amp; img.icon {
+        background-color: $light--accent;
+        transition: all 1s ease;
+        width: 80%;
+        height: 80%;
+        clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+        border-radius: 10px;
+
+        &amp;.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+
+
+    }
+
+    &amp; img.thumbnail {
+        background-color: $light--accent;
+        transition: all 1s ease;
+        width: 100%;
+        height: 100%;
+
+
+        clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+        border-radius: 10px;
+        transform: translate(0px, 0px);
+
+        // border: 2px solid $light--accent;
+        &amp;.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+
+
+    &amp; .text {
+        /* background-color:$light; */
+        /* color: $dark; */
+        text-align: center;
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        left: -2px;
+        right: 0;
+        background-color: $dark;
+        color: $light--lighter;
+        border-radius: 0 0 10px 10px;
+        //- padding-top: 5px;
+        //- padding:10px;
+
+        font-family: $font-header-1;
+        font-weight: 100;
+        font-size: 1.5rem;
+        transition: none;
+        width: calc($qr--size - 2px);
+        min-width: $qr--size--min;
+        max-width: $qr--size--max;
+
+    }
+}</code>" data-collapsed=".qr { ... }"><code>.qr { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>qr code</p></div></section><section class="main__item container item" id="undefined-css-.thumbnail.selected"><h3 class="item__heading"><a class="item__name" href="#css-.thumbnail.selected">.thumbnail.selected</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.thumbnail.selected {
+  /* border:7px solid $dark !important; */
+    background-color: $light--lighter !important;
+}</code>" data-collapsed=".thumbnail.selected { ... }"><code>.thumbnail.selected { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>thumbnail selected</p></div></section><section class="main__item container item" id="undefined-css-.logo.selected"><h3 class="item__heading"><a class="item__name" href="#css-.logo.selected">.logo.selected</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.logo.selected {
+  border: 7px solid $dark !important;
+    background-color: $light--lighter !important;
+}</code>" data-collapsed=".logo.selected { ... }"><code>.logo.selected { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>logo selected</p></div></section><section class="main__item container item" id="undefined-css-.blurred"><h3 class="item__heading"><a class="item__name" href="#css-.blurred">.blurred</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.blurred {
+  filter: brightness(0.5);
+}</code>" data-collapsed=".blurred { ... }"><code>.blurred { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>blurred (not selected)</p></div></section><section class="main__item container item" id="undefined-css-#generate__id__qr"><h3 class="item__heading"><a class="item__name" href="#css-#generate__id__qr">#generate__id__qr</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>#generate__id__qr {
+  width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}</code>" data-collapsed="#generate__id__qr { ... }"><code>#generate__id__qr { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>qr code generated</p></div></section><section class="main__item container item" id="undefined-css-.id__qr__png"><h3 class="item__heading"><a class="item__name" href="#css-.id__qr__png">.id__qr__png</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.id__qr__png {
+  width: 100%;
+    height: 100%;
+    display: inline-block;
+}</code>" data-collapsed=".id__qr__png { ... }"><code>.id__qr__png { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>qr code png</p></div></section><section class="main__item container item" id="undefined-css-#addresses"><h3 class="item__heading"><a class="item__name" href="#css-#addresses">#addresses</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>#addresses {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}</code>" data-collapsed="#addresses { ... }"><code>#addresses { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>addresses</p></div></section><section class="main__item container item" id="undefined-css-#toolbar.setup"><h3 class="item__heading"><a class="item__name" href="#css-#toolbar.setup">#toolbar.setup</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>#toolbar.setup {
+  display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}</code>" data-collapsed="#toolbar.setup { ... }"><code>#toolbar.setup { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>toolbar setup</p></div></section><section class="main__item container item" id="undefined-css-textarea.generate__id__url"><h3 class="item__heading"><a class="item__name" href="#css-textarea.generate__id__url">textarea.generate__id__url</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>textarea.generate__id__url {
+  margin-left: 0.2em;
+    width: 80%;
+    height: 100px;
+    margin-bottom: 1em;
+}</code>" data-collapsed="textarea.generate__id__url { ... }"><code>textarea.generate__id__url { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>textarea</p></div></section><section class="main__item container item" id="undefined-css-.instrument__embed__container"><h3 class="item__heading"><a class="item__name" href="#css-.instrument__embed__container">.instrument__embed__container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.instrument__embed__container {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}</code>" data-collapsed=".instrument__embed__container { ... }"><code>.instrument__embed__container { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>instrument embed layout</p></div></section><section class="main__item container item" id="undefined-css-.instrument__title"><h3 class="item__heading"><a class="item__name" href="#css-.instrument__title">.instrument__title</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>.instrument__title {
+  &amp;.embed{
+        display:none;
+        position:absolute;
+        margin:0;
+        top:0;
+        left:0;
+        width:100vw;
+    }
+}</code>" data-collapsed=".instrument__title { ... }"><code>.instrument__title { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>instrument title</p></div></section><section class="main__item container item" id="undefined-css-body.embed"><h3 class="item__heading"><a class="item__name" href="#css-body.embed">body.embed</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="<code>body.embed {
+  touch-action:none;
+}</code>" data-collapsed="body.embed { ... }"><code>body.embed { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>body if embedded</p></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/blurringtheboundaries/sound-ideas#readme">Sound-ideas</a><!-- Version --> <span class="project-info__version">- v1.0.0</span><!-- License --> <span class="project-info__license">, under UNLICENSED</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
