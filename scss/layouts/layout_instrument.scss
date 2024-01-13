@@ -1,3 +1,5 @@
+
+/// instrument embed layout
 .instrument__embed__container{
     display: flex;
     flex-direction: column;
@@ -5,6 +7,7 @@
     align-items: center;
 }
 
+/// instrument title
 .instrument__title{
     &.embed{
         display:none;
@@ -13,10 +16,10 @@
         top:0;
         left:0;
         width:100vw;
-    }
-    
+    }  
 }
 
+/// body if embedded
 body.embed{
     touch-action:none;
 }

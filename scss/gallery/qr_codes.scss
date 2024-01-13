@@ -1,3 +1,5 @@
+/// codes gallery
+
 #codes {
     // background-color:$dark--lighter;
     // color: $light--lighter;
@@ -18,6 +20,8 @@
 $qr--size:20vw;
 $qr--size--min: 300px;
 $qr--size--max: 340px;
+
+/// qr code 
 
 .qr {
     display: block;
@@ -164,37 +168,44 @@ $qr--size--max: 340px;
 }
 
 
-
+/// thumbnail selected
 .thumbnail.selected {
     /* border:7px solid $dark !important; */
     background-color: $light--lighter !important;
 
 }
 
+
+/// logo selected
 .logo.selected {
     border: 7px solid $dark !important;
     background-color: $light--lighter !important;
 
 }
 
+
+/// blurred (not selected)
 .blurred {
     filter: brightness(0.5);
 }
 
 // from setup.html
-
+/// qr code generated
 #generate__id__qr {
     width: 100px;
     height: 100px;
     border: 2px solid black;
 }
 
+
+/// qr code png
 .id__qr__png {
     width: 100%;
     height: 100%;
     display: inline-block;
 }
 
+/// addresses
 #addresses {
     display: flex;
     flex-direction: row;
@@ -202,6 +213,8 @@ $qr--size--max: 340px;
     align-items: center;
 }
 
+
+/// toolbar setup
 #toolbar.setup {
     display: flex;
     flex-wrap: wrap;
@@ -209,6 +222,8 @@ $qr--size--max: 340px;
     align-items: center;
 }
 
+
+/// textarea
 textarea.generate__id__url {
     margin-left: 0.2em;
     width: 80%;

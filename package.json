@@ -38,6 +38,7 @@
     "pug-cli": "^1.0.0-alpha6",
     "qrcode-svg": "^1.1.0",
     "sass": "^1.64.1",
+    "sassdoc": "^2.7.4",
     "status-vo": "^1.0.2",
     "tippy.js": "^6.3.7",
     "tonal": "^4.14.2",

@@ -106,7 +106,6 @@ const initGallery = ()=>{
             })
         })
     
-        
         qrElement.addEventListener('mouseleave', (e)=>{
             qrElement.querySelector('img.logo').classList.remove('selected');
             qrElement.querySelector('img.thumbnail').classList.remove('selected');
