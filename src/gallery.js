@@ -140,6 +140,7 @@ const initGallery = ()=>{
                 typeNumber:10,
                 ecl: "Q",
             }).svg().replace('<svg', `<svg viewbox="0, 0, 512, 512" id="qr__${name}" `);
+            
             document.querySelector(`#qr__${name}`).classList.add('qr__svg');
             // console.log(document.querySelector(`#qr__${name}`));
             if (x.parentElement.tagName === 'A'){

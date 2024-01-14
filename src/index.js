@@ -11,8 +11,8 @@ import { scaleHandler } from './scaleHandler.js';
 
 import { synthHandler } from './synthHandler.js';
 
-import tippy from 'tippy.js';
-window.tippy = tippy;
+// import tippy from 'tippy.js';
+// window.tippy = tippy;
 
 const params = new URLSearchParams(window.location.search);
 
