@@ -106,36 +106,21 @@
   <canvas class="touch_pickup_ignore prevent-select" id="cover" aria-hidden="true"></canvas>
 </body>
 <script>
-  let container = document.querySelector('#slider-container');
-  let rectArray = Array.from(document.querySelectorAll('#slider-bg .svg-fader')).map((rect)=>{return rect.getBoundingClientRect()});
-  const sliderCount = 12;
-  for(let i=0;i<sliderCount;i++){
-      let slider=document.createElement('input');
-      slider.className = 'slider';
-      slider.setAttribute('type','range');
-      slider.style.webkitAppearance = 'slider-vertical';
-      slider.style.width='10px';
-      
-      slider.setAttribute('orient','vertical');
-      slider.setAttribute('min','0');
-      slider.setAttribute('max','127');
-      slider.setAttribute('value','0');
-      //- slider.style.gridRow = i+1;
-      slider.style.gridColumn = i+1;
-      slider.style.position='absolute';
-      slider.style.top=rectArray[i].top+'px';
-      slider.style.left=rectArray[i].left+'px';
-      slider.style.top=rectArray[i].top+'px';
-      slider.style.right=rectArray[i].right+'px';
-      slider.style.bottom=rectArray[i].bottom+'px';
-      slider.style.height=rectArray[i].height+'px';
-      //- slider.style.width=rectArray[i].width+'px';
-      container.appendChild(slider);
-  }
-  
-  let resizeSliders = function(){
-      document.querySelectorAll('input').forEach((slider,i)=>{
-          let rectArray = Array.from(document.querySelectorAll('#slider-bg rect')).map((rect)=>{return rect.getBoundingClientRect()});
+  const generateFaders = function(sliderCount = 12, container = document.querySelector('#slider-container'), rectQuery = '#slider-bg rect .svg-fader'){
+      let rectArray = Array.from(document.querySelectorAll('#slider-bg .svg-fader')).map((rect)=>{return rect.getBoundingClientRect()});
+      for(let i=0;i<sliderCount;i++){
+          let slider=document.createElement('input');
+          slider.className = 'slider';
+          slider.setAttribute('type','range');
+          slider.style.webkitAppearance = 'slider-vertical';
+          slider.style.width='10px';
+          
+          slider.setAttribute('orient','vertical');
+          slider.setAttribute('min','0');
+          slider.setAttribute('max','127');
+          slider.setAttribute('value','0');
+          //- slider.style.gridRow = i+1;
+          slider.style.gridColumn = i+1;
           slider.style.position='absolute';
           slider.style.top=rectArray[i].top+'px';
           slider.style.left=rectArray[i].left+'px';
@@ -143,10 +128,28 @@
           slider.style.right=rectArray[i].right+'px';
           slider.style.bottom=rectArray[i].bottom+'px';
           slider.style.height=rectArray[i].height+'px';
-      })
-  }
+          //- slider.style.width=rectArray[i].width+'px';
+          container.appendChild(slider);
+      }
+  
+      let resizeSliders = function(){
+          document.querySelectorAll('input.slider').forEach((slider,i)=>{
+              let rectArray = Array.from(document.querySelectorAll('#slider-bg rect')).map((rect)=>{return rect.getBoundingClientRect()});
+              slider.style.position='absolute';
+              slider.style.top=rectArray[i].top+'px';
+              slider.style.left=rectArray[i].left+'px';
+              slider.style.top=rectArray[i].top+'px';
+              slider.style.right=rectArray[i].right+'px';
+              slider.style.bottom=rectArray[i].bottom+'px';
+              slider.style.height=rectArray[i].height+'px';
+          })
+      }
   
   window.addEventListener('resize',resizeSliders);
+  
+  }
+  
+  generateFaders();
 </script>
 <script>
   // adapted from a remote demo
@@ -157,8 +160,9 @@
   const thumbHeight = 50;
   const sines = [];
   const numberOfSines = 12;
-  //- const register = 'bass'
+  
   let register = 'mid';
+  //- register = 'bass'
   
   // sines set to bass tones / mid tones depending on register
   // we could use the chord player code here ...
@@ -176,10 +180,10 @@
   
   function init(){
       // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respetively)
-      // this should be the default midi script for the touchboard
+      // this should correspond with the default midi script for the touchboard
       document.querySelectorAll('input').forEach((input,i) => {
           let index = 59 - i
-          // todo: need to recognise a range of cc numbers (like a key range in keyboard-mapper)
+          
           midiMapper.assign(i, 'cc', index, (value)=>{
                setFaderElements({
                   svgElement: document.querySelector(`#thumb_${i}`),
@@ -254,7 +258,7 @@
       })
   
   document.querySelectorAll('input').forEach((input,i)=>{
-      // todo: add an "onfocus" listener for visual confirmation of keyboard access
+      // todo: add an "onfocus" listener for visual confirmation of keyboard access?
       // this could also occur on mouseover / touchstart
       let y = getY(input.value, faderHeight, thumbHeight);
       document.querySelector(`#thumb_${i}`).setAttribute('y',y);

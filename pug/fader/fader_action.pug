@@ -7,8 +7,9 @@ script.
     const thumbHeight = 50;
     const sines = [];
     const numberOfSines = 12;
-    //- const register = 'bass'
+    
     let register = 'mid';
+    //- register = 'bass'
     
     // sines set to bass tones / mid tones depending on register
     // we could use the chord player code here ...
@@ -26,10 +27,10 @@ script.
 
     function init(){
         // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respetively)
-        // this should be the default midi script for the touchboard
+        // this should correspond with the default midi script for the touchboard
         document.querySelectorAll('input').forEach((input,i) => {
             let index = 59 - i
-            // todo: need to recognise a range of cc numbers (like a key range in keyboard-mapper)
+            
             midiMapper.assign(i, 'cc', index, (value)=>{
                  setFaderElements({
                     svgElement: document.querySelector(`#thumb_${i}`),
@@ -104,7 +105,7 @@ script.
         })
 
     document.querySelectorAll('input').forEach((input,i)=>{
-        // todo: add an "onfocus" listener for visual confirmation of keyboard access
+        // todo: add an "onfocus" listener for visual confirmation of keyboard access?
         // this could also occur on mouseover / touchstart
         let y = getY(input.value, faderHeight, thumbHeight);
         document.querySelector(`#thumb_${i}`).setAttribute('y',y);
