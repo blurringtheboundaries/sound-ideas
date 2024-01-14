@@ -26,7 +26,7 @@ script.
         container.appendChild(slider);
     }
 
-    window.onresize = function(){
+    let resizeSliders = function(){
         document.querySelectorAll('input').forEach((slider,i)=>{
             let rectArray = Array.from(document.querySelectorAll('#slider-bg rect')).map((rect)=>{return rect.getBoundingClientRect()});
             slider.style.position='absolute';
@@ -38,3 +38,5 @@ script.
             slider.style.height=rectArray[i].height+'px';
         })
     }
+    
+    window.addEventListener('resize',resizeSliders);

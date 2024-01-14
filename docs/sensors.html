@@ -133,7 +133,7 @@
       container.appendChild(slider);
   }
   
-  window.onresize = function(){
+  let resizeSliders = function(){
       document.querySelectorAll('input').forEach((slider,i)=>{
           let rectArray = Array.from(document.querySelectorAll('#slider-bg rect')).map((rect)=>{return rect.getBoundingClientRect()});
           slider.style.position='absolute';
@@ -145,8 +145,11 @@
           slider.style.height=rectArray[i].height+'px';
       })
   }
+  
+  window.addEventListener('resize',resizeSliders);
 </script>
 <script>
+  // adapted from a remote demo
   // this version has the socket code removed -- see the sound-ideas-instrument repo for the full version
   let broadcast = false;
   const midiMapper = new MidiMapper();
@@ -173,6 +176,7 @@
   
   function init(){
       // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respetively)
+      // this should be the default midi script for the touchboard
       document.querySelectorAll('input').forEach((input,i) => {
           let index = 59 - i
           // todo: need to recognise a range of cc numbers (like a key range in keyboard-mapper)
