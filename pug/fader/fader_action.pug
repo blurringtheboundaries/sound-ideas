@@ -1,6 +1,7 @@
 script.
     // adapted from a remote demo
     // this version has the socket code removed -- see the sound-ideas-instrument repo for the full version
+    
     let broadcast = false;
     const midiMapper = new MidiMapper();
     const faderHeight = 600;
@@ -12,7 +13,7 @@ script.
     //- register = 'bass'
     
     // sines set to bass tones / mid tones depending on register
-    // we could use the chord player code here ...
+    // we could also use the chord player code here ...
 
     for(let i=0;i<numberOfSines;i++){
         let frequency = register == 'bass' ? ((i+4)*4)+50 : Tone.Frequency(i + 60, 'midi').toFrequency();
@@ -26,10 +27,10 @@ script.
     
 
     function init(){
-        // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respetively)
+        // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respectively)
         // this should correspond with the default midi script for the touchboard
         document.querySelectorAll('input').forEach((input,i) => {
-            let index = 59 - i
+            let index = 59 - i;
             
             midiMapper.assign(i, 'cc', index, (value)=>{
                  setFaderElements({
@@ -52,29 +53,70 @@ script.
         inputElement.setAttribute('value',value);
     }
 
+    /**
+     * Get the index of the fader from the id
+     * @param {string} id
+     * @returns {number}
+     */
 
     function getIndex(id){
         return id.split('_')[1];
     }
+    
+    /**
+        * Get the id of the thumb from the fader id
+        * @param {string} element
+        * @returns {string}
+    */
 
     function getThumbId(element){
         return element.id.replace('fader','thumb');
     }
 
+    /**
+        * Get the y position of the thumb from the value
+        * @param {number} value
+        * @param {number} faderHeight
+        * @param {number} thumbHeight
+        * @returns {number}
+    */
+
     function getY(value, faderHeight, thumbHeight){
         return faderHeight - (value / 127 * faderHeight) - (thumbHeight / 2);
     }
 
+    /**
+        * Process the fader value
+        * @param {number} cc
+        * @param {number} value
+    */
+    
     function processFader(cc, value){
             Tone.start();
             // arbitrary volume scaling for quick demo
             sines[cc].volume.rampTo(Tone.gainToDb(value/1024), 0.1);
     }
 
+    /**
+        * Calculate the fader value from the element
+        * @param {object} element
+        * @param {object} e
+        * @param {object} obj
+        * @returns {number}
+    */
+
     const calculateFaderValue = (element, e, obj) => {
         const value = Math.round(obj.relative.y / element.getBoundingClientRect().height * 127);
         return value < 4 ? 0 : value > 124 ? 127 : value;
     }
+
+    /**
+        * Update the fader
+        * @param {object} element
+        * @param {object} e
+        * @param {object} obj
+        * @param {number} animationTime
+    */
 
     const updateFader = (element, e, obj, animationTime = 0.1) => {
         // todo: replace querySelectorAll with a map of elements
@@ -91,7 +133,7 @@ script.
             animationTime: animationTime
         })
 
-        processFader(index, value)
+        processFader(index, value);
     }
 
     // unassigned: end, leave...

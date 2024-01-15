@@ -1,0 +1,93 @@
+<svg id="slider-bg" viewbox="0 0 1200 600" width="100%" height="100%" aria-hidden="true" style="position:absolute; top:0px; left:0px;">
+    <defs>
+      <linearGradient id="grad-0" x1="0%" y1="90%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:rgb(200,200,200);stop-opacity:0.2"></stop>
+        <stop offset="100%" style="stop-color:rgb(100,100,100);stop-opacity:1"></stop>
+      </linearGradient>
+      <linearGradient id="grad-1" x1="0%" y1="90%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.2"></stop>
+        <stop offset="100%" style="stop-color:rgb(100,100,100);stop-opacity:1"></stop>
+      </linearGradient>
+      <style>
+        .svg-fader{
+            cursor:ns-resize;
+            stroke:rgba(200,200,200,0.5);
+            stroke-width:2;
+        }
+        
+        .svg-fader--odd{
+            fill: url(#grad-0);
+        }
+        
+        .svg-fader--even{   
+            fill: url(#grad-1);
+            opacity:0.1;
+        }
+        
+        .svg-fader__track{
+            fill:black;
+            stroke:rgba(0,0,0,0.2);
+            stroke-width:20;
+        }
+        
+        .svg-thumb{
+            fill:rgba(255,255,255,1);
+            stroke:rgba(0,0,0,0.5);
+            stroke-width:3;
+            transition:y 0s ease, fill 1s ease;
+        }
+        
+        .svg-text{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+      </style>
+    </defs>
+    <rect class="svg-fader__track" x="47" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--even" id="fader_0" x="0" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="147" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--odd" id="fader_1" x="100" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="247" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--even" id="fader_2" x="200" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="347" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--odd" id="fader_3" x="300" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="447" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--even" id="fader_4" x="400" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="547" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--odd" id="fader_5" x="500" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="647" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--even" id="fader_6" x="600" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="747" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--odd" id="fader_7" x="700" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="847" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--even" id="fader_8" x="800" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="947" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--odd" id="fader_9" x="900" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="1047" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--even" id="fader_10" x="1000" y="0" width="100" height="600"></rect>
+    <rect class="svg-fader__track" x="1147" y="0" width="4" height="600"></rect>
+    <rect class="svg-fader svg-fader--odd" id="fader_11" x="1100" y="0" width="100" height="600"></rect>
+    <rect class="svg-thumb" id="thumb_0" x="4" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_1" x="104" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_2" x="204" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_3" x="304" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_4" x="404" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_5" x="504" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_6" x="604" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_7" x="704" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_8" x="804" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_9" x="904" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_10" x="1004" y="0" height="50" width="92"></rect>
+    <rect class="svg-thumb" id="thumb_11" x="1104" y="0" height="50" width="92"></rect>
+    <text class="svg-text" id="thumb_0_text" x="14" y="-24">1</text>
+    <text class="svg-text" id="thumb_1_text" x="114" y="-24">2</text>
+    <text class="svg-text" id="thumb_2_text" x="214" y="-24">3</text>
+    <text class="svg-text" id="thumb_3_text" x="314" y="-24">4</text>
+    <text class="svg-text" id="thumb_4_text" x="414" y="-24">5</text>
+    <text class="svg-text" id="thumb_5_text" x="514" y="-24">6</text>
+    <text class="svg-text" id="thumb_6_text" x="614" y="-24">7</text>
+    <text class="svg-text" id="thumb_7_text" x="714" y="-24">8</text>
+    <text class="svg-text" id="thumb_8_text" x="814" y="-24">9</text>
+    <text class="svg-text" id="thumb_9_text" x="914" y="-24">10</text>
+    <text class="svg-text" id="thumb_10_text" x="1014" y="-24">11</text>
+    <text class="svg-text" id="thumb_11_text" x="1114" y="-24">12</text>
+  </svg>

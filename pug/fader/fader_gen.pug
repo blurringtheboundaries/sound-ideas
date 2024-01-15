@@ -29,7 +29,9 @@ script.
         }
 
         let resizeSliders = function(){
+            
             document.querySelectorAll('input.slider').forEach((slider,i)=>{
+                
                 let rectArray = Array.from(document.querySelectorAll('#slider-bg rect')).map((rect)=>{return rect.getBoundingClientRect()});
                 slider.style.position='absolute';
                 slider.style.top=rectArray[i].top+'px';
@@ -38,10 +40,11 @@ script.
                 slider.style.right=rectArray[i].right+'px';
                 slider.style.bottom=rectArray[i].bottom+'px';
                 slider.style.height=rectArray[i].height+'px';
+                
             })
         }
     
-    window.addEventListener('resize',resizeSliders);
+        window.addEventListener('resize',resizeSliders);
     
     }
     
