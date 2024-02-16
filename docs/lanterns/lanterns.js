@@ -1,11 +1,10 @@
 //* Tone
 window.settings = {
-    pollInterval: 30,
+    pollInterval: 50,
     multiplier: 25,
     soundInput: false,
     meterInput: false
 }
-const pollInterval = 30;
 window.mic = new Tone.UserMedia();
 window.meter = new Tone.Meter();
 mic.connect(meter);
@@ -23,9 +22,6 @@ const checkMeter = ()=>{
             .map((item)=>parseInt(item, 16))
             .map((item)=>value*item)
             .map(item=>CM.map(item, 0, 255, 0, 255, true, true))
-            // .map(item=>Math.min(item, 0))
-            // convert item back to hex
-            // .map(item=>item.toString(16))
             .map(item=>item.toString(16).padStart(2, '0'))
             
             
@@ -68,12 +64,6 @@ window.addEventListener('load', ()=>{
                 mic.close();
                 settings.meterInput = false;
             }
-            // let value = e.target.value;
-            // let channel = e.target.dataset.channel;
-            // let colourString = `#${value}${value}${value}${value}${value}${value}\n`.toUpperCase();
-            // if(window.verbose) console.log(colourString);
-            // if(!serial.connected) return;
-            // serial.write(colourString);
         })
     })
     
