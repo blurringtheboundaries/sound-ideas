@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <script src="lanterns.js" defer></script>
+    <title>Lantern demo</title>
+    <link rel="stylesheet" href="lanterns.css">
+</head>
+<body>
+    <button class="connect">CONNECT LANTERN</button><br>
+   
+    <button class="microphone" role="checkbox" aria-checked="false">CONNECT SOUND</button>
+    <br>
+    <div class="colourArray">
+        <input type="color" title="lantern 1" id="colourPicker1" data-channel="10" class="colours"></input>
+        <input type="color" title="lantern 2" id="colourPicker2" data-channel="22" class="colours"></input>
+        <input type="color" title="lantern 3" id="colourPicker3" data-channel="34" class="colours"></input>
+        <input type="color" title="lantern 4" id="colourPicker4" data-channel="46" class="colours"></input>
+    </div>
+    <div class="meter"></div>
+    <input title="gain" class="gainFader" type="range" min="0" max="1" step="0.01" value="0.25">
+</body>
+</html>

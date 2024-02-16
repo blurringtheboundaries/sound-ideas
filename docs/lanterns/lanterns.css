@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #242424;
+    color: white;
+}
+button.connect, button.microphone {
+    top: 50px;
+    right:0;
+    left: 0;
+    width: calc(100% - 2em);
+    margin: 1em;
+    z-index: 100;
+    font-size: 2em;
+    background-color: darkblue;
+    color: white;
+}
+
+
+button.connect:disabled{
+    opacity: 0.4;
+}
+
+button.microphone[aria-checked="true"]{
+    background-color: darkred;
+}
+
+input {
+    /* position: absolute; */
+    top: 100px;
+    right:0;
+    left: 0;
+    margin: auto;
+    z-index: 100;
+}
+input[type="color"] {
+    padding: 0;
+    /* border: none; */
+    height: 200px;
+    width: 200px;
+    vertical-align: middle;
+}
+label {
+    position: absolute;
+    top: 300px;
+    right:0;
+    left: 0;
+    margin: auto;
+    z-index: 100;
+    color: white;
+}
+.colourArray {
+    display: flex;
+    justify-content: space-around;
+}
+
+.meter{
+    display:block;
+    width: calc(100% - 2em);
+    margin: 1em;
+    height: 20px;
+    background-color: #242424;
+    border: 1px solid grey;
+    transition: background-color 0.1s;
+}
+
+.gainFader{
+    display:block;
+    width: calc(100% - 2em);
+    margin: 1em;
+    height: 20px;
+    background-color: #242424;
+    border: 1px solid grey;
+    transition: background-color 0.1s;
+}
