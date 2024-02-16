@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
-    <title>Serial Mapper lantern demo</title>
+    <title>Lantern demo</title>
     <style>
         *{
             margin: 0;
@@ -15,8 +15,7 @@
         body {
             background-color: black;
         }
-        button {
-            /* position: absolute; */
+        button.connect {
             top: 50px;
             right:0;
             left: 0;
@@ -24,6 +23,11 @@
             margin: 1em;
             z-index: 100;
             font-size: 2em;
+            background-color: darkblue;
+            color: white;
+        }
+        button.connect:disabled{
+            opacity: 0.1;
         }
         input {
             /* position: absolute; */
@@ -56,13 +60,12 @@
     </style>
 </head>
 <body>
-    <button onclick="Tone.start(); serial.connect();">CONNECT</button><br>
-    <!-- <label for="colourPicker">1</label> -->
+    <button class="connect" onclick="Tone.start(); serial.connect();">CONNECT</button><br>
     <div class="colourArray">
-        <input type="color" title="colour" id="colourPicker" data-channel="10" class="colours"></input>
-        <input type="color" title="colour" id="colourPicker" data-channel="22" class="colours"></input>
-        <input type="color" title="colour" id="colourPicker" data-channel="34" class="colours"></input>
-        <input type="color" title="colour" id="colourPicker" data-channel="46" class="colours"></input>
+        <input type="color" title="lantern 1" id="colourPicker1" data-channel="10" class="colours"></input>
+        <input type="color" title="lantern 2" id="colourPicker2" data-channel="22" class="colours"></input>
+        <input type="color" title="lantern 3" id="colourPicker3" data-channel="34" class="colours"></input>
+        <input type="color" title="lantern 4" id="colourPicker4" data-channel="46" class="colours"></input>
     </div>
     <script>
         document.querySelectorAll('.colours').forEach(element=>{
@@ -74,8 +77,14 @@
         })  
         })
        
-
-        
+        document.querySelectorAll('.connect').forEach(element=>{
+            element.addEventListener('click', (e)=>{
+                Tone.start();
+                serial.connect();
+                e.target.disabled = true;
+                e.target.innerHTML = "CONNECTED";
+            })
+        })
 
     </script>
 </body>
