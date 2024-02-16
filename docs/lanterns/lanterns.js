@@ -21,6 +21,20 @@ window.mic = new Tone.UserMedia();
 window.meter = new Tone.Meter();
 mic.connect(meter);
 
+function stringRGBToHex(rgbString) {
+    let separator = rgbString.indexOf(",") > -1 ? "," : " ";
+    let rgb = rgbString.substr(4).split(")")[0].split(separator)
+                       .map(value => {
+                           if (value.includes('%')) {
+                               value = Math.round(parseFloat(value) * 2.55);
+                           }
+                           return (+value).toString(16).padStart(2, '0');
+                       });
+  
+    return `#${rgb.join('')}`;
+}
+
+
 const checkMeter = ()=>{
     let value = Tone.dbToGain(meter.getValue()) * settings.multiplier;
     document.querySelectorAll('.meter').forEach(element=>{
@@ -28,6 +42,7 @@ const checkMeter = ()=>{
     });
     if(settings.soundInput){
         let colour = document.querySelector('.colours').value;
+        
         let rgb = colour
             .replace('#','')
             .match(/.{1,2}/g)
@@ -122,6 +137,13 @@ window.addEventListener('load', ()=>{
                 element.innerHTML = Math.round(settings.multiplier, 2);
             });
         })
+    })
+})
+
+document.querySelectorAll('.wedge').forEach(x=>{
+    x.addEventListener('click',e=>{
+        let newValue = stringRGBToHex(e.target.style.fill);
+        document.querySelector('.colours').value = newValue;
     })
 })
 
