@@ -5,6 +5,18 @@ window.settings = {
     soundInput: false,
     meterInput: false
 }
+
+window.dataBuffer = {
+    10:'',
+    22:'',
+    34:'',
+    46:'',
+    58:'',
+    70:'',
+    82:'',
+    94:''
+}
+
 window.mic = new Tone.UserMedia();
 window.meter = new Tone.Meter();
 mic.connect(meter);
@@ -23,15 +35,35 @@ const checkMeter = ()=>{
             .map((item)=>value*item)
             .map(item=>CM.map(item, 0, 255, 0, 255, true, true))
             .map(item=>item.toString(16).padStart(2, '0'))
-            
-            
-            // .map(item=>item*value)
-            // .map((item)=>CM.map(value, 0, 255, 0, item, true, true))
             .join('');
             
-        console.log(colour, value, `#${rgb}`);
-        if(serial.connected)serial.write(`10${rgb}\n`);
-        // let test = CM.map(value, 0, 1, 0, 255, true, true);
+        // console.log(colour, value, `#${rgb}`);
+        document.querySelector('.virtualLantern[data-channel="10"]').style.backgroundColor = `#${rgb}`;
+        if(serial.connected){
+            if(window.dataBuffer['10'] != rgb){
+                serial.write(`11${rgb}\n`);
+            }
+        }
+        window.dataBuffer[10] = rgb;
+        let colour2 = document.querySelector('#colourPicker2').value;
+        let rgb2 = colour2
+            .replace('#','')
+            .match(/.{1,2}/g)
+            .map((item)=>parseInt(item, 16))
+            .map((item)=>value*item)
+            .map(item=>CM.map(item, 0, 255, 0, 255, true, true))
+            .map(item=>item.toString(16).padStart(2, '0'))
+            .join('');
+            
+        // console.log(colour, value, `#${rgb2}`);
+        document.querySelector('.virtualLantern[data-channel="22"]').style.backgroundColor = `#${rgb2}`;
+        if(serial.connected){
+            if(window.dataBuffer['22'] != rgb2){
+                setTimeout(()=>{serial.write(`22${rgb2}\n`)}, 10);
+                // serial.write(`22${rgb2}\n`);
+            }
+        }
+        window.dataBuffer[22] = rgb2;
         
     }
     if(settings.meterInput)setTimeout(checkMeter, settings.pollInterval);
@@ -43,6 +75,7 @@ window.addEventListener('load', ()=>{
     document.querySelectorAll('.colours').forEach(element=>{
         element.addEventListener('input', (e)=>{
             let colourString = e.target.value.replace('#',e.target.dataset.channel).toUpperCase()+"\n"
+            console.log('colour', e.target.value);
             if(window.verbose) console.log(colourString);
             if(!serial.connected) return;
         if(!settings.soundInput) serial.write(colourString);
@@ -70,8 +103,6 @@ window.addEventListener('load', ()=>{
     document.querySelectorAll('.connect').forEach(element=>{
         element.addEventListener('click', (e)=>{
             Tone.start();
-            // mic.open().then(()=>{console.log('Mic open')});
-            // checkMeter();
             if(serial.connect()){
                 setInterval(()=>{
                     if(serial.connected){
@@ -87,6 +118,9 @@ window.addEventListener('load', ()=>{
     document.querySelectorAll('.gainFader').forEach(element=>{
         element.addEventListener('input', (e)=>{
             settings.multiplier = e.target.value * 100;
+            document.querySelectorAll('.gainReading').forEach(element=>{
+                element.innerHTML = Math.round(settings.multiplier, 2);
+            });
         })
     })
 })

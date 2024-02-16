@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #240024;
+    background-color: #240000;
     color: white;
 }
 button.connect, button.microphone {
@@ -75,4 +75,15 @@ label {
     background-color: #242424;
     border: 1px solid grey;
     transition: background-color 0.1s;
+}
+
+.virtualLantern{
+    padding: 0;
+    margin: 10px;
+    /* border: none; */
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+    border-radius:100%;
+    border: solid 1px white;
 }
