@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <title>Serial Mapper test page (network)</title>
+</head>
+<body>
+    <button onclick="Tone.start(); serial.connect();">Connect</button>
+    
+    <button onclick="serial.write('1 100\n')">on</button>
+    <button onclick="serial.write('1 0\n')">off</button>
+    <div id="faders">
+        <label for="fader_0">serial input</label><input type="range" min="0" max="127" value="0" class="fader" id="fader_0"></input>
+    </div>
+    <script>
+        const socketMapper = new SocketMapper();
+
+        let filter = new Tone.Filter(1000, 'lowpass').toDestination();
+
+        let oscillators = [
+            new Tone.Oscillator(110, 'sawtooth').start().connect(filter),
+        ];
+
+        oscillators.forEach(osc => {
+            osc.volume.value = -Infinity;
+        });
+
+        serial.assign({
+            'acc ': 'acc'
+        });
+
+        document.addEventListener('acc', e=> {
+            let [x, y, z] = e.detail.array.map(value =>map(value + 2040, 0, 4080, 0, 127, true, true));
+            // let output = map(x + 2040, 0, 4080, 0, 127, true, true)
+            document.querySelector('#fader_0').value = x;
+            oscillators[0].frequency.rampTo(x, 0.1);
+            oscillators[0].volume.rampTo(v(map(x, 0, 127, 0, 1)));
+            socketMapper.out.cc(0, 0, x);
+            socketMapper.out.cc(0, 1, y);
+            socketMapper.out.cc(0, 2, z);
+        })
+
+    </script>
+</body>
+</html>

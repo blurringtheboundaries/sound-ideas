@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <title>Serial Mapper</title>
+</head>
+<body>
+    <button onclick="serial.connect()">Connect</button>
+    <!-- <button onclick="serial.write('Hello World!')">Write</button> -->
+    <button onclick="Tone.start();serial.listen()">Listen</button>
+    <div id="faders">
+        <label for="fader_0">x</label><input type="range" min="0" max="127" value="0" class="fader" id="fader_0"></input>
+        <label for="fader_1">y</label><input type="range" min="0" max="127" value="0" class="fader" id="fader_1"></input>
+        <label for="fader_2">z</label><input type="range" min="0" max="127" value="0" class="fader" id="fader_2"></input>
+    </div>
+    <script>
+        let filter = new Tone.Filter(1000, 'lowpass').toDestination();
+        let oscillators = [
+            new Tone.Oscillator(110, 'sawtooth').start().connect(filter),
+            new Tone.Oscillator(150, 'triangle').start(),
+            new Tone.Oscillator(200, 'sine').start()
+        ];
+
+        oscillators.forEach(osc => {
+            osc.volume.value = -Infinity;
+        });
+        
+        // document.addEventListener('serial_accelerometer',(e)=>{
+        //     // console.table(e.detail);
+        //     let {x, y, z} = e.detail;
+            
+        //     x = map(x+2040, 0, 4080, 0, 127, true, true);
+        //     y = map(y+2040, 0, 4080, 0, 127, true, true);
+        //     z = map(z+2040, 0, 4080, 0, 127, true, true);
+
+        //     document.getElementById('fader_0').value = x;
+        //     document.getElementById('fader_1').value = y;
+        //     document.getElementById('fader_2').value = z;
+
+        //     oscillators[0].frequency.rampTo(map(x, 0, 127, 110, 220));
+        //     oscillators[1].frequency.rampTo(map(y, 0, 127, 110, 220), 0.1);
+        //     oscillators[2].frequency.rampTo(map(z, 0, 127, 110, 220));
+
+        //     oscillators[0].volume.rampTo(v(map(x, 0, 127, 0, 0.2)));
+        //     oscillators[1].volume.rampTo(v(map(y, 0, 127, 0, 0.2)));
+        //     oscillators[2].volume.rampTo(v(map(z, 0, 127, 0, 0.2)));
+
+        // })
+
+        document.addEventListener('serial_accelerometer', (e)=>{
+            let { pitch } = e.detail;
+            console.log(pitch)
+            pitch = map(pitch + 1024, 0, 2048, 0, 127, true, true);
+            document.getElementById('fader_0').value = pitch;
+            oscillators[0].frequency.rampTo(map(pitch, 0, 127, 110, 160));
+            oscillators[0].volume.rampTo(v(map(pitch, 0, 127, 0, 0.2)));
+            filter.frequency.rampTo(map(pitch, 0, 127, 100, 8000));
+
+        })
+    </script>
+</body>
+</html>

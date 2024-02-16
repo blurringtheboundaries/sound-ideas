@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <title>Serial Mapper lantern demo</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: black;
+        }
+        button {
+            /* position: absolute; */
+            top: 50px;
+            right:0;
+            left: 0;
+            width: calc(100% - 2em);
+            margin: 1em;
+            z-index: 100;
+            font-size: 2em;
+        }
+        input {
+            /* position: absolute; */
+            top: 100px;
+            right:0;
+            left: 0;
+            margin: auto;
+            z-index: 100;
+        }
+        input[type="color"] {
+            padding: 0;
+            /* border: none; */
+            height: 200px;
+            width: 200px;
+            vertical-align: middle;
+        }
+        label {
+            position: absolute;
+            top: 300px;
+            right:0;
+            left: 0;
+            margin: auto;
+            z-index: 100;
+            color: white;
+        }
+        .colourArray {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="Tone.start(); serial.connect();">CONNECT</button><br>
+    <!-- <label for="colourPicker">1</label> -->
+    <div class="colourArray">
+        <input type="color" title="colour" id="colourPicker" data-channel="10" class="colours"></input>
+        <input type="color" title="colour" id="colourPicker" data-channel="22" class="colours"></input>
+        <input type="color" title="colour" id="colourPicker" data-channel="34" class="colours"></input>
+        <input type="color" title="colour" id="colourPicker" data-channel="46" class="colours"></input>
+    </div>
+    <script>
+        document.querySelectorAll('.colours').forEach(element=>{
+            element.addEventListener('input', (e)=>{
+            let colourString = e.target.value.replace('#',e.target.dataset.channel).toUpperCase()+"\n"
+            if(window.verbose) console.log(colourString);
+            // if(!serial.connected) return;
+            serial.write(colourString);
+        })  
+        })
+       
+
+        
+
+    </script>
+</body>
+</html>
