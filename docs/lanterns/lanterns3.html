@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <script src="../sound-ideas-main.js"></script>
+    <script src="lanterns.js" defer></script>
+    <title>Lantern demo</title>
+    <link rel="stylesheet" href="lanterns.css">
+</head>
+<body>
+    <button class="connect">CONNECT LANTERN</button><br>
+   
+    <button class="microphone" role="checkbox" aria-checked="false">CONNECT SOUND</button>
+    <br>
+    <div class="colourArray">
+        <input type="color" title="lantern 1" id="colourPicker1" value="#800000" data-channel="10" class="colours"></input>
+        <input type="color" title="lantern 2" id="colourPicker2" value="#800080"data-channel="22" class="colours"></input>
+        <input type="color" title="lantern 3" id="colourPicker3" value="#000080" data-channel="34" class="colours"></input>
+        <input type="color" title="lantern 4" id="colourPicker4" value="#008080" data-channel="46" class="colours"></input>
+        
+    </div>
+    <div class="colourArray">
+        <div class="virtualLantern" data-channel="10"></div>
+        <div class="virtualLantern" data-channel="22"></div>
+        <div class="virtualLantern" data-channel="34"></div>
+        <div class="virtualLantern" data-channel="46"></div>
+    </div>
+    <div class="noteArray">
+      <div class="note C" id="note_C4" data-note="C4">C</div>
+      <div class="note Csharp" id="note_Csharp4"data-note="Csharp4">C#</div>
+      <div class="note D" id="note_D4"data-note="D4">D</div>
+      <div class="note Dsharp" id="note_Dsharp4"data-note="Dsharp4">D#</div>
+      <div class="note E" id="note_E4"data-note="E4">E</div>
+      <div class="note Esharp" id="note_F4"data-note="F4">F</div>
+      <div class="note F" id="note_Fsharp4"data-note="Fsharp4">F#</div>
+      <div class="note Fsharp" id="note_G4"data-note="G4">G</div>
+      <div class="note G" id="note_Gsharp4"data-note="Gsharp4">G#</div>
+      <div class="note Gsharp" id="note_A4"data-note="A4">A</div>
+      <div class="note A" id="note_Asharp4"data-note="Asharp4">A#</div>
+      <div class="note B" id="note_B4"data-note="B4">B</div>
+      <div class="note C" id="note_C5"data-note="C5">C</div>
+    </div>  
+    <div class="noteArray">
+      <input type="color" title="note C" id="colour_C4" data-note="C4" class="notes"></input>
+      <input type="color" title="note C sharp" id="colour_Csharp4" data-note="Csharp4" class="notes"></input>
+      <input type="color" title="note D" id="colour_D4" data-note="D4" class="notes"></input>
+      <input type="color" title="note D sharp" id="colour_Dsharp4" data-note="Dsharp4" class="notes"></input>
+      <input type="color" title="note E" id="colour_E4" data-note="E4" class="notes"></input>
+      <input type="color" title="note F" id="colour_F4" data-note="F4" class="notes"></input>
+      <input type="color" title="note F sharp" id="colour_Fsharp4" data-note="Fsharp4" class="notes"></input>
+      <input type="color" title="note G" id="colour_G4" data-note="G4" class="notes"></input>
+      <input type="color" title="note G sharp" id="colour_Gsharp4" data-note="Gsharp4" class="notes"></input>
+      <input type="color" title="note A" id="colour_A4" data-note="A4" class="notes"></input>
+      <input type="color" title="note A sharp" id="colour_Asharp4" data-note="Asharp4" class="notes"></input>
+      <input type="color" title="note B" id="colour_B4" data-note="B4" class="notes"></input>
+      <input type="color" title="note C" id="colour_C5" data-note="C5" class="notes"></input>
+    </div>
+      
+    <div class="meter"></div>
+    <input title="gain" class="gainFader" type="range" min="0" max="1" step="0.01" value="0.25">
+    <div class="gainReading">0.25</div>
+    <svg id="daze" width="100%" height="100%" viewBox="0 0 400 400" transform-origin="center center">
+      <defs>
+        <style>
+          text {
+            font-family: 'Times New Roman', Times, serif;
+            fill: #F1F1F1;
+            font-size: 1.1rem;
+          }
+        </style>
+      </defs>
+      <title>
+        A colour wheel representing 12 musical notes and their associated colours.  Scan through the elements of the wheel to learn about the associations, and interact with the wheel to play the relevant notes.
+      </title>
+      <ellipse cx="200" cy="200" ry="160" rx="160" fill="black" stroke="black" stroke-width="2px"></ellipse>
+      <g id="wedges" transform-origin="200 200" transform="rotate(-15)">
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(0)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(30)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(60)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(90)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(120)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(150)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(180)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(210)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(240)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(270)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(300)"></rect>
+        <rect x="242.70514244191594" y="26.133351267967697" width="10px" height="10px" fill="none" aria-hidden="true" transform-origin="center center" transform="rotate(330)"></rect>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(0)" data-note="C4" aria-label="C, Orange" class="wedge" id="wedge_0" stroke-width="1px" stroke="black" style="fill: rgb(255, 153, 51)" role="button">
+          <title>C, Orange</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(30)" data-note="C#4" aria-label="C sharp, Pale Orange" class="wedge" id="wedge_1" stroke-width="1px" stroke="black" style="fill: rgb(255, 204, 153)" role="button">
+          <title>C sharp, Pale Orange</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(60)" data-note="D4" aria-label="D, Magenta" class="wedge" id="wedge_2" stroke-width="1px" stroke="black" style="fill: rgb(248, 90, 248)" role="button">
+          <title>D, Magenta</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(90)" data-note="D#4" aria-label="D sharp, Greenish Grey" class="wedge" id="wedge_3" stroke-width="1px" stroke="black" style="fill: rgb(195, 252, 200)" role="button">
+          <title>D sharp, Greenish Grey</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(120)" data-note="E4" aria-label="E, Sea green" class="wedge" id="wedge_4" stroke-width="1px" stroke="black" style="fill: rgb(12, 255, 255)" role="button">
+          <title>E, Sea green</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(150)" data-note="F4" aria-label="F, Yellow" class="wedge" id="wedge_5" stroke-width="1px" stroke="black" style="fill: rgb(255, 255, 3)" role="button">
+          <title>F, Yellow</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(180)" data-note="F#4" aria-label="F sharp, Rust" class="wedge" id="wedge_6" stroke-width="1px" stroke="black" style="fill: rgb(224, 181, 162)" role="button">
+          <title>F sharp, Rust</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(210)" data-note="G4" aria-label="G, Red" class="wedge" id="wedge_7" stroke-width="1px" stroke="black" style="fill: rgb(255, 1, 1)" role="button">
+          <title>G, Red</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(240)" data-note="G#4" aria-label="G sharp, Lilac" class="wedge" id="wedge_8" stroke-width="1px" stroke="black" style="fill: rgb(195, 117, 150)" role="button">
+          <title>G sharp, Lilac</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(270)" data-note="A4" aria-label="A, Purple" class="wedge" id="wedge_9" stroke-width="1px" stroke="black" style="fill: rgb(204, 102, 255)" role="button">
+          <title>A, Purple</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(300)" data-note="A#4" aria-label="A sharp, Pale Green" class="wedge" id="wedge_10" stroke-width="1px" stroke="black" style="fill: rgb(51, 204, 51)" role="button">
+          <title>A sharp, Pale Green</title>
+        </path>
+        <path d="M200 200 L200 40 A 160 160 0 0 1 280 61.43593539448983 z" fill="#f0f" transform-origin="center center" transform="rotate(330)" data-note="B4" aria-label="B, Deep pool blue" class="wedge" id="wedge_11" stroke-width="1px" stroke="black" style="fill: rgb(7, 131, 220)" role="button">
+          <title>B, Deep pool blue</title>
+        </path>
+      </g>
+      <g>
+        <text aria-hidden="true" x="196.25" y="30.66407012939453">C</text>
+        <text aria-hidden="true" x="283.66180419921875" y="55.35806655883789">
+          C♯
+        </text>
+        <text aria-hidden="true" x="346.0683288574219" y="121.39694213867188">
+          D
+        </text>
+        <text aria-hidden="true" x="369.3359069824219" y="208.49745178222656">
+          D♯
+        </text>
+        <text aria-hidden="true" x="344.6419372558594" y="295.90924072265625">
+          E
+        </text>
+        <text aria-hidden="true" x="278.6030578613281" y="360.21044921875">
+          F
+        </text>
+        <text aria-hidden="true" x="191.50254821777344" y="381.5833740234375">
+          F♯
+        </text>
+        <text aria-hidden="true" x="104.09074401855469" y="356.8893737792969">
+          G
+        </text>
+        <text aria-hidden="true" x="39.78955078125" y="292.74517822265625">
+          G♯
+        </text>
+        <text aria-hidden="true" x="18.41661834716797" y="203.75">A</text>
+        <text aria-hidden="true" x="43.11061477661133" y="116.33819580078125">
+          A♯
+        </text>
+        <text aria-hidden="true" x="107.25481414794922" y="53.93168640136719">
+          B
+        </text>
+      </g>
+    </svg>
+</body>
+<!-- <script src="management.js"></script> -->
+<script>
+  Tone.context.lookAhead = 0;
+  const synth = new Tone.PolySynth(Tone.Synth, {oscillator:{type:'sine', volume:-10}}).toDestination()
+  multitouchMapper.setAction('.note');
+  
+  function createNoteEvent(event){
+    let {type, id} = event.detail
+    let note = id.split('_')[1].replace('sharp','#');
+    if(type === 'start' || type=='enter'){
+      noteOn(note)
+    } else if(type==='end' || type==='leave') {
+      if(!window.holdFlag) noteOff(note);
+    }
+  }
+  
+  let voices = [];
+  let lanternVoices = [];
+  let maxVoices = 4;
+  
+  // function noteOn(note){
+  //   if(voices.indexOf(note) === -1) {
+  //     synth.triggerAttack(note)
+  //     if(voices.length >= maxVoices) synth.triggerRelease(voices.shift().note)
+  //     voices.push({
+  //       note:note,
+        
+  //     })
+  //     updateVoices();  
+  //   }
+ 
+  function noteOn(note){
+  // check if note is already playing
+  if(voices.indexOf(note) === -1) {
+    synth.triggerAttack(note)
+    if(voices.length >= maxVoices) synth.triggerRelease(voices.pop().note)
+    
+    voices.unshift({
+      note:note,
+    })
+    updateVoices();
+  }
+
+
+    
+    
+    
+    // let voice = synth.triggerAttack(note)
+    // check if voice exists before pushing
+    // if(voices.indexOf(voice) === -1) voices.push(voice)
+    console.log(voices.length, voices)
+    
+    
+  }
+  function noteOff(note){
+    // let voice = voices.shift()
+    // if(voices.indexOf(note) !== -1) {
+      if(voices.findIndex(voice => voice.note === note) !== -1) {
+      synth.triggerRelease(note)
+      // // set the callback triggered from the end of the note's release to remove the note from the voices array
+      // synth._voices.forEach(voice => {
+      //   console.log(voice.oscillator)
+      //   if(voice.oscillator.frequency.value === Tone.Frequency(note).toFrequency()) {
+      //     voice._onstop = () => {
+      //       voices.splice(voices.indexOf(note), 1)
+      //     }
+      //   }
+      // })
+      // voices.splice(voices.indexOf(note), 1)
+      voices.splice(voices.findIndex(voice => voice.note === note), 1)
+      updateVoices();
+    }
+    console.log(voices.length, voices)
+    
+  }
+  function flush(){
+    voices.forEach(voice => synth.triggerRelease(voice.note))
+    voices = []
+    updateVoices();
+  }
+  
+  let lanternIds = [10,22,34,46]
+  
+  function updateVoices(){
+   for(let i=0; i<maxVoices; i++){
+      if(voices[i]) {
+       let noteValue = voices[i].note.replace('#','sharp');
+        document.querySelector(`.virtualLantern[data-channel="${lanternIds[i]}"]`).style.backgroundColor = document.querySelector(`#colour_${noteValue}`).value
+        document.querySelector(`#colourPicker${i+1}`).value = document.querySelector(`#colour_${noteValue}`).value
+        updateBuffer(lanternIds[i], document.querySelector(`#colour_${noteValue}`).value);
+      } else {
+        document.querySelector(`.virtualLantern[data-channel="${lanternIds[i]}"]`).style.backgroundColor = 'black'
+        document.querySelector(`#colourPicker${i+1}`).value = 'black'
+        updateBuffer(lanternIds[i], '#000000');
+      }
+    }
+      // let values = voices.map(voice => {
+      //   let noteValue = voice.oscillator.frequency.value;
+      //   noteValue = Tone.Frequency(noteValue).toNote()
+      //   return noteValue.split('#').join('sharp')
+      // })
+   }
+   
+   function updateBuffer(index, value){
+    value = value.replace('#','');
+    if(serial.connected){
+      console.log(window.dataBuffer[index], value)
+            if(window.dataBuffer[index] != value){
+                setTimeout(()=>{serial.write(`${index}${value}\n`)}, lanternIds.indexOf(index)*2 + 10);
+                // serial.write(`22${rgb2}\n`);
+            }
+          }
+            window.dataBuffer[index] = value;
+            console.log(window.dataBuffer)
+   }
+   
+
+  window.holdFlag = false;
+  
+  keyboardMapper.keymap_assign({
+    Digit: (e, item, down) => {
+     console.log(e)
+    },
+    Key: (e, item, down) => {
+     window.holdFlag = down;
+     console.log(e, down)
+     if(!down) flush()
+    }
+})
+  
+  window.addEventListener('touch-pickup', createNoteEvent);
+  // let colours = ['#ff9933',   '#ffcc99', '#f85af8', '#c3fcc8', '#0cffff', '#ffff03', '#e0b5a2', '#ff0101', '#c37596', '#cc66ff', '#33cc33', '#0783dc'];
+  let colours = ['#ff00ff', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff8000', '#ff0080', '#80ff00', '#0080ff', '#ff0080', '#ff8000'];
+  let notes = [];
+  document.querySelectorAll('.note').forEach((note,i) => {
+    notes.push(note.dataset.note)
+    document.querySelector(`#${note.id}`).style.backgroundColor = colours[i%12]
+    document.querySelector(`#colour_${note.dataset.note}`).value = colours[i%12]
+    
+  })
+  
+  document.querySelectorAll('.notes').forEach((note,i) => {
+    note.addEventListener('input', (event) => {
+      let note = event.target.dataset.note
+      let colour = event.target.value
+      document.querySelector(`#note_${note}`).style.backgroundColor = colour
+      if(!document.querySelector(`#wedge_${notes.indexOf(note)}`)) return
+      document.querySelector(`#wedge_${notes.indexOf(note)}`).style.fill = colour
+    })
+  })
+
+</script>
+</html>
