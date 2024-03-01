@@ -15,15 +15,15 @@
     <button class="microphone" role="checkbox" aria-checked="false">CONNECT SOUND</button>
     <br>
     <div class="colourArray">
-        <input type="color" title="lantern 1" id="colourPicker1" value="#800000" data-channel="11" class="colours"></input>
-        <input type="color" title="lantern 2" id="colourPicker2" value="#800080"data-channel="23" class="colours"></input>
+        <input type="color" title="lantern 1" id="colourPicker1" value="#800000" data-channel="10" class="colours"></input>
+        <input type="color" title="lantern 2" id="colourPicker2" value="#800080"data-channel="22" class="colours"></input>
         <input type="color" title="lantern 3" id="colourPicker3" value="#000080" data-channel="34" class="colours"></input>
         <input type="color" title="lantern 4" id="colourPicker4" value="#008080" data-channel="46" class="colours"></input>
         
     </div>
     <div class="colourArray">
-        <div class="virtualLantern" data-channel="11"></div>
-        <div class="virtualLantern" data-channel="23"></div>
+        <div class="virtualLantern" data-channel="10"></div>
+        <div class="virtualLantern" data-channel="22"></div>
         <div class="virtualLantern" data-channel="34"></div>
         <div class="virtualLantern" data-channel="46"></div>
     </div>
@@ -242,7 +242,7 @@
     updateVoices();
   }
   
-  let lanternIds = [11,23,34,46]
+  let lanternIds = [10,22,34,46]
   
   function updateVoices(){
    for(let i=0; i<maxVoices; i++){
@@ -303,7 +303,8 @@
 })
   
   window.addEventListener('touch-pickup', createNoteEvent);
-  let colours = ['#ff9933', '#ffcc99', '#f85af8', '#c3fcc8', '#0cffff', '#ffff03', '#e0b5a2', '#ff0101', '#c37596', '#cc66ff', '#33cc33', '#0783dc'];
+  // let colours = ['#ff9933',   '#ffcc99', '#f85af8', '#c3fcc8', '#0cffff', '#ffff03', '#e0b5a2', '#ff0101', '#c37596', '#cc66ff', '#33cc33', '#0783dc'];
+  let colours = ['#ff00ff', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff8000', '#ff0080', '#80ff00', '#0080ff', '#ff0080', '#ff8000'];
   let notes = [];
   document.querySelectorAll('.note').forEach((note,i) => {
     notes.push(note.dataset.note)
