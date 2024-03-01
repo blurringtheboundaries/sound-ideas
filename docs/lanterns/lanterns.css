@@ -19,6 +19,29 @@ button.connect, button.microphone {
     color: white;
 }
 
+.noteArray{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.noteArray .note{
+    cursor: pointer;
+    width: 100px;
+    border: 1px solid white;
+    background-color:black;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* vertical align text to center */
+    display: flex;
+    flex-direction: column;
+    text-shadow: -2px -2px 0 #0005, 2px -2px 0 #0005, -2px 2px 0 #0001, 2px 2px 0 #0001;
+    height: 200px;
+    
+    font-size: 30pt!important;
+}
 
 button.connect:disabled{
     opacity: 0.4;
@@ -31,8 +54,8 @@ button.microphone[aria-checked="true"]{
 input {
     /* position: absolute; */
     top: 100px;
-    right:0;
-    left: 0;
+    /* right:0;
+    left: 0; */
     margin: auto;
     z-index: 100;
 }
@@ -43,6 +66,17 @@ input[type="color"] {
     width: 200px;
     vertical-align: middle;
 }
+
+input[type="color"].notes {
+    padding: none!important;
+    margin:none!important;
+    /* border: none; */
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+}
+
+
 label {
     position: absolute;
     top: 300px;
