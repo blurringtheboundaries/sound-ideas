@@ -7,7 +7,7 @@ body {
     background-color: #240000;
     color: white;
 }
-button.connect, button.microphone {
+button.connect, button.microphone, button.pitch {
     top: 50px;
     right:0;
     left: 0;
