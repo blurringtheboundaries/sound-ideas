@@ -5,6 +5,8 @@ head
     link(rel="stylesheet" href="./fader/style.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js")
     script(src="./fader/main.js")
+    include fader/fader_gen
+    include fader/fader_action
         
 body(onload='init()')
     #result
@@ -17,8 +19,6 @@ body(onload='init()')
         include fader/fader_faders.pug
     canvas#cover.touch_pickup_ignore.prevent-select(aria-hidden="true")
 
-include fader/fader_gen
-include fader/fader_action
 include note-player/toolbar
 script.
     let params = new URLSearchParams(window.location.search);
