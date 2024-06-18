@@ -1,8 +1,13 @@
 script.
     // adapted from a remote demo
     // this version has the socket code removed -- see the sound-ideas-instrument repo for the full version
-    
     let broadcast = false;
+    window.params2 = new URLSearchParams(window.location.search);
+    
+    if(params2.has('broadcast')){
+        broadcast = true;
+        window.s = new SocketMapper();
+    }
     const midiMapper = new MidiMapper();
     const faderHeight = 600;
     const thumbHeight = 50;
@@ -25,6 +30,20 @@ script.
         vibe.start();
     })
     
+    
+    /**
+        * Process the fader value
+        * @param {number} cc
+        * @param {number} value
+    */
+    
+    function processFader(cc, value){
+            Tone.start();
+            // arbitrary volume scaling for quick demo
+            sines[cc].volume.rampTo(Tone.gainToDb(value/1024), 0.01);
+
+            if(params.has('broadcast')) s.out.cc(1, cc, value);
+    }
 
     function init(){
         // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respectively)
@@ -43,6 +62,28 @@ script.
             })
             midiMapper.listen();
         })
+        
+        document.querySelectorAll('input').forEach((input,i)=>{
+            // todo: add an "onfocus" listener for visual confirmation of keyboard access?
+            // this could also occur on mouseover / touchstart
+            let y = getY(input.value, faderHeight, thumbHeight);
+            document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+            //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
+
+            input.setAttribute('aria-label', `fader ${i+1}`)
+
+            input.addEventListener('input',(e)=>{
+                let y = getY(e.target.value, faderHeight, thumbHeight);
+                document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+                //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
+            })
+
+            input.addEventListener('input', (e) => {
+                processFader(getIndex(e.target.id), e.target.value);  
+            })
+
+        })
+        
     }
 
     function setFaderElements(data = {}, animationTime = 0.1){
@@ -85,17 +126,6 @@ script.
         return faderHeight - (value / 127 * faderHeight) - (thumbHeight / 2);
     }
 
-    /**
-        * Process the fader value
-        * @param {number} cc
-        * @param {number} value
-    */
-    
-    function processFader(cc, value){
-            Tone.start();
-            // arbitrary volume scaling for quick demo
-            sines[cc].volume.rampTo(Tone.gainToDb(value/1024), 0.1);
-    }
 
     /**
         * Calculate the fader value from the element
@@ -145,24 +175,6 @@ script.
             enter: updateFader, 
             move: updateFader
         })
+        
 
-    document.querySelectorAll('input').forEach((input,i)=>{
-        // todo: add an "onfocus" listener for visual confirmation of keyboard access?
-        // this could also occur on mouseover / touchstart
-        let y = getY(input.value, faderHeight, thumbHeight);
-        document.querySelector(`#thumb_${i}`).setAttribute('y',y);
-        //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
-
-        input.setAttribute('aria-label', `fader ${i+1}`)
-
-        input.addEventListener('input',(e)=>{
-            let y = getY(e.target.value, faderHeight, thumbHeight);
-            document.querySelector(`#thumb_${i}`).setAttribute('y',y);
-            //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
-        })
-
-        input.addEventListener('input', (e) => {
-            processFader(getIndex(e.target.id), e.target.value);  
-        })
-
-    })
+    

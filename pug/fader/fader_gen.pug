@@ -1,8 +1,8 @@
 script.
-    const generateFaders = function(sliderCount = 12, container = document.querySelector('#slider-container'), rectQuery = '#slider-bg rect .svg-fader'){
+    const generateFaders = function(sliderCount = 12, container = document.querySelector('#slider-container'), rectQuery = '#slider-bg rect.svg-fader'){
         let rectArray = Array.from(document.querySelectorAll(rectQuery));
         rectArray = rectArray.map((rect)=>{return rect.getBoundingClientRect()});
-        
+        console.log(rectArray)
         for(let i=0;i<sliderCount;i++){
             
             let slider=document.createElement('input');
@@ -48,4 +48,8 @@ script.
     
     }
     
-    generateFaders();
+    window.addEventListener('load',()=>{
+        generateFaders()
+        //* temp fix
+        document.querySelectorAll('.svg-thumb').forEach(x=>{x.style.y = 575})
+        });

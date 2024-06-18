@@ -106,9 +106,12 @@
   <canvas class="touch_pickup_ignore prevent-select" id="cover" aria-hidden="true"></canvas>
 </body>
 <script>
-  const generateFaders = function(sliderCount = 12, container = document.querySelector('#slider-container'), rectQuery = '#slider-bg rect .svg-fader'){
-      let rectArray = Array.from(document.querySelectorAll('#slider-bg .svg-fader')).map((rect)=>{return rect.getBoundingClientRect()});
+  const generateFaders = function(sliderCount = 12, container = document.querySelector('#slider-container'), rectQuery = '#slider-bg rect.svg-fader'){
+      let rectArray = Array.from(document.querySelectorAll(rectQuery));
+      rectArray = rectArray.map((rect)=>{return rect.getBoundingClientRect()});
+      console.log(rectArray)
       for(let i=0;i<sliderCount;i++){
+          
           let slider=document.createElement('input');
           slider.className = 'slider';
           slider.setAttribute('type','range');
@@ -133,7 +136,9 @@
       }
   
       let resizeSliders = function(){
+          
           document.querySelectorAll('input.slider').forEach((slider,i)=>{
+              
               let rectArray = Array.from(document.querySelectorAll('#slider-bg rect')).map((rect)=>{return rect.getBoundingClientRect()});
               slider.style.position='absolute';
               slider.style.top=rectArray[i].top+'px';
@@ -142,19 +147,30 @@
               slider.style.right=rectArray[i].right+'px';
               slider.style.bottom=rectArray[i].bottom+'px';
               slider.style.height=rectArray[i].height+'px';
+              
           })
       }
   
-  window.addEventListener('resize',resizeSliders);
+      window.addEventListener('resize',resizeSliders);
   
   }
   
-  generateFaders();
+  window.addEventListener('load',()=>{
+      generateFaders()
+      //* temp fix
+      document.querySelectorAll('.svg-thumb').forEach(x=>{x.style.y = 575})
+      });
 </script>
 <script>
   // adapted from a remote demo
   // this version has the socket code removed -- see the sound-ideas-instrument repo for the full version
   let broadcast = false;
+  window.params2 = new URLSearchParams(window.location.search);
+  
+  if(params2.has('broadcast')){
+      broadcast = true;
+      window.s = new SocketMapper();
+  }
   const midiMapper = new MidiMapper();
   const faderHeight = 600;
   const thumbHeight = 50;
@@ -165,7 +181,7 @@
   //- register = 'bass'
   
   // sines set to bass tones / mid tones depending on register
-  // we could use the chord player code here ...
+  // we could also use the chord player code here ...
   
   for(let i=0;i<numberOfSines;i++){
       let frequency = register == 'bass' ? ((i+4)*4)+50 : Tone.Frequency(i + 60, 'midi').toFrequency();
@@ -178,11 +194,25 @@
   })
   
   
+  /**
+      * Process the fader value
+      * @param {number} cc
+      * @param {number} value
+  */
+  
+  function processFader(cc, value){
+          Tone.start();
+          // arbitrary volume scaling for quick demo
+          sines[cc].volume.rampTo(Tone.gainToDb(value/1024), 0.01);
+  
+          if(params.has('broadcast')) s.out.cc(1, cc, value);
+  }
+  
   function init(){
-      // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respetively)
+      // our current touchboard midi setup exists on channels 0-11 (cc 59-48 respectively)
       // this should correspond with the default midi script for the touchboard
       document.querySelectorAll('input').forEach((input,i) => {
-          let index = 59 - i
+          let index = 59 - i;
           
           midiMapper.assign(i, 'cc', index, (value)=>{
                setFaderElements({
@@ -195,6 +225,28 @@
           })
           midiMapper.listen();
       })
+      
+      document.querySelectorAll('input').forEach((input,i)=>{
+          // todo: add an "onfocus" listener for visual confirmation of keyboard access?
+          // this could also occur on mouseover / touchstart
+          let y = getY(input.value, faderHeight, thumbHeight);
+          document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+          //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
+  
+          input.setAttribute('aria-label', `fader ${i+1}`)
+  
+          input.addEventListener('input',(e)=>{
+              let y = getY(e.target.value, faderHeight, thumbHeight);
+              document.querySelector(`#thumb_${i}`).setAttribute('y',y);
+              //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
+          })
+  
+          input.addEventListener('input', (e) => {
+              processFader(getIndex(e.target.id), e.target.value);  
+          })
+  
+      })
+      
   }
   
   function setFaderElements(data = {}, animationTime = 0.1){
@@ -205,29 +257,59 @@
       inputElement.setAttribute('value',value);
   }
   
+  /**
+   * Get the index of the fader from the id
+   * @param {string} id
+   * @returns {number}
+   */
   
   function getIndex(id){
       return id.split('_')[1];
   }
   
+  /**
+      * Get the id of the thumb from the fader id
+      * @param {string} element
+      * @returns {string}
+  */
+  
   function getThumbId(element){
       return element.id.replace('fader','thumb');
   }
+  
+  /**
+      * Get the y position of the thumb from the value
+      * @param {number} value
+      * @param {number} faderHeight
+      * @param {number} thumbHeight
+      * @returns {number}
+  */
   
   function getY(value, faderHeight, thumbHeight){
       return faderHeight - (value / 127 * faderHeight) - (thumbHeight / 2);
   }
   
-  function processFader(cc, value){
-          Tone.start();
-          // arbitrary volume scaling for quick demo
-          sines[cc].volume.rampTo(Tone.gainToDb(value/1024), 0.1);
-  }
+  
+  /**
+      * Calculate the fader value from the element
+      * @param {object} element
+      * @param {object} e
+      * @param {object} obj
+      * @returns {number}
+  */
   
   const calculateFaderValue = (element, e, obj) => {
       const value = Math.round(obj.relative.y / element.getBoundingClientRect().height * 127);
       return value < 4 ? 0 : value > 124 ? 127 : value;
   }
+  
+  /**
+      * Update the fader
+      * @param {object} element
+      * @param {object} e
+      * @param {object} obj
+      * @param {number} animationTime
+  */
   
   const updateFader = (element, e, obj, animationTime = 0.1) => {
       // todo: replace querySelectorAll with a map of elements
@@ -244,7 +326,7 @@
           animationTime: animationTime
       })
   
-      processFader(index, value)
+      processFader(index, value);
   }
   
   // unassigned: end, leave...
@@ -256,25 +338,5 @@
           enter: updateFader, 
           move: updateFader
       })
-  
-  document.querySelectorAll('input').forEach((input,i)=>{
-      // todo: add an "onfocus" listener for visual confirmation of keyboard access?
-      // this could also occur on mouseover / touchstart
-      let y = getY(input.value, faderHeight, thumbHeight);
-      document.querySelector(`#thumb_${i}`).setAttribute('y',y);
-      //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
-  
-      input.setAttribute('aria-label', `fader ${i+1}`)
-  
-      input.addEventListener('input',(e)=>{
-          let y = getY(e.target.value, faderHeight, thumbHeight);
-          document.querySelector(`#thumb_${i}`).setAttribute('y',y);
-          //- document.querySelectorAll(`#thumb_${i}_text`)[0].setAttribute('y',y+22);
-      })
-  
-      input.addEventListener('input', (e) => {
-          processFader(getIndex(e.target.id), e.target.value);  
-      })
-  
-  })
+      .listen()
 </script>

@@ -162,8 +162,8 @@ function frequencyOfInputMono() {
           flush();
         }
       } else {
-        let note = Tone.Frequency(freqs[i], "hz").toNote();
-        noteOn(note);
+        let note = Tone.Frequency(freqs[i], "hz").toMidi();
+        noteOn((note%12)+60);
       }
       document.getElementById('noteDisplay' + (i + 1)).innerText = freqs[i] === -1 ? 'Note Off' : Tone.Frequency(freqs[i], "hz").toNote();
     }
