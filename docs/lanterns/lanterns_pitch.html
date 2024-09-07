@@ -9,6 +9,7 @@
     <title>Lantern demo</title>
     <link rel="stylesheet" href="lanterns.css">
 </head>
+
 <body>
     <button class="connect">CONNECT LANTERN</button><br>
    
@@ -19,14 +20,15 @@
         <input type="color" title="lantern 2" id="colourPicker2" value="#800080"data-channel="23" class="colours"></input>
         <input type="color" title="lantern 3" id="colourPicker3" value="#000080" data-channel="34" class="colours"></input>
         <input type="color" title="lantern 4" id="colourPicker4" value="#008080" data-channel="46" class="colours"></input>
-        
     </div>
+    
     <div class="colourArray">
         <div class="virtualLantern" data-channel="11"></div>
         <div class="virtualLantern" data-channel="23"></div>
         <div class="virtualLantern" data-channel="34"></div>
         <div class="virtualLantern" data-channel="46"></div>
     </div>
+    
     <div class="noteArray">
       <div class="note C" id="note_C4" data-note="C4">C</div>
       <div class="note Csharp" id="note_Csharp4"data-note="Csharp4">C#</div>
@@ -42,6 +44,7 @@
       <div class="note B" id="note_B4"data-note="B4">B</div>
       <div class="note C" id="note_C5"data-note="C5">C</div>
     </div>  
+    
     <div class="noteArray">
       <input type="color" title="note C" id="colour_C4" data-note="C4" class="notes"></input>
       <input type="color" title="note C sharp" id="colour_Csharp4" data-note="Csharp4" class="notes"></input>
@@ -59,8 +62,11 @@
     </div>
       
     <div class="meter"></div>
+    
     <input class="allowDefault" title="gain" class="gainFader" type="range" min="0" max="1" step="0.01" value="0.25">
+    
     <div class="gainReading">0.25</div>
+    
     <svg id="daze" width="100%" height="100%" viewBox="0 0 400 400" transform-origin="center center">
       <defs>
         <style>
@@ -160,7 +166,6 @@
         </text>
       </g>
     </svg>
-    <body>
 
       <div class="container">
     
@@ -182,15 +187,12 @@
     
         </div>
         <canvas id="fftChart"></canvas>
-       
-    
       </div>
       
       <div class="text">
-    
-       <div id="freqDisplay1"></div>
-       <div id="freqDisplay2"></div>
-       <div id="freqDisplay3"></div>
+        <div id="freqDisplay1"></div>
+        <div id="freqDisplay2"></div>
+        <div id="freqDisplay3"></div>
         <div id="freqDisplay4"></div>
         <div id="noteDisplay1"></div>
         <div id="noteDisplay2"></div>
@@ -204,6 +206,7 @@
     </div>
      <div class="noteColours"></div>
 </body>
+
 <!-- <script src="management.js"></script> -->
 <script>
   Tone.context.lookAhead = 0;
@@ -226,16 +229,18 @@
   
  
   function noteOn(note, trigger = true){
-  if(voices.indexOf(note) === -1) {
-    synth.triggerAttack(note)
-    if(voices.length >= maxVoices) synth.triggerRelease(voices.pop().note)
-    voices.unshift({
-      note:note,
-    })
-    updateVoices();
-  }
+    
+    if(voices.indexOf(note) === -1) {
+      synth.triggerAttack(note);
+      if(voices.length >= maxVoices) synth.triggerRelease(voices.pop().note);
+      voices.unshift({
+        note:note,
+      })
+      updateVoices();
+    }
     console.log(voices.length, voices)
   }
+  
   function noteOff(note){
 
       if(voices.findIndex(voice => voice.note === note) !== -1) {
@@ -246,6 +251,7 @@
     console.log(voices.length, voices)
     
   }
+  
   function flush(){
     voices.forEach(voice => synth.triggerRelease(voice.note))
     voices = []
@@ -296,6 +302,7 @@
 })
   
   window.addEventListener('touch-pickup', createNoteEvent);
+  
   let colours = ['#ff9933', '#ffcc99', '#f85af8', '#c3fcc8', '#0cffff', '#ffff03', '#e0b5a2', '#ff0101', '#c37596', '#cc66ff', '#33cc33', '#0783dc'];
   let notes = [];
   document.querySelectorAll('.note').forEach((note,i) => {

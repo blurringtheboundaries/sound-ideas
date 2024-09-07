@@ -8,8 +8,7 @@
 @import "embed/embedded.scss";
 
 body {
-    background-color: $dark--lighter;
-    
+    background-color: $dark--lighter;  
     color: $light--lighter;
     font-family: $font-body-condensed;
 }
@@ -17,8 +16,7 @@ body {
 p {
     margin: 1em;
     margin-right: 2em;
-    letter-spacing: 0.05rem;
-    
+    letter-spacing: 0.05rem; 
 }
 
 a {

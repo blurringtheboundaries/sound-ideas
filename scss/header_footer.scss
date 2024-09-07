@@ -1,5 +1,7 @@
 @import 'style/palette.scss';
 
+/// header
+
 header {
 
     background-color: $dark;
@@ -54,6 +56,8 @@ header {
     
 }
 
+/// header logo
+
 #header_logo {
     width:400px;
     max-width:50vw;
@@ -61,6 +65,8 @@ header {
     align-content:center;
     // padding:1em;
 }
+
+/// footer
 
 footer {
     background-color:$dark;
@@ -73,6 +79,8 @@ footer {
     }
 }
 
+/// project partner logos
+
 #partners{
     margin:none;
     padding:none;
@@ -84,6 +92,8 @@ footer {
     flex-wrap:wrap;
 
 }
+
+/// project partner logo (individual)
 
 .partner{
     display:block;
@@ -98,7 +108,5 @@ footer {
         height:3em;
         padding:0;
         max-width:80vw;
-        // background-color:green;
-        
     }
 }

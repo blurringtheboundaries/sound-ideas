@@ -9,6 +9,7 @@ script.
 
   // default chords
   let buttonNotes = ['C','F','G','Am'];
+  
   document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach((x,i)=>{
     let button = document.createElement('button');
     button.classList.add('chord-selection__button');
@@ -26,6 +27,7 @@ script.
         ${buttonNotes[i]}
       </text>
     </svg>`;
+    
     button.setAttribute('id',x.id);
 
     let rect = x.getBoundingClientRect();
@@ -39,6 +41,7 @@ script.
   })
 
   window.onresize = () => {
+    
     document.querySelector('#instrument__chord-player').querySelectorAll('.button').forEach(x=>{
       let button = document.querySelector('#chord-selection').querySelector('#'+x.id);
       let rect = x.getBoundingClientRect();

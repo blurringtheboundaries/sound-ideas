@@ -8,20 +8,20 @@ const fftBins = 2048;
 
 window.threshold=-46;
 
-document.querySelectorAll(".start").forEach(x=>{x.addEventListener("click", async () => {
-  await Tone.start();
-  console.log("audio is ready");
-  if (x.innerText === "START") {
-    readPitch();
-    
-  } else if (x.innerText === "STOP") {
-    stopPitch();
-    flush();
-  }
-});
+document.querySelectorAll(".start").forEach(x=>{
+  x.addEventListener("click", async () => {
+    await Tone.start();
+    console.log("audio is ready");
+    if (x.innerText === "START") {
+      readPitch();
+      
+    } else if (x.innerText === "STOP") {
+      stopPitch();
+      flush();
+    }
+  });
 });
 
-// get microphone input
 const meter = new Tone.Meter(0.8);
 const micFFT = new Tone.FFT(fftBins);
 let inputLevelValueRead = null;
@@ -33,7 +33,6 @@ function readPitch() {
   console.log("readPitch called");
   mic.open().then(() => {
     console.log("mic open");
-    // read input level
     inputIsBeingRead = setInterval(() => {
       //   readAudioInputLevel();
     //   updateChart();
@@ -173,8 +172,6 @@ function frequencyOfInputMono() {
     window.threshold = e.target.value;
     document.querySelector("#threshold__display").innerText = window.threshold;
   })
-  
-  
   
   // * chart
 //   let fftValues;

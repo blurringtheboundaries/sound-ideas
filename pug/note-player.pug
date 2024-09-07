@@ -5,6 +5,7 @@ html(lang='en')
     include head
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js")
     title Sound Ideas: note player
+    
   body(onload='SoundIdeas.loader()')
     include instrument_setup
     header
@@ -15,8 +16,7 @@ html(lang='en')
         
     footer
       include footer
+      
     script.
       Tone.start().then(()=>{console.log('started')})
       let synth = new Tone.PolySynth().toDestination();
-      
-      

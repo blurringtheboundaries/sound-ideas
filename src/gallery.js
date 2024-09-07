@@ -5,7 +5,6 @@ import {pages} from './pages.js';
 
 const QRCode = pkg;
 
-
 function styleQR(){
     let width = document.querySelectorAll('#qr__gallery rect:not(:first-child)')[0].width.baseVal.value;
     let firstX = document.querySelectorAll('#qr__gallery rect:not(:first-child)')[0].x.baseVal.value;
@@ -142,11 +141,10 @@ const initGallery = ()=>{
             }).svg().replace('<svg', `<svg viewbox="0, 0, 512, 512" id="qr__${name}" `);
             
             document.querySelector(`#qr__${name}`).classList.add('qr__svg');
-            // console.log(document.querySelector(`#qr__${name}`));
             if (x.parentElement.tagName === 'A'){
                 x.parentElement.setAttribute('href', url);    
             }
-            // console.log(document.querySelector(`#qr__${name}`));
+            
         })
     })
     

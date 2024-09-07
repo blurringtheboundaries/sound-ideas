@@ -78,6 +78,7 @@ const checkMeter = ()=>{
                 // serial.write(`22${rgb2}\n`);
             }
         }
+        
         window.dataBuffer[22] = rgb2;
         
     }
