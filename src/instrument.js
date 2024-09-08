@@ -1,5 +1,5 @@
 /**
- * Imports ... temporary method using window object
+ * Imports ... temporary method using window
  * (this is legacy code from an early version of the project)
  */
 

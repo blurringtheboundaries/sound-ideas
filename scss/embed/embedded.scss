@@ -9,6 +9,7 @@
 }
 
 /// embeded styles: toolbar
+
 .toolbar__item{
   border: 1px solid gray;
   border-radius: 5px;
@@ -17,5 +18,4 @@
   list-style-type: none;
   color: $light--lighter;
   background-color:$dark;
-  
 }

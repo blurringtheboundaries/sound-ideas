@@ -7,17 +7,23 @@
 @import "instrument/audio_message.scss";
 @import "embed/embedded.scss";
 
+/// body styling
+
 body {
     background-color: $dark--lighter;  
     color: $light--lighter;
     font-family: $font-body-condensed;
 }
 
+/// generic paragraph
+
 p {
     margin: 1em;
     margin-right: 2em;
     letter-spacing: 0.05rem; 
 }
+
+/// generic link
 
 a {
     color: black;

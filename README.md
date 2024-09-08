@@ -6,16 +6,18 @@ This resource was developed in collaboration with [National accessArts Centre](h
 
 ## How to navigate this repository
 
-This is something of an experiment for us, presenting three layers of content:
+There are three main components to this repository:
 - a front-facing gallery of instruments and tools
 - a GitHub repo (this one) containing the code for the instruments and links for the relative libraries/modules
 - a wiki containing notes on the development process and links to relevant resources
 
-Depending on your needs, you may wish to start with the gallery, or with the wiki.  The gallery is a good place to start if you are interested in the instruments themselves, and the wiki is a good place to start if you are primarily interested in the code and/or the development process (for example, if you have found this through a related research project).  Either way, we recommend playing with the instruments themselves first to get a feel for how they work.
+Depending on your needs, you may wish to start with the gallery, or with the wiki.  
+
+The gallery is a suitable entry point if you are interested in the instruments themselves. The wiki is a good place to start if you are primarily interested in the code and/or the development process (for example, if you have found this through a related research project).
 
 ## QR Codes
 
-Through our experience in mixed in-person/long-distance workshops, we found it useful to have a way to quickly share links to the instruments -- sharing links via the Zoom chat was not always accessible to everyone, typing the links wasn't really an option, and while we had some success with a central link that was updated by the workshop leader during a session, ultimately we settled upon QR codes.
+Through our experience in mixed in-person/long-distance workshops, we found QR codes to be the best way to share links to the instruments.
 
 We have included QR codes for each instrument in the gallery which can also be downloaded and printed. A demonstration of how these can be generated automatically is available on the [custom instrument page](https://blurringtheboundaries.github.io/sound-ideas/setup.html).  
 
@@ -97,4 +99,3 @@ This project draws upon some code libraries developed during sessions for [CAMIN
 The chord player builds on ideas developed by [John Kelly](https://www.rockinpaddy.com/) for the Kellycaster.
 
 We are also grateful to projects that have started development in parallel to this one, including Joel Dazé's Pitch-Colour Assembly, and Elinor Rowlands' Biodivergent Sites and Sounds. As open source endeavours, we have been able to share benefits across projects, and we look forward to continuing this process.
-

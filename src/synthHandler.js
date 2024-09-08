@@ -88,9 +88,7 @@ if (document.querySelector("#select_preset")) {
     );
   });
 
-  document
-    .querySelector("#select_preset")
-    .addEventListener("input", function () {
+  document.querySelector("#select_preset").addEventListener("input", function () {
       instrument.setParameters(synthPresets[this.value]);
     });
 }
