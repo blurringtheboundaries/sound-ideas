@@ -23,7 +23,7 @@ const getNoteId = function (id) {
   return parseInt(id.split("_")[1]);
 };
 
-// ---------------------------------set up instrument-----------------------
+// ---------------------------------init instrument-----------------------
 
 const settings = {
   y: {

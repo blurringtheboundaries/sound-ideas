@@ -1,4 +1,3 @@
-script.
   document.querySelector('#instrument__chord-player').addEventListener('touchstart',(e)=>{
     e.preventDefault();
   })
@@ -26,7 +25,8 @@ script.
       <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="50" fill="white">
         ${buttonNotes[i]}
       </text>
-    </svg>`;
+    </svg>
+    `;
     
     button.setAttribute('id',x.id);
 
@@ -55,5 +55,3 @@ script.
 
   window.onresize();
   //- instrument.initChordElement();
-
-

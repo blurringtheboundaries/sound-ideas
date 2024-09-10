@@ -220,6 +220,7 @@
               document.body.prepend(x);
               x.innerHTML = x.id.replace('_', ' ')
           });
+          
           document.querySelectorAll('.gridBox').forEach((element=>{
               
               let [y,x] = element.id.split('_').slice(1).map(item=>parseInt(item))
